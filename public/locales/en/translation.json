@@ -1,0 +1,548 @@
+{
+    "navbar":{
+        "home":"Home",
+        "shop":"Shop",
+        "product":"Product",
+        "collection":"Collection",
+        "blog":"Blog",
+        "pages":"Pages"
+    },
+    "collectionlinks":["COMPUTER","KEYBOARD","LAPTOPS","MOBILE","MOUSE","SMART TV","CAMERA"],
+    "collectiondata":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mobile.png?v=1633171853",
+            "label":"Mobiles",
+            "type":"mobile"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/monitor-screen.png?v=1633171880",
+            "label":"Smart TV",
+            "type":"tv"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/laptop.png?v=1633171880",
+            "label":"Laptops",
+            "type":"laptop"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/computer.png?v=1633171880",
+            "label":"Computer",
+            "type":"computer"
+            
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/keyboard.png?v=1633171880",
+            "label":"Keyboard",
+            "type":"keyboard"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mouse.png?v=1633171880",
+            "label":"Mouse",
+            "type":"mouse"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/usb.png?v=1633171880",
+            "label":"USB Flash",
+            "type":"usb"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/trimmer.png?v=1633171880",
+            "label":"Trimmer",
+            "type":"trimmer"
+        }
+    ],
+
+    "footerservice":[
+        {"title":"Services"},
+        {
+            "label":"About us",
+            "href":"/about"
+        },
+        {
+            "label":"Contact us",
+            "href":"/contact"
+        },
+        {
+            "label":"Faq's",
+            "href":"/faq"
+        },
+        {
+            "label":"My cart",
+            "href":"/mycart"
+        },
+        {
+            "label":"My wishlist",
+            "href":"/wishlist"
+        }
+    ],
+    "footerotherlinks":[
+        {"title":"Quick links"},
+        {
+            "label":"About us 2",
+            "href":"/about2"
+        },
+        {
+            "label":"Contact us 2",
+            "href":"/contact2"
+        },
+        {
+            "label":"Privacy policy",
+            "href":"/privacy"
+        },
+        {
+            "label":"404",
+            "href":"*"
+        },
+        {
+            "label":"Terms & condition",
+            "href":"/terms"
+        }
+    ],
+    "adress":[
+        {
+            "title":"Address",
+            "adress":"7882,Reliance GIDC Chowk bazzar,New York",
+            "title2":"Email",
+            "email":"support@spacingtech.com"
+        }
+    ],
+    "footerhelp":[
+        {
+            "title":"Need Help",
+            "number":"(+33) 1 23 45 67 89",
+             "day":"Monday To Friday 09:00 a.m To 07:00 p.m"
+        }
+       
+    ],
+    "footer2":[
+        {
+           "icon":"bi bi-truck",
+           "title":"Free shipping"
+        },
+        {
+            "icon":"bi bi-gift",
+            "title":"Gift voucher"
+        },
+        {
+            "icon":"bi bi-wallet2",
+            "title":"Money back"
+        },
+        {
+            "icon":"bi bi-shield-check",
+            "title":"Safe payment"
+        }
+    ],
+    "footer3":[
+        {
+            "label":"About us",
+            "href":"/about"
+        },
+        {
+            "label":"Contact us",
+            "href":"/contact"
+        },
+        {
+            "label":"Faq's",
+            "href":"/faq"
+        },
+        {
+            "label":"News",
+            "href":"/blog/news"
+        },
+        {
+            "label":"404",
+            "href":"*"
+        }
+    ],
+    "buy":"SHOP NOW",
+    "mainslider":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/slider-2.jpg?v=1647405759",
+            "title":"EARBUD",
+            "type":"accessories",
+            "text":"Go wireless or go home"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/slider-1.jpg?v=1647405759",
+            "title":"HEADPHONE",
+            "type":"accessories",
+            "text":"Just to rock your mood"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/slider-3.jpg?v=1647405759",
+            "title":"CAMERA",
+            "type":"camera",
+            "text":"Picture that puts a world"
+        }
+    ],
+    "collectioncards":[
+      
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/camera-banner_jpg.jpg?v=1647434859",
+            "title":"Webcam photogenic",
+            "type":"camera",
+            "button":"SHOP NOW"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/trimmer-banner_jpg.png?v=1647434859",
+            "title":"Bearded shaver",
+            "type":"trimmer",
+            "button":"SHOP NOW"
+        }
+    ]
+   ,
+   "trendingproduct":"Trending Products",
+   "newproductbtn":"NEW PRODUCT",
+   "featureproductbtn":"FEATURE PRODUCT",
+   "bestproductbtn":"BEST PRODUCT",
+   "collectionwatch":{
+    "title":"Be smart, buy smart",
+    "titlemain":"Let's the world watch your watch",
+    "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/custom-banner.png?v=1633503894",
+    "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ever since the 1500s",
+    "btn":"Shop Now",
+    "sale":"50% off",
+    "type":"watch"
+   },
+   "ourproducts":"Our products",
+   "offerproducts":"Offer products",
+   "newsletter":[
+    {
+        "count":"01.",
+        "text":"Make a type specimen book. It has survived not only five centuries, but also the leap into eIt was make a..",
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/3_c9b53304-f9b3-471b-bf90-f28294c796f0_90x90_crop_center.jpg?v=1634202664",
+        "title":"Miranda joy",
+        "work":"Managing director"
+    },
+    {
+        "count":"02.",
+        "text":"Make a type specimen book. It has survived not only five centuries, but also the leap into eIt was make a..",
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/2_2594d4aa-99ba-4c75-a418-55fcde243e00_90x90_crop_center.jpg?v=1634202664",
+        "title":"Robert downey",
+        "work":"Manager"
+    },
+    {
+        "count":"03.",
+        "text":"Make a type specimen book. It has survived not only five centuries, but also the leap into eIt was make a..",
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/1_ffd6c912-3477-4653-8b6c-5959e427dbda_90x90_crop_center.jpg?v=1634202665",
+        "title":"Alycia gordan",
+        "work":"Designer"
+
+    }
+   ],
+   "newsletter2":{
+    "newsletter":"Newsletter",
+    "subscribe":"Subscribe with us to get special offers and other discount information",
+    "email":"Enter your email",
+    "subscribebtn":"SUBSCRIBE"
+   }
+   ,
+   "recentNews":"Recent News",
+   "readmore":"Read More",
+   "addtocart":"Add to Cart",
+   "quickview":"View Details ",
+   "search":"Search...",
+   "wishlist":"WISHLIST",
+   "hrs":"Hrs",
+   "day":"Day",
+   "minute":"Min",
+   "second":"Sec",
+    "hurry":"Hurry Up ! only",
+    "products":"products left in stock!",
+    "availability":"Availability",
+    "stockcount":" In stock",
+    "stocknot":"Out of stock",
+    "color":"Color",
+    "buynow":"Buy Now",
+    "share":"Share",
+    "specifactions":"Specifactions",
+    "review":"Review",
+    "entername":"Enter your name",
+    "enteremail":"Enter your email",
+    "entertitle":"Give your review a title",
+    "entercomment":"Write your comment here",
+    "bodyreview":"Body of Review",
+    "name":"Name",
+    "email":"Email",
+    "rating":"Rating",
+    "title":"Review Title",
+    "submit":"SUBMIT REVIEW",
+    "writereview":"Write a review",
+    "relatedproducts":"Related Products",
+    "shoppingCart":"Your Shopping Cart",
+    "myCart":"My Cart",
+    "remove":"Remove",
+    "total":"Total",
+    "checkout":"Checkout",
+    "emptyCart":{
+        "empty":"Cart empty",
+        "empty2":"Sorry your cart has currently no more products."
+    }, 
+    "wishlistCart":"Wishlist",
+    "emptyWishlist":{
+        "empty":"Wishlist empty",
+        "empty2":"Sorry your wishlist has currently no more products."
+    },
+    "mywishlist":"My Wishlist",
+    "checkoutPage":{
+        "cart":"Cart",
+        "information":"Information",
+        "shipping":"Shipping",
+        "payment":"Payment",
+        "contactinfo":"Contact Information",
+        "emailornum":"Email or mobile phone number",
+        "emailme":"Email me with news and offers",
+        "shippingadress":"Shipping address",
+        "firstname":"First Name (optional)",
+        "lastname":"Last Name",
+        "address":"Address",
+        "apartment":"Apartment,suite,etc,(optional)",
+        "city":"City",
+        "postalcode":"Postal Code",
+        "save":"Save this information for next time",
+        "returncart":"Return to cart",
+        "continue":"Continue to shipping",
+        "subtotal":"Subtotal",
+        "calculated":"Calculated at next step"
+    },
+    "filteringProducts":{
+        "products":"products",
+        "brand":"Brand",
+        "color":"Color",
+        "price":"Price",
+        "sort":"Sort by",
+        "alpha-az":"Alphabetically,A-Z",
+        "alpha-za":"Alphabetically,Z-A",
+        "price-lowhigh":"Price,low to high",
+        "price-highlow":"Price,high to low"
+    },
+    "blog":{
+        "news":"News",
+        "search":"Search",
+        "searchblog":"Search Blog...",
+        "recentpost":"Recent Post",
+        "tag":"Tag",
+        "blog":"Blog",
+        "newswitch":"News",
+        "commentitle":"Leave a Comment",
+        "name":"Name",
+        "message":"Message",
+        "post":"POST COMMENT"
+    },
+    "availabilityCard":"Stock out",
+    "pages":{
+        "aboutus":"About us",
+        "contactus":"Contact us",
+        "faq":"Faq's",
+        "privacy":"Privacy policy",
+        "terms":"Terms & condition"
+    },
+    "about-ourcards":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mission_75x75_crop_center.png?v=1633946365",
+            "title":"Our mission",
+            "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ever since the 1500s"
+            
+        },
+        {   "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/vision_75x75_crop_center.png?v=1633946409",
+            "title":"Our vision",
+            "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ever since the 1500s"
+
+        },
+        {   "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/idea_75x75_crop_center.png?v=1633946409",
+            "title":"Our idea",
+            "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ever since the 1500s"
+        }
+    ],
+    "about-teamcards":[
+        {   "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/1.jpg?v=1633946177",
+            "title":"Johnny walker",
+            "job":"Web designer",
+            "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/2_afde7777-bb29-461c-8598-57daac420ac1.jpg?v=1633946176",
+            "title":"Rebecca flex",
+            "job":"Support staff",
+            "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/4_e493e1c7-3dcf-4fbf-9795-d6228154df92.jpg?v=1633946176",
+            "title":"Jan ringo",
+            "job":"Deputy sale",
+            "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/3_04f3342f-2a01-4f19-9c6f-692cdc85a246.jpg?v=1633946177",
+            "title":"Ringo kai",
+            "job":"Policy member",
+            "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+        }
+
+    ],
+    "about":{
+        "ourteam":"Our team",
+        "lorem":"Lorem Ipsum is printing & typesetting industry's standard dummy text since texts",
+        "years":"Years",
+        "clients":"Clients",
+        "shops":"Shops",
+        "sales":"Sales",
+        "aboutus":"About us",
+        "company":"Our Company",
+        "teamwork":"Team Work",
+        "ourmission":"Our Mission",
+        "ourvision":"Our vision"
+    },
+    "about3":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mission_75x75_crop_center.png?v=1633946365",
+            "title":"Our mission",
+            "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ever since the 1500s"
+
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/idea_75x75_crop_center.png?v=1633946409",
+            "title":"Our idea",
+            "text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ever since the 1500s"
+        }
+    ],
+    "contactCards":[
+        {
+            "icon":"bi bi-geo",
+            "text":"7882, Reliance GIDC Chowk bazzar, New York"
+        },
+        {
+            "icon":"bi bi-telephone",
+            "text":"(+33) 1 23 45 67 89"
+        },
+        {
+            "icon":"bi bi-envelope",
+            "text":"support@spacingtech.com"
+        }
+    ],
+    "contact":{
+        "contactus":"Contact us",
+        "get":"Get in touch",
+        "get2":"If you’ve got great products your making or looking to work with us then drop us a line",
+        "dropMessage":"Drop us message",
+        "name":"Name",
+        "email":"Email",
+        "phonenum":"Phone number",
+        "message":"Message",
+        "send":"Send"
+    },
+    "faqCards":[
+        {
+            "icon":"bi bi-telephone-inbound",
+            "title":"Help desk support",
+            "text":"Lorem ipsum is simply dummy text of the simply dummy typesetting industry ipsum"
+        },
+        {
+            "icon":"bi bi-people",
+            "title":"Live chat support",
+            "text":"Lorem ipsum is simply dummy text of the simply dummy typesetting industry ipsum.s"
+        }
+    ],
+    "termsWords":[
+        {
+            "title":"Introduction words",
+            "text":"There are many variations of passages of Lorem Ipsum available, by injected, or words which don't look even slightly believable"
+        },
+        {
+            
+            "title":"Intellectual property",
+            "text":"If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything hidden in the middle of text."
+        },
+        {
+            "title":"Your content",
+            "text":"All the Lorem Ipsum generators on the Internet tend to repeat as necessary, making this the first true generator on the Internet."
+        },
+        {
+            "title":"Sever ability",
+            "text":"It uses a dictionary of over 200 Latin words, combined with a handful of model sentence, to looks reasonable."
+        },
+        {
+            "title":"No majority",
+            "text":"It was popularized in the 1960s with the release of sheets containing passages, and more recently versions of Lorem Ipsum."
+        },
+        {
+            "title":"Variation terms",
+            "text":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, beatae vitae dicta sunt explicabo."
+        },
+        {
+            "title":"Sheets release",
+            "text":"Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe sint et molestiae non recusandae."
+        },
+        {
+            "title":"Maxim placate",
+            "text":"Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil maxime placeat facere possimus, omnis dolor repellendus."
+        }
+    ],
+    "helpCards":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mail.jpg?v=1633947203",
+            "icon":"bi bi-envelope",
+            "title":"Chat with us",
+            "text":"Send us an email"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/call.jpg?v=1633947203",
+            "icon":"bi bi-telephone",
+            "title":"Speak with us",
+            "text":"Give us a call toady"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/lication.jpg?v=1633947203",
+            "icon":"bi bi-geo",
+            "title":"Locate a store",
+            "text":"Describe your project"
+        }
+    ],
+    "faq":{
+        "title":"Faq's",
+        "title2":"Below are frequently asked questions, you may find the answer for yourself",
+        "whatlorem":"What is Lorem Ipsum",
+        "whyuse":"Why do we use it",
+        "where":"Where does it come from",
+        "help":"Help desk support",
+        "return":"Return policy",
+        "lorem":"Lorem Ipsum is printing & typesetting industry's standard dummy text since texts",
+        "whatlorem2":"It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "itwas":"It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "various":"Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "many":"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+        "uses":"It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.",
+        "generated":"The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    },
+    "privacy":{
+        "title":"Privacy policy",
+        "lorem":"Lorem Ipsum is printing & typesetting industry's standard dummy text since texts",
+        "therelorem":"There are many variations of passages of Lorem Ipsum available.",
+        "itwas":"It was popularized in 1960s with the release sheets containing Lorem Ipsum.",
+        "sed":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem laudantium.",
+        "random":"Randomised words which don't look even slightly believable",
+        "temporibus":"Temporibus voluptates repudiandae sint et molestiae non recusandae.",
+        "secure":"Secure payment",
+        "money":"Money back",
+        "hidden":"Hidden cost",
+        "costumer":"Costumer support",
+        "market":"Market purpose",
+        "liability":"Liability",
+        "therelorem2":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "itwas2":"It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "popular":"Popular Methods"
+        
+    },
+    "terms":{
+        "title":"Terms & conditions",
+        "restriction":"Restriction",
+        "thereare":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "but":"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.",
+        "nor":"Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.",
+        "needtitle":"Need help"
+    }
+    
+    
+   
+}
+

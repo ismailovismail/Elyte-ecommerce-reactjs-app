@@ -1,0 +1,533 @@
+{
+    "navbar":{
+        "home":"Ana Səhifə",
+        "shop":"Mağaza",
+        "product":"Məhsullar",
+        "collection":"Kolleksiya",
+        "blog":"Bloq",
+        "pages":"Səhifələr"
+    },
+    "collectionlinks":["KOMPÜTER","KLAVİATURA","NOTBUKLAR","TELEFON","MOUSE","SMART TV","KAMERA"],
+    "collectiondata":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mobile.png?v=1633171853",
+            "label":"Telefonlar",
+            "type":"mobile"
+
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/monitor-screen.png?v=1633171880",
+            "label":"Smart TV",
+            "type":"tv"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/laptop.png?v=1633171880",
+            "label":"Notbuklar",
+            "type":"laptop"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/computer.png?v=1633171880",
+            "label":"Kompüter",
+            "type":"computer"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/keyboard.png?v=1633171880",
+            "label":"Klaviatura",
+            "type":"keyboard"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mouse.png?v=1633171880",
+            "label":"Mouse",
+            "type":"mouse"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/usb.png?v=1633171880",
+            "label":"USB Flaş",
+            "type":"usb"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/trimmer.png?v=1633171880",
+            "label":"Elektro Ülgüc",
+            "type":"trimmer"
+        }
+    ],
+    "footerservice":[
+        {"title":"Xidmətlər"},
+        {
+            "label":"Haqqımızda",
+            "href":"/about"
+        },
+        {
+            "label":"Əlaqə",
+            "href":"/contact"
+        },
+        {
+            "label":"Faq",
+            "href":"/faq"
+        },
+        {
+            "label":"Səbət",
+            "href":"/mycart"
+        },
+        {
+            "label":"İstək Siyahısı",
+            "href":"/wishlist"
+        }
+    ],
+    "footerotherlinks":[
+        {
+            "title":"Digər linklər"
+        },
+        {
+            "label":"Haqqımızda 2",
+            "href":"/about2"
+        },
+        {
+            "label":"Əlaqə 2",
+            "href":"/contact2"
+        },
+        {
+            "label":"Gizlilik Siyasəti",
+            "href":"/privacy"
+        },
+        {
+            "label":"404",
+            "href":"*"
+        },
+        {
+            "label":"Şərtlər",
+            "href":"/terms"
+        }
+    ],
+    "address":[
+        {
+            "title":"Adres",
+            "adress":"7882,Reliance GIDC Chowk bazzar,New York",
+            "title2":"Email",
+            "email":"support@spacingtech.com"
+        }
+    ],
+    "footerhelp":[
+        {
+            "title":"Yardım",
+            "number":"(+33) 1 23 45 67 89",
+            "day":"Bazar-ertəsi - Cümə günü  09:00-dan 19:00a qədər"
+        }
+    ],
+    "footer2":[
+        {
+            "icon":"bi bi-truck",
+            "title":"Pulsuz çatdırılma"
+        },
+        {
+            "icon":"bi bi-gift",
+            "title":"Hədiyyə kuponu"
+        },
+        {
+            "icon":"bi bi-wallet2",
+            "title":"Pulun Qaytarılması"
+        },
+        {
+            "icon":"bi bi-shield-check",
+            "title":"Təhlükəsiz ödəmə"
+        }
+    ],
+    "footer3":[
+        {
+            "label":"Haqqımızda",
+            "href":"/about"
+        },
+        {
+            "label":"Əlaqə",
+            "href":"/contact"
+        },
+        {
+            "label":"Faq",
+            "href":"/faq"
+        },
+        {
+            "label":"Xəbərlər",
+            "href":"/blog/news"
+        },
+        {
+            "label":"404",
+            "href":"*"
+        }
+    ],
+    "buy":"İNDİ AL",
+    "mainslider":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/slider-2.jpg?v=1647405759",
+            "title":"QULAQLIQ",
+            "text":"Simsiz gedin və yaxud evə gedin",
+            "type":"accessories"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/slider-1.jpg?v=1647405759",
+            "title":"QULAQLIQ",
+            "text":"Sadəcə əhvalınıza təsir etmək üçün",
+            "type":"accessories"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/slider-3.jpg?v=1647405759",
+            "title":"KAMERA",
+            "text":"Bir dünya yaradan şəkil",
+            "type":"camera"
+        }
+    ],
+    "collectioncards":[
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/camera-banner_jpg.jpg?v=1647434859",
+            "title":"Fotojenik kamera",
+            "type":"camera",
+            "button":"İNDİ AL"
+        },
+        {
+            "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/trimmer-banner_jpg.png?v=1647434859",
+            "title":"Saqqal təraşı",
+            "type":"trimmer",
+            "button":"İNDİ AL"
+        }
+    ],
+    "trendingproduct":"Populyar Məhsullar",
+    "newproductbtn":"YENİ MƏHSULLAR",
+   "featureproductbtn":"XÜSUSİYYƏTLİ MƏHSULLAR",
+   "bestproductbtn":"ƏN YAXŞI MƏHSULLAR",
+   "collectionwatch":{
+    "title":"Ağıllı olun, ağıllı alın",
+    "titlemain":"Gəlin dünya saatınıza baxın",
+    "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/custom-banner.png?v=1633503894",
+    "text":"Lorem Ipsum 1500-cü illərdən bəri çap və çap sənayesinin standart dummy mətninin sadəcə saxta mətnidir.",
+    "btn":"İndi al",
+    "sale":"50% endirim",
+    "type":"watch"
+   },
+   "ourproducts":"Bizim məhsullar",
+   "offerproducts":"Təklif olunan məhsullar",
+   "newsletter":[
+    {
+        "count":"01.",
+        "text":"Nümunə kitabçası hazırlayın. O, nəinki beş əsr ərzində sağ qaldı, həm də sıçrayış etdi.",
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/3_c9b53304-f9b3-471b-bf90-f28294c796f0_90x90_crop_center.jpg?v=1634202664",
+        "title":"Miranda joy",
+        "work":"Menecer direktoru"
+    },
+    {
+        "count":"02.",
+        "text":"Nümunə kitabçası hazırlayın. O, nəinki beş əsr ərzində sağ qaldı, həm də sıçrayış etdi.",
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/2_2594d4aa-99ba-4c75-a418-55fcde243e00_90x90_crop_center.jpg?v=1634202664",
+        "title":"Robert downey",
+        "work":"Menecer"
+    },
+    {
+        "count":"03.",
+        "text":"Nümunə kitabçası hazırlayın. O, nəinki beş əsr ərzində sağ qaldı, həm də sıçrayış etdi.",
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/1_ffd6c912-3477-4653-8b6c-5959e427dbda_90x90_crop_center.jpg?v=1634202665",
+        "title":"Alycia gordan",
+        "work":"Dizayner"
+    }
+   ],
+   "newsletter2":{
+    "newsletter":"Xəbər bülleteni",
+    "subscribe":"Xüsusi təkliflər və digər endirim məlumatlarını əldə etmək üçün bizə abunə olun",
+    "email":"Emaili daxil edin",
+    "subscribebtn":"Abunə olun"
+   },
+   "recentNews":"Son Xəbərlər",
+   "readmore":"Daha çox oxu",
+   "addtocart":"Səbətə at",
+   "quickview":"Detallar",
+   "search":"Axtar...",
+   "wishlist":"Arzu olunan məhsullar",
+   "minute":"Dəq",
+   "day":"Gün",
+   "hrs":"Saat",
+   "second":"San",
+   "hurry":"Tələsin ! yalnız",
+   "products":"ədəd məhsul qalıb stokda",
+   "availability":"Mövcudluğu",
+   "stockcount":"Stokda var",
+   "stocknot":"Stokda yoxdur",
+   "color":"Rəng",
+   "buynow":"İndi al",
+   "share":"Paylaş",
+   "specifactions":"Xüsusiyyətlər",
+   "review":"Rəy",
+   "entername":"Adınızı daxil edin",
+   "enteremail":"Emaili daxil edin",
+   "entertitle":"Başlıq verin",
+   "entercomment":"Rəy yazın",
+   "name":"Ad",
+   "email":"Epoçt",
+   "rating":"Reytinq",
+   "title":"Başlıq",
+   "bodyreview":"Rəy",
+   "submit":"Göndər",
+   "writereview":"Rəy yazın",
+   "relatedproducts":"Bənzər Məhsullar",
+   "shoppingCart":"Sizin Səbət",
+   "myCart":"Mənim Səbətim",
+   "remove":"Sil",
+   "total":"Cəm",
+   "checkout":"Ödəniş",
+   "emptyCart":{
+    "empty":"Səbət boşdur",
+    "empty2":"Səbətinizdə hazırda məhsul yoxdur"
+   },
+   "mywishlist":"İstək Siyahım",
+   "wishlistCart":"İstək Siyahısı",
+   "emptyWishlist":{
+    "empty":"İstək siyahısı boşdur",
+    "empty2":"İstək siyahınızda hazırda məhsul yoxdur"
+},
+"checkoutPage":{
+    "cart":"Səbət",
+    "information":"Məlumat",
+    "shipping":"Çatdırılma",
+    "payment":"Ödəniş",
+    "contactinfo":"Əlaqə Məlumatı",
+    "emailornum":"Email və yaxud telefon nömrəsi",
+    "emailme":"Xəbərlər və təkliflər ilə mənə e-poçt göndərin",
+    "shippingadress":"Çatdırılma adresi",
+    "firstname":"Ad",
+    "lastname":"Soyad",
+    "address":"Adres",
+    "apartment":"Mənzil,suit,və s",
+    "city":"Şəhər",
+    "postalcode":"Poçt kodu",
+    "save":"Bu məlumatı növbəti dəfə saxlamaq üçün saxlayın",
+    "returncart":"Səbətə qayıt",
+    "continue":"Davam et",
+    "subtotal":"Cəm",
+    "calculated":"Növbəti mərhələdə hesablanır"
+},
+"filteringProducts":{
+   "products":"məhsul",
+   "brand":"Brend",
+   "color":"Rəng",
+   "price":"Qiymət",
+   "sort":"Çeşidlə",
+   "alpha-az":"Əlifba sırası,A-Z",
+   "alpha-za":"Əlifba sırası,Z-A",
+   "price-lowhigh":"Qiymət,aşağıdan yuxarı",
+   "price-highlow":"Qiymət,yuxarıdan aşağı"
+
+},
+"blog":{
+    "news":"Xəbərlər",
+    "search":"Axtar",
+    "searchblog":"Bloq Axtar...",
+    "recentpost":"Son Postlar",
+    "tag":"Teqlər",
+    "blog":"Bloq",
+    "newswitch":"Xəbərlər",
+    "commentitle":"Rəy Yaz",
+    "post":"Rəy Göndər",
+    "name":"Ad",
+    "message":"Mesaj"
+},
+"availabilityCard":"Stokda yoxdur",
+"pages":{
+    "aboutus":"Haqqımızda",
+    "contactus":"Əlaqə",
+    "faq":"Faq",
+    "privacy":"Gizlilik Siyasəti",
+    "terms":"Şərtlər"
+
+},
+"about-ourcards":[
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mission_75x75_crop_center.png?v=1633946365",
+        "title":"Bizim mərhələ",
+        "text":"Lorem Ipsum 1500-cü illərdən bəri çap və çap sənayesinin standart dummy mətninin sadəcə saxta mətnidir."
+        
+    },
+    {   "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/vision_75x75_crop_center.png?v=1633946409",
+        "title":"Bizim baxışımız",
+        "text":"Lorem Ipsum 1500-cü illərdən bəri çap və çap sənayesinin standart dummy mətninin sadəcə saxta mətnidir."
+
+    },
+    {   "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/idea_75x75_crop_center.png?v=1633946409",
+        "title":"Bizim idea",
+        "text":"Lorem Ipsum 1500-cü illərdən bəri çap və çap sənayesinin standart dummy mətninin sadəcə saxta mətnidir."
+    }
+],
+"about-teamcards":[
+    {   "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/1.jpg?v=1633946177",
+        "title":"Johnny walker",
+        "job":"Web dizayner",
+        "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+    },
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/2_afde7777-bb29-461c-8598-57daac420ac1.jpg?v=1633946176",
+        "title":"Rebecca flex",
+        "job":"Yardımçı heyət",
+        "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+    },
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/4_e493e1c7-3dcf-4fbf-9795-d6228154df92.jpg?v=1633946176",
+        "title":"Jan ringo",
+        "job":"Müavin satışı",
+        "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+    },
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/3_04f3342f-2a01-4f19-9c6f-692cdc85a246.jpg?v=1633946177",
+        "title":"Ringo kai",
+        "job":"Siyasət üzvü",
+        "text":"Vestibulum porttitor egestas orci, vitae ullamcorper risus rutrum massa quis."
+    }
+
+],
+"about":{
+    "ourteam":"Bizim komanda",
+    "lorem":"Lorem Ipsum mətnlərdən bəri çap və çap sənayesinin standart dummy mətnidir",
+    "years":"İllər",
+    "clients":"Müştərilər",
+    "shops":"Mağazalar",
+    "sales":"Endirimlər",
+    "aboutus":"Haqqımızda",
+    "company":"Bizim Şirkət",
+    "teamwork":"Komanda işi",
+    "ourmission":"Bizim mərhələ",
+    "ourvision":"Bizim baxışımız"
+},
+"about3":[
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mission_75x75_crop_center.png?v=1633946365",
+        "title":"Bizim mərhələ",
+        "text":"Lorem Ipsum 1500-cü illərdən bəri çap və çap sənayesinin standart dummy mətninin sadəcə saxta mətnidir."
+
+    },
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/idea_75x75_crop_center.png?v=1633946409",
+        "title":"Bizim idea",
+        "text":"Lorem Ipsum 1500-cü illərdən bəri çap və çap sənayesinin standart dummy mətninin sadəcə saxta mətnidir."
+    }
+],
+"contact":{
+    "contactus":"Əlaqə",
+    "get":"Əlaqədə olmaq",
+    "get2":"Əgər sizin hazırladığınız əla məhsullarınız varsa və ya bizimlə işləmək istəyirsinizsə, bizə müraciət edin",
+    "dropMessage":"Bizə mesaj göndərin",
+    "name":"Ad",
+    "email":"Email",
+    "phonenum":"Telefon nömrəsi",
+    "message":"Mesaj",
+    "send":"Göndər"
+},
+"faq":{
+    "title":"Faq",
+    "title2":"Aşağıda tez-tez verilən suallar var, cavabı özünüz tapa bilərsiniz",
+    "whatlorem":"Lorem Ipsum nədir",
+    "whyuse":"Niyə istifadə edirik",
+    "where":"Haradan gəlir",
+    "help":"Yardım masası dəstəyi",
+    "return":"Qaytarma Siyasəti",
+    "lorem":"Lorem Ipsum mətnlərdən bəri çap və çap sənayesinin standart dummy mətnidir",
+    "whatlorem2":"O, nəinki beş əsr, həm də mahiyyətcə dəyişməz olaraq elektron çapa sıçrayışdan sonra sağ qaldı.",
+    "itwas":"O, 1960-cı illərdə Lorem Ipsum keçidlərini ehtiva edən Letraset vərəqlərinin buraxılması ilə və daha yaxınlarda Lorem Ipsum versiyaları daxil olmaqla Aldus PageMaker kimi masaüstü nəşriyyat proqramı ilə populyarlaşdı.",
+    "various":"Müxtəlif versiyalar illər ərzində bəzən təsadüfən, bəzən də məqsədyönlü şəkildə (injekte edilmiş yumor və s.) inkişaf etmişdir.",
+    "many":"Bir çox masa üstü nəşriyyat paketləri və veb səhifə redaktorları indi standart model mətni kimi Lorem Ipsum-dan istifadə edir və 'lorem ipsum' üçün axtarış bir çox veb-saytları hələ başlanğıc mərhələsində aşkar edəcək",
+    "uses":"O, ağlabatan görünən Lorem Ipsum yaratmaq üçün 200-dən çox latın sözündən ibarət lüğətdən istifadə edir və bir neçə model cümlə strukturları ilə birləşir.",
+    "generated":"Yaradılmış Lorem Ipsum buna görə də həmişə təkrardan, yeridilmiş yumordan və ya xarakterik olmayan sözlərdən və s. azaddır."
+},
+"faqCards":[
+    {
+        "icon":"bi bi-telephone-inbound",
+        "title":"Yardım masası dəstəyi ",
+        "text":"Lorem ipsum sadəcə dummy tipseting sənaye ipsum-un sadəcə saxta mətnidir"
+    },
+    {
+        "icon":"bi bi-telephone-inbound",
+        "title":"Canlı söhbət dəstəyi",
+        "text":"Lorem ipsum sadəcə dummy tipseting sənaye ipsum-un sadəcə saxta mətnidir"
+
+    }
+],
+"privacy":{
+    "title":"Gizlilik siyasəti",
+    "lorem":"Lorem Ipsum mətnlərdən bəri çap və çap sənayesinin standart dummy mətnidir",
+    "therelorem":"Lorem Ipsum keçidlərinin bir çox variantı mövcuddur.",
+    "itwas":"1960-cı illərdə Lorem Ipsum olan buraxılış vərəqləri ilə populyarlaşdı.",
+    "sed":"Amma görəsiniz ki, bütün bu xəta onu tərifləyənlərin zövqündən qaynaqlanır.",
+    "random":"Bir az da inandırıcı görünməyən təsadüfi sözlər",
+    "temporibus":"Bəzən ləzzətlər rədd edilməli və çətinliklərdən imtina edilməməlidir.",
+    "secure":"Təhlükəsiz Ödəniş",
+    "money":"Pulun geri Qaytarılması",
+    "hidden":"Gizli xərc",
+    "costumer":"Müştəri dəstəyi",
+    "market":"Bazar məqsədi",
+    "liability":"Məsuliyyət",
+    "therelorem2":"Lorem Ipsum-un keçidlərinin bir çox variantı mövcuddur, lakin onların əksəriyyəti inyeksiya edilmiş yumor və ya bir qədər inandırıcı görünməyən təsadüfi sözlər vasitəsilə müəyyən formada dəyişikliyə məruz qalmışdır.",
+    "itwas2":"O, 1960-cı illərdə Lorem Ipsum keçidlərini ehtiva edən Letraset vərəqlərinin buraxılması ilə və daha yaxınlarda Lorem Ipsum versiyaları daxil olmaqla Aldus PageMaker kimi masaüstü nəşriyyat proqramı ilə populyarlaşdı.",
+    "popular":"Məşhur üsullar"
+},
+"terms":{
+    "title":"Şərtlər və qaydalar",
+    "restriction":"Məhdudiyyət",
+    "thereare":"Lorem Ipsum-un keçidlərinin bir çox variantı mövcuddur, lakin onların əksəriyyəti inyeksiya edilmiş yumor və ya bir qədər inandırıcı görünməyən təsadüfi sözlər vasitəsilə müəyyən formada dəyişikliyə məruz qalmışdır.",
+    "but":"Amma mən sizə həzzi inkar etmək və ağrıları tərifləmək kimi bütün bu səhv fikirlərin necə yarandığını izah etməliyəm və sizə sistemin tam hesabını verəcəyəm və böyük həqiqət tədqiqatçısının, bəşəriyyətin yaradıcısı ustadının həqiqi təlimlərini izah edəcəyəm. xoşbəxtlik.",
+    "nor":"Yenə də ağrını sevən, arxasınca gedən və ya öz-özünə əldə etmək istəyən yoxdur, çünki bu, ağrıdır, amma bəzən zəhmət və əzabın ona böyük həzz verə biləcəyi hallar baş verdiyi üçün.",
+    "needtitle":"Kömək lazımdır"
+},
+"termsWords":[
+    {
+        "title":"Giriş sözləri",
+        "text":"Lorem Ipsum-un inyeksiya yolu ilə və ya hətta bir qədər inandırıcı görünməyən sözlərin bir çox variantı mövcuddur."
+    },
+    {
+        
+        "title":"Əqli mülkiyyət",
+        "text":"Əgər siz Lorem Ipsum-un keçidindən istifadə edəcəksinizsə, mətnin ortasında heç nə gizlədilmədiyinə əmin olmalısınız."
+    },
+    {
+        "title":"Məzmununuz",
+        "text":"İnternetdəki bütün Lorem Ipsum generatorları lazım olduqda təkrar etməyə meyllidir və bu, İnternetdəki ilk həqiqi generatordur."
+    },
+    {
+        "title":"Bölünmə qabiliyyəti",
+        "text":"O, ağlabatan görünmək üçün 200-dən çox latın sözündən ibarət lüğətdən istifadə edir və bir neçə nümunə cümlə ilə birləşir."
+    },
+    {
+        "title":"Çoxluq yoxdur",
+        "text":"O, 1960-cı illərdə keçidləri olan vərəqlərin və Lorem Ipsumun son versiyalarının buraxılması ilə populyarlaşdı."
+    },
+    {
+        "title":"Variasiya şərtləri",
+        "text":"Siz hər şeyi aydınlaşdırmaq üçün hər hansı bir səhvə yol versəniz, açıq-aydın öz həyatınızı qeyd edin."
+    },
+    {
+        "title":"Vərəqlərin buraxılması",
+        "text":"Müvəqqəti vaxt və ya rəsmi debit və ya yenidən ehtiyac var ki, geri qaytarılmır."
+    },
+    {
+        "title":"Maksimum rahatlıq",
+        "text":"Pulsuz vaxt, heç bir üstünlük əldə etmək üçün heç bir üstünlük əldə etmək mümkün deyil."
+    }
+],
+"helpCards":[
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/mail.jpg?v=1633947203",
+        "icon":"bi bi-envelope",
+        "title":"Bizimlə söhbət edin",
+        "text":"Bizə e-poçt göndərin"
+    },
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/call.jpg?v=1633947203",
+        "icon":"bi bi-telephone",
+        "title":"Bizmlə danışın",
+        "text":"Bizə zəng edin"
+    },
+    {
+        "image":"https://cdn.shopify.com/s/files/1/0550/8182/8594/files/lication.jpg?v=1633947203",
+        "icon":"bi bi-geo",
+        "title":"Mağaza tapın",
+        "text":"Layihənizi təsvir edin"
+    }
+]
+
+   
+   
+   
+
+}
