@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import { MainContext } from '../context'
@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next';
 
 const Wishlist = () => {
     const { items,removeItem } = useCart()
-    const {addProduct,cartItems,mode}=useContext(MainContext)
+    const {addProduct,mode}=useContext(MainContext)
     const navigate=useNavigate()
     const notify = () => toast.success("Success");
-    const [stock,setStock]=useState(true)
+    
     const {t}=useTranslation()
 
     return (

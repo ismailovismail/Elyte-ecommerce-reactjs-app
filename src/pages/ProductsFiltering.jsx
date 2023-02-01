@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useCart } from 'react-use-cart'
 import { useTranslation } from 'react-i18next'
 import salecamera from '../assets/img/side-image.webp'
+
 const ProductsFiltering = () => {
     const { type } = useParams()
     const filteringProducts = products.filter((a) => a.type === type)
@@ -26,6 +27,8 @@ const ProductsFiltering = () => {
     const [color, setColor] = useState(colors.filter((item) => item.type === type))
     const [selectedPrice, setSelectedPrice] = useState([minPrice,maxPrice])
     const [sortValue, setSortValue] = useState('Alphabetically,A-Z')
+    const [minPrices,setMinPrices]=useState()
+    const [maxPrices,setMaxPrices]=useState()
     const notify = () => toast.success("Success");
     const { addProduct,mode } = useContext(MainContext)
     const { addItem, items } = useCart()
@@ -86,6 +89,44 @@ const ProductsFiltering = () => {
 
         }
         applyFilter()
+        if ( selectedPrice[0] === 389 && selectedPrice[1] === 2800 ) {
+            setMinPrices(389)
+            setMaxPrices(2800)
+        }else if (selectedPrice[0] === 700 && selectedPrice[1] === 5500  ) {
+             setMinPrices(700)
+             setMaxPrices(5500)
+        }else if ( selectedPrice[0] === 1099 && selectedPrice[1] === 4000 ) {
+            setMinPrices(1099)
+            setMaxPrices(4000)
+        }else if (selectedPrice[0] === 1234 && selectedPrice[1] === 9880 ) {
+             setMinPrices(1234)
+             setMaxPrices(9880)
+        }else if ( selectedPrice[0] === 25 && selectedPrice[1] === 270 ) {
+            setMinPrices(25)
+            setMaxPrices(270)
+        }else if ( selectedPrice[0] === 30 && selectedPrice[1] === 350 ) {
+            setMinPrices(30)
+            setMaxPrices(350)
+        }else if ( selectedPrice[0] === 28 && selectedPrice[1] === 80 ) {
+            setMinPrices(28)
+            setMaxPrices(80)
+        }else if ( selectedPrice[0] === 120 && selectedPrice[1] === 350 ) {
+            setMinPrices(120)
+            setMaxPrices(350)
+        }else if ( selectedPrice[0] === 150 && selectedPrice[1] === 2500 ) {
+            setMinPrices(150)
+            setMaxPrices(2500)
+
+        }else if ( selectedPrice[0] === 220 && selectedPrice[1] === 1900  ) {
+             setMinPrices(220)
+             setMaxPrices(1900)
+        }else if  (  selectedPrice[0] === 12 && selectedPrice[1] === 1550 )  {
+             setMinPrices(12)
+             setMaxPrices(1550)
+        }else if (selectedPrice[0] === 190 && selectedPrice[1] === 7570 ) {
+            setMinPrices(190)
+            setMaxPrices(7570)
+        }
 
     }, [brand, availability, color, selectedPrice, sortValue])
     return (
@@ -162,7 +203,7 @@ const ProductsFiltering = () => {
 
 
                                 <div style={{width:"auto"}}  className="slider-price d-flex flex-column">
-                                     <Slider value={selectedPrice} min={selectedPrice[0]}  max={selectedPrice[1]} onChange={handleChangePrice} valueLabelDisplay='on' />
+                                     <Slider value={selectedPrice} min={minPrices}  max={maxPrices}  aria-labelledby='range-slider' onChange={handleChangePrice} valueLabelDisplay='on' />
                                     <div className="price d-flex justify-content-between ">
                                         <h1 className='fw-bold'>Min: <span>${selectedPrice[0]}</span></h1>
                                         <h1 className='fw-bold' >Max: <span>${selectedPrice[1]}</span></h1>

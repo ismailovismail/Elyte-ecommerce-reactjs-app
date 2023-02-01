@@ -1,12 +1,11 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addBlogToDatabase } from '../../actions/blogActions'
 import BlogForm from '../BlogForm'
 
 const AddBlog = () => {
     const dispatch=useDispatch()
-    const state=useSelector(state=>state.blog)
    
     const navigate=useNavigate()
 
