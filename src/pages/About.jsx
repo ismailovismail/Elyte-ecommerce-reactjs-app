@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ourCompany from '../assets/img/our-company.webp'
 import teamWork from '../assets/img/Team-work.webp'
@@ -9,6 +9,9 @@ const About = () => {
   const [counterOn, setCounterOn] = useState(false)
   const { t } = useTranslation()
   const {mode}=useContext(MainContext)
+  useEffect(()=>{
+    document.title='About Us | Elyte Ecommerce'
+  },[])
   return (
     <>
       <section className={`about-page ${mode === 'dark' ? "bg-secondary" : "" } `}>

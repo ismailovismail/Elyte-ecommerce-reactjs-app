@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import terms from '../assets/img/Terms.webp'
 import { MainContext } from '../context'
@@ -7,6 +7,9 @@ const Terms = () => {
     const {t}=useTranslation()
      let data=t('helpCards',{returnObjects:true})
      const {mode}=useContext(MainContext)
+     useEffect(()=>{
+        document.title='Terms & condition | Elyte Ecommerce'
+     },[])
   return (
     <>
     <section className={`terms-sec ${mode === 'dark' ? "bg-secondary" : "" } `}>

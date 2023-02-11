@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import about1 from '../assets/img/about21.webp'
 import about22 from '../assets/img/about22.webp'
 import about23 from '../assets/img/about23.webp'
@@ -11,6 +11,9 @@ const About2 = () => {
     const [counterOn, setCounterOn] = useState(false)
     const { t } = useTranslation()
     const {mode}=useContext(MainContext)
+    useEffect(()=>{
+        document.title='About Us 2 | Elyte Ecommerce'
+    },[])
     return (
         <>
             <section className={`aboutus-2 ${mode === "dark" ? "bg-secondary" : ""} `} >

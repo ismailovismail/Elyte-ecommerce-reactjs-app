@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import airpods from '../assets/img/about-us-3.webp'
 import CountUp from 'react-countup'
@@ -9,6 +9,9 @@ const About3 = () => {
     const {t}=useTranslation()
     const [counterOn, setCounterOn] = useState(false)
     const {mode}=useContext(MainContext)
+    useEffect(()=>{
+      document.title='About Us 3 | Elyte Ecommerce'
+    },[])
   return (
     <>
     <section className={`aboutus-3 ${mode === 'dark' ? "bg-secondary" : "" } `}>

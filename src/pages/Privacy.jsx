@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import privacy from '../assets/img/privacy.webp'
 import { MainContext } from '../context'
@@ -6,6 +6,9 @@ import privacyData from '../data/PrivacyData'
 const Privacy = () => {
     const {t}=useTranslation()
     const {mode}=useContext(MainContext)
+    useEffect(()=>{
+        document.title='Privacy | Elyte Ecommerce'
+    },[])
   return (
     <>
     <section className={`${mode === 'dark' ? "bg-secondary" : "" }`}>

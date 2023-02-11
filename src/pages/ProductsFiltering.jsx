@@ -127,6 +127,7 @@ const ProductsFiltering = () => {
             setMinPrices(190)
             setMaxPrices(7570)
         }
+        document.title=`Filter (${type.toUpperCase()}) | Elyte Ecommerce`
 
     }, [brand, availability, color, selectedPrice, sortValue])
     return (

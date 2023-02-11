@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const BlogForm = (props) => {
+   const navigate=useNavigate()
     const [brand,setBrand]=useState(props.editblog?props.editblog.brand:'')
     const [title,setTitle]=useState(props.editblog?props.editblog.title:'')
     const [description,setDescription]=useState(props.editblog?props.editblog.text:'')
@@ -16,6 +18,7 @@ const BlogForm = (props) => {
             text:description,
             img:image
         })
+      
      }
     }
   return (

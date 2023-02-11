@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MainContext } from '../context'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -8,6 +8,9 @@ const Cart = () => {
     const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
     const {mode}=useContext(MainContext)
    const {t}=useTranslation()
+   useEffect(()=>{
+    document.title='Cart | Elyte Ecommerce'
+   },[])
     return (
         <>
             <div className={`switch-home py-2 ${mode === 'dark' ? "bg-secondary" : "" } `}>

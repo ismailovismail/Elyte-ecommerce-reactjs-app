@@ -25,9 +25,10 @@ const Dashboard = () => {
                     </tr>
                 </thead>
                 <tbody>
+                   
                     {
                         data && ( data.map((fd,i) => {
-                            if ( typeof fd === 'undefined'  ) {
+                            if ( typeof fd === 'undefined' ) {
                                 return <img width={80} src='https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif' alt="" />
                             }else{
                             return <tr>

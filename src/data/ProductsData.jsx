@@ -4008,7 +4008,7 @@ const products = [
         brand:"Alcatel",
         image1:imgalcatel1tab,
         image2:imgalcatel2tab,
-        name: "Alcatel Tab 3T 10 (8094X) Black",
+        name: "Alcatel Tab 3T 10 (8094X) Black 32GB",
         memory:"32GB",
         price: 220.00,
         delprice: 274.00,

@@ -2,14 +2,14 @@ import firebase from 'firebase/app';
 import 'firebase/database'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCnaZk2l3j_N1-s-4BU0octtz_18j8gs60",
-  authDomain: "blog-news-4503f.firebaseapp.com",
-  projectId: "blog-news-4503f",
-  databaseURL:'https://blog-news-4503f-default-rtdb.europe-west1.firebasedatabase.app/',
-  storageBucket: "blog-news-4503f.appspot.com",
-  messagingSenderId: "755510234712",
-  appId: "1:755510234712:web:1a0fffa73df07572b0042d",
-  measurementId: "G-LSYMR36Q91"
+  apiKey: "AIzaSyDKHVxOf01bbBHNCSQvYP8DD9Xu9QZ_b0Q",
+  authDomain: "blog-apps-79d02.firebaseapp.com",
+  databaseURL: "https://blog-apps-79d02-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "blog-apps-79d02",
+  storageBucket: "blog-apps-79d02.appspot.com",
+  messagingSenderId: "790796699902",
+  appId: "1:790796699902:web:1738a4411d27d72f01fdaf",
+  measurementId: "G-DS2GH8VQ1W"
 };
 
 // Initialize Firebase

@@ -89,8 +89,8 @@ const data={
           <Routes>
              <Route path='/' element={<Home/>}></Route>
              
-               { loggedIn && <Route path='/dashboard' element={<Dashboard/>}></Route>}
-              { !loggedIn && <Route path='/auth' element={<Authentication/>}/>}
+              { loggedIn && <Route path='/dashboard' element={<Dashboard/>}></Route>}
+              { !loggedIn && <Route path='/admin' element={<Authentication/>}/>}
               
            
              <Route path='/addblog' element={<AddBlog/>} ></Route>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -69,6 +69,9 @@ const ProductDetails = () => {
         }
       ]
    };
+   useEffect(()=>{
+      document.title=`${name} | Elyte Ecommerce `
+   },[name])
    const [active, setActive] = useState("1")
    const handleClick = (e) => {
       setActive(e.target.id)

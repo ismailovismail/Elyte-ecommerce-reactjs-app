@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { MainContext } from '../context'
@@ -6,6 +6,9 @@ const Checkout = () => {
     const { cartItems } = useContext(MainContext)
     const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
     const {t}=useTranslation()
+    useEffect(()=>{
+        document.title='Checkout | Elyte Ecommerce'
+    },[])
     return (
         <>
             <section className="checkout-page p-2 mt-3">

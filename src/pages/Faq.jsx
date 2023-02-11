@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import faq from '../assets/img/faq.webp'
 import { MainContext } from '../context'
 const Faq = () => {
   const { t } = useTranslation()
   const {mode}=useContext(MainContext)
+  useEffect(()=>{
+    document.title="Faq's | Elyte Ecommerce "
+  },[])
   return (
     <>
       <section className={`faq-sec ${mode === 'dark' ? "bg-secondary" : "" } `}>

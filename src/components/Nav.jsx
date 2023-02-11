@@ -13,7 +13,7 @@ const Nav = () => {
   const location = useLocation()
   const [display, setDisplay] = useState(true)
   useEffect(() => {
-    if (location.pathname === '/auth') {
+    if (location.pathname === '/admin') {
       setDisplay(false)
     } else if (location.pathname === '/dashboard') {
       setDisplay(false)

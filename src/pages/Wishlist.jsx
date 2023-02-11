@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import { MainContext } from '../context'
@@ -13,7 +13,9 @@ const Wishlist = () => {
     const notify = () => toast.success("Success");
     
     const {t}=useTranslation()
-
+     useEffect(()=>{
+        document.title='Wishlist | Elyte Ecommerce'
+     },[])
     return (
         <>
             <div className={`switch-home ${mode === 'dark' ? "bg-secondary py-2" : "" } `}>

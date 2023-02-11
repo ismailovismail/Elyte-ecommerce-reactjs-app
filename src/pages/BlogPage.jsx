@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -11,6 +11,9 @@ const BlogPage = () => {
   const blogData=blogs.find((item)=>item.id === id)    
   const {t}=useTranslation()
   const {mode}=useContext(MainContext)
+  useEffect(()=>{
+    document.title=`${blogData.title} | Elyte Ecommerce `
+  },[blogData.title])
   return (
     <>
  

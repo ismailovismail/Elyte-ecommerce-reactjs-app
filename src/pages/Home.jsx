@@ -10,7 +10,7 @@ import OfferProducts from '../components/OfferProducts'
 import NewsLetter from '../components/NewsLetter'
 import Blog from '../components/Blog'
 import Brands from '../components/Brands'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { MainContext } from '../context'
 
 
@@ -48,6 +48,9 @@ const Home = () => {
 
   }
   
+  useEffect(()=>{
+    document.title='Elyte Ecommerce'
+  },[])
  
   return (
     <> 

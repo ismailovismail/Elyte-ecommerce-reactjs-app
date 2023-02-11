@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { MainContext } from '../context'
 
 const Contact2 = () => {
     const {t}=useTranslation()
     const {mode}=useContext(MainContext)
+    useEffect(()=>{
+      document.title='Contact Us 2 | Elyte Ecommerce'
+    },[])
   return (
     <>
     <section className={`contact2-page ${mode === 'dark' ? "bg-secondary" : "" } `} > 

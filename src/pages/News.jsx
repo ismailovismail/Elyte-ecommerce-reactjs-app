@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,9 @@ const News = () => {
     const blogs=useSelector((state)=>state.blog)
     const {t}=useTranslation()
     const {mode}=useContext(MainContext)
+    useEffect(()=>{
+      document.title='News | Elyte Ecommerce'
+    },[])
   return (
     <>
 
