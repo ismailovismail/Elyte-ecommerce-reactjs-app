@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -15,10 +15,12 @@ const Authentication = () => {
         e.preventDefault()
         if ( login.current.value.trim() === '' ) {
             setEmptyValue(true)
+            return
             
         }
         if (password.current.value.trim() === '') {
             setEmptyValue(true)
+            return
         }
         if (login.current.value.toLowerCase().trim() === authData.login  && password.current.value.toLowerCase().trim() === authData.password ) {
             navigate('/dashboard')
@@ -30,6 +32,9 @@ const Authentication = () => {
         }
 
     }
+    useEffect(()=>{
+        document.title='Admin'
+    },[])
   return (
     <>
        <section className='auth-sec' >

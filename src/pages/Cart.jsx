@@ -26,7 +26,7 @@ const Cart = () => {
 
             </div>}
             {
-                cartItems.length > 0 && <div style={{height:"100%"}} className={`cart py-5 ${mode === 'dark' ? "bg-secondary" : "" } `}>
+                cartItems.length > 0 && <div  className={`cart py-5 ${mode === 'dark' ? "bg-secondary" : "" } `}>
                     <div className="container-fluid ">
                         <div style={{ width: "100%" }} className="row d-flex justify-content-center gap-5">
                             <div className="cart col-xl-8">

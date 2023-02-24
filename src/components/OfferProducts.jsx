@@ -80,7 +80,7 @@ const OfferProducts = () => {
                 {
                     data.map((fd) => {
                         return <div key={fd.id} data-aos='fade-up' data-aos-duration='3000'  className={`card mb-3 col-xl-6 ${mode ==='dark'? "bg-secondary" : ""  } `} style={{ maxWidth: 540 }}>
-                            <div className="row g-0">
+                            <div className="row d-flex align-items-center g-0">
                                 
                                  <img src={fd.image1} className="img-fluid rounded-start col-md-3  col-xl-4"  alt="" />
                         
@@ -104,10 +104,10 @@ const OfferProducts = () => {
                                             {
                                                 timer.map((fd)=>{
                                                     return <div className="counter">
-                                                        <h1 className={`${mode === 'dark' ? "text-white" : ""  }`} >{fd.days} {t('day')}</h1> :
-                                                        {fd.hours < 10 ? <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >0{fd.hours} {t('hrs')}</h1>  : <h1 className={`${mode === 'dark' ? "text-white" : "" }`}>{fd.hours} {t('hrs')}</h1>} : 
-                                                        {fd.minutes < 10 ? <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >0{fd.minutes} {t('minute')}</h1> : <h1 className={`${mode === 'dark' ? "text-white" : ""  }`} >{fd.minutes} {t('minute')}</h1>} :
-                                                        {fd.seconds < 10 ? <h1 className={`${mode === 'dark' ? "text-white" : ""  }`} >0{fd.seconds} {t('second')}</h1> : <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >{fd.seconds} {t('second')}</h1> }
+                                                        <h1 className={`${mode === 'dark' ? "text-white fs-6" : "fs-6"  }`} >{fd.days} {t('day')}</h1> :
+                                                        {fd.hours < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6" }`} >0{fd.hours} {t('hrs')}</h1>  : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6" }`}>{fd.hours} {t('hrs')}</h1>} : 
+                                                        {fd.minutes < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6" : "fs-6" }`} >0{fd.minutes} {t('minute')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"  }`} >{fd.minutes} {t('minute')}</h1>} :
+                                                        {fd.seconds < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"  }`} >0{fd.seconds} {t('second')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6" }`} >{fd.seconds} {t('second')}</h1> }
                                                     </div>
                                                 })
                                             }

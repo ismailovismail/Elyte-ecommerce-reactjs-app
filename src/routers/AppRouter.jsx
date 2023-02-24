@@ -26,11 +26,16 @@ import Privacy from '../pages/Privacy'
 import Terms from '../pages/Terms'
 import Authentication from '../pages/Authentication'
 import NotFoundPage from '../pages/NotFoundPage'
+import Login from '../pages/Login'
 const AppRouter = () => {
  
  const [loggedIn,setLoggedIn]=useState(false)
+ const [login,setLogin]=useState("false")
+ const [userLogin,setUserLogin]=useState(localStorage.getItem('userName'))
   useEffect(()=>{
-      
+      setLogin(
+        localStorage.getItem('userLogin')
+      )
     setCartItems(
       localStorage.getItem('mycart') ? JSON.parse(localStorage.getItem('mycart')) : []
     )
@@ -69,6 +74,22 @@ const remove=(product)=>{
   setCartItems(newCartItems)
   localStorage.setItem('mycart',JSON.stringify(newCartItems))
 }
+
+const loginHandler=()=>{
+  localStorage.setItem('userLogin',"true")
+   setLogin(localStorage.getItem('userLogin'))
+}
+const logoutHandler=()=>{
+      if (window.confirm("Are you sure?")===true) {
+        localStorage.setItem('userLogin',"false")
+        setLogin(localStorage.getItem('userLogin'))
+        localStorage.removeItem('userName')
+        
+      }
+     
+    
+   
+}
 const data={
   cartItems,
  addProduct,
@@ -77,8 +98,13 @@ const data={
  mode,
  setMode,
  loggedIn,
- setLoggedIn
-
+ setLoggedIn,
+ login,
+ setLogin,
+ userLogin,
+ setUserLogin,
+ loginHandler,
+ logoutHandler
 }
   return (
     <>
@@ -101,7 +127,7 @@ const data={
              <Route path=':id' element={<BlogPage/>}></Route>
              <Route path='news' element={<News/>} ></Route>
              </Route>
-             
+              {login === 'false' && <Route path='/login' element={<Login/>} ></Route> }
              <Route path='/mycart' element={<Cart/>} ></Route>
              <Route path='/checkout' element={<Checkout/>} ></Route>
              <Route path='/wishlist' element={<Wishlist/>}></Route>

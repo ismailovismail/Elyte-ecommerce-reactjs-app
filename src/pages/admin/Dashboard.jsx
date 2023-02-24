@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link} from 'react-router-dom'
 const Dashboard = () => {
     const data = useSelector(state => state.blog)
-
+    useEffect(()=>{
+        document.title='Dashboard'
+    },[])
 
   
     return (
@@ -37,7 +39,7 @@ const Dashboard = () => {
                                   <td><img width={50} height={50} src={fd.img} alt={fd.title} /></td>
                                   <td>{fd.brand}</td>
                                   <td>{fd.title}</td>
-                                  <td style={{width:"50%"}} >{fd.text}</td>
+                                  <td style={{width:"50%"}} >{fd.text.slice(0,200)}...</td>
                                   <td><Link className='btn btn-primary' to={`/edit/${fd.id}`} >Edit</Link></td>
                                   </tr>
 

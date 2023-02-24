@@ -70,7 +70,7 @@ table {
   z-index: 5555555555555 !important;
 }
 .header-lg .pages-nav .pages-items {
-  z-index: 55555555555555550000000000000000 !important;
+  z-index: 55555555555555560000000000000000 !important;
 }
 .header-lg .navbar {
   width: 100%;
@@ -402,6 +402,11 @@ sup {
   }
   .header-sm {
     display: block;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .logout-btn {
+    display: none;
   }
 }
 @media screen and (min-width: 1200px) and (max-width: 1350px) {
@@ -2170,6 +2175,12 @@ sup {
   background-image: url("../img/auth.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.login-section {
+  width: 100%;
+  height: 80vh;
+  background-image: url("../img/login-page.jpg");
 }
 
 .footer {

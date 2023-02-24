@@ -112,7 +112,7 @@ const Home = () => {
         <div className="colorbox">
           <div className="container-fluid">
             <div className="row d-flex justify-content-center">
-              <div className="about col-12  col-xl-7 ">
+              <div className="about col-12 col-lg-7 col-xl-7 ">
                 <div className="title-layout">
                   <h1 className={`title ${mode === 'dark' ? "text-white" : ""  } `}>{t("collectionwatch.title")}</h1>
                   <div className="line"></div>

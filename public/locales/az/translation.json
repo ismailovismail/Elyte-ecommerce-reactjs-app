@@ -524,7 +524,13 @@
         "title":"Mağaza tapın",
         "text":"Layihənizi təsvir edin"
     }
-]
+],
+"loginData":{
+    "login":"Daxil ol",
+    "username":"İstifadəçi adı",
+    "password":"Şifrə",
+    "logout":"Çıxış"
+}
 
    
    

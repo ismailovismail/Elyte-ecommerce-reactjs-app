@@ -54,10 +54,11 @@ const Nav = () => {
   const handleClick = (lang) => {
     i18n.changeLanguage(lang)
   }
-  const { cartItems } = useContext(MainContext)
+  const { cartItems, login,setLogin, userLogin,logoutHandler } = useContext(MainContext)
   const { totalItems } = useCart()
   const blogs = useSelector((state) => state.blog)
   const [icon, setIcon] = useState('fa-solid fa-moon')
+  const [error, setError] = useState(null)
   const { mode, setMode } = useContext(MainContext)
   const modeHandler = () => {
     if (icon === 'fa-solid fa-moon') {
@@ -296,6 +297,19 @@ const Nav = () => {
 
 
               <div className="nav-btns d-flex align-items-center ">
+                {
+                  login === 'false' ? <Link to={'/login'} className='btn mx-2 logout-btn btn-outline-dark'>{t('loginData.login')}</Link> : <div className="dropdown logout-btn">
+                    <button className="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i className='fa-solid fa-user'></i> {userLogin}
+                    </button>
+                    <ul className="dropdown-menu">
+                      <li><button onClick={()=>{
+                         logoutHandler()
+                      }} className="dropdown-item">{t('loginData.logout')} <i className="bi bi-box-arrow-right"></i> </button></li>
+                    </ul>
+                  </div>
+
+                }
                 <div className="search-system">
 
                   <div className="search-dropdown dropdown">
@@ -312,7 +326,6 @@ const Nav = () => {
                             return val
                           }
                         }).splice(0, 4).map((fd, i) => {
-
 
                           return <Link key={i} onClick={() => {
                             setSearchTerm('')
@@ -340,6 +353,7 @@ const Nav = () => {
                               </div>
                             </div>
                           </Link>
+
                         })
                       }
 
@@ -612,7 +626,7 @@ const Nav = () => {
                                 <div className="card-body">
                                   <Link className='text-decoration-none text-dark' to={`/blog/${item.id}`} ><h1 className="card-title fw-bold">{item.brand}</h1></Link>
                                   <h5>{item.title}</h5>
-                                  <p>{item.text.slice(0,35)}...</p>
+                                  <p>{item.text.slice(0, 35)}...</p>
                                 </div>
                               </div>
 
@@ -632,22 +646,23 @@ const Nav = () => {
                     </h2>
                     <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
                       <div className=" collection accordion-body">
-                           <ul className='d-flex flex-column gap-2'>
-                             <li><Link className='text-dark text-decoration-none' to={'about'}>{t('pages.aboutus')}</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'about2'}>{t('pages.aboutus')} 2</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'about3'}>{t('pages.aboutus')} 3</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'contact'}>{t('pages.contactus')}</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'contact2'}>{t('pages.contactus')} 2</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'faq'}>{t('pages.faq')}</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'privacy'}>{t('pages.privacy')}</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'terms'}>{t('pages.terms')}</Link></li>
-                              <li><Link className='text-dark text-decoration-none' to={'*'} >404</Link></li>
-                           </ul>
-                          
-                        
+                        <ul className='d-flex flex-column gap-2'>
+                          <li><Link className='text-dark text-decoration-none' to={'about'}>{t('pages.aboutus')}</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'about2'}>{t('pages.aboutus')} 2</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'about3'}>{t('pages.aboutus')} 3</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'contact'}>{t('pages.contactus')}</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'contact2'}>{t('pages.contactus')} 2</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'faq'}>{t('pages.faq')}</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'privacy'}>{t('pages.privacy')}</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'terms'}>{t('pages.terms')}</Link></li>
+                          <li><Link className='text-dark text-decoration-none' to={'*'} >404</Link></li>
+                        </ul>
+
+
                       </div>
                     </div>
                   </div>
+
 
 
                 </div>

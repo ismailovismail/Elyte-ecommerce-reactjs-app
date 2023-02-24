@@ -427,6 +427,11 @@ sup {
         display: block;
     }
 }
+@media screen and (max-width:1270px) {
+    .logout-btn{
+        display: none;
+    }
+}
 
 @media screen and (min-width:1200px) and (max-width:1350px) {
     .collection-items {

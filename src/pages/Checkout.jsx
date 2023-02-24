@@ -1,14 +1,31 @@
 import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, redirect, useNavigate } from 'react-router-dom'
 import { MainContext } from '../context'
 const Checkout = () => {
-    const { cartItems } = useContext(MainContext)
+    const { cartItems,login } = useContext(MainContext)
     const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
     const {t}=useTranslation()
+    const navigate=useNavigate()
     useEffect(()=>{
         document.title='Checkout | Elyte Ecommerce'
     },[])
+    const submitHandler=(e)=>{
+        e.preventDefault()
+        
+        if (login === "true" && window.confirm('Are you sure?')===true) {
+        if (cartItems.length>0) {
+            alert('Successfully')
+            localStorage.removeItem('mycart')
+             window.location.reload(true)
+        }else{
+            alert('Basket is empty')
+        }
+         }else{
+            navigate('/login')
+         }
+        
+    }
     return (
         <>
             <section className="checkout-page p-2 mt-3">
@@ -34,10 +51,10 @@ const Checkout = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <form>
+                            <form onSubmit={submitHandler}>
                                 <div className="contact d-flex gap-2 flex-column ">
                                     <label className='mt-2' htmlFor="">{t('checkoutPage.contactinfo')}</label>
-                                    <input required className='p-2 rounded' type="text" placeholder={t('checkoutPage.emailornum')} />
+                                    <input required  className='p-2 rounded' type="text" placeholder={t('checkoutPage.emailornum')} />
                                     <div className="check-email d-flex gap-1">
                                         <input required type="checkbox" name="" id="" />
                                         <label htmlFor="">{t('checkoutPage.emailme')}</label>
@@ -57,12 +74,12 @@ const Checkout = () => {
 
                                     </div>
                                     <div className="name-input d-flex gap-1 mt-2">
-                                        <input required className='p-2 rounded col-6' type="text" placeholder={t('checkoutPage.firstname')} />
-                                        <input required className='p-2 rounded col-6 ' type="text" placeholder={t('checkoutPage.lastname')} />
+                                        <input required  className='p-2 rounded col-6' type="text" placeholder={t('checkoutPage.firstname')} />
+                                        <input required  className='p-2 rounded col-6 ' type="text" placeholder={t('checkoutPage.lastname')} />
                                     </div>
                                     <div className="address d-flex flex-column gap-2 mt-2">
                                         <input required className='col-12 p-2 rounded' type="text" placeholder={t('checkoutPage.address')} />
-                                        <input required className='col-12 p-2 rounded' placeholder={t('checkoutPage.apartment')} type="text" name="" id="" />
+                                        <input required  className='col-12 p-2 rounded' placeholder={t('checkoutPage.apartment')} type="text" name="" id="" />
                                     </div>
                                     <div className="city-input d-flex gap-2 mt-2">
                                         <input required type="text" className='p-2 rounded col-6' placeholder={t('checkoutPage.city')} />
@@ -79,7 +96,11 @@ const Checkout = () => {
                                     <Link className='text-success' to={'/mycart'} >
                                         <i class="bi bi-chevron-left"></i> {t('checkoutPage.returncart')}
                                     </Link>
-                                    <button className='btn btn-success'>{t('checkoutPage.continue')}</button>
+                                    <button onClick={()=>{
+                                        if (login === "false") {
+                                            navigate('/login')
+                                        }
+                                    }} className='btn btn-success'>{t('checkoutPage.continue')}</button>
                                 </div>
                             </form>
                         </div>

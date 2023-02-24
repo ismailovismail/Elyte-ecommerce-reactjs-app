@@ -261,6 +261,7 @@ const ProductsFiltering = () => {
                                             <div className="price d-flex gap-2 ">
                                                 <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >$ {fd.price}</h1>
                                                 {fd.delprice && <h1><del className={`${mode === 'dark' ? "text-white" :""}`}>$ {fd.delprice}</del></h1>}
+                                                {fd.stockCount === 0 && <h1 className='text-danger'>{t('stocknot')}</h1> }
                                             </div>
                                             <div className="rating">
                                                 {
