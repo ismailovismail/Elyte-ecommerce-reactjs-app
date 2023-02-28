@@ -298,8 +298,8 @@ const Nav = () => {
 
               <div className="nav-btns d-flex align-items-center ">
                 {
-                  login === 'false' ? <Link to={'/login'} className='btn mx-2 logout-btn btn-outline-dark'>{t('loginData.login')}</Link> : <div className="dropdown logout-btn">
-                    <button className="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  login === 'false' ? <Link to={'/login'} className={`btn mx-2 logout-btn ${mode === 'dark'?'btn-outline-light':'btn-outline-dark' }  `}>{t('loginData.login')}</Link> : <div className="dropdown logout-btn">
+                    <button className={`dropdown-toggle ${mode === 'dark'? 'btn btn-outline-light':'btn btn-outline-dark'} `} type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i className='fa-solid fa-user'></i> {userLogin}
                     </button>
                     <ul className="dropdown-menu">

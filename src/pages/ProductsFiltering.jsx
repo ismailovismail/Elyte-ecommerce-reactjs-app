@@ -194,7 +194,7 @@ const ProductsFiltering = () => {
                                     })
                                 }
                             </div>
-                            <div className=" col-12 col-md-6 col-xl-12 price-slider d-flex flex-column gap-5">
+                            <div className=" col-12 col-md-6 col-xl-12 price-slider d-flex flex-column gap-2">
                                 <div className="price-title d-flex align-items-center gap-2">
                                     <div className="filter-count"></div>
                                     <h1 className='fw-bold'>{t('filteringProducts.price')}</h1>
@@ -204,7 +204,7 @@ const ProductsFiltering = () => {
 
 
                                 <div style={{width:"auto"}}  className="slider-price d-flex flex-column">
-                                     <Slider value={selectedPrice} min={minPrices}  max={maxPrices}  aria-labelledby='range-slider' onChange={handleChangePrice} valueLabelDisplay='on' />
+                                     <Slider value={selectedPrice} min={minPrices}  max={maxPrices}  aria-labelledby='range-slider' onChange={handleChangePrice}  />
                                     <div className="price d-flex justify-content-between ">
                                         <h1 className='fw-bold'>Min: <span>${selectedPrice[0]}</span></h1>
                                         <h1 className='fw-bold' >Max: <span>${selectedPrice[1]}</span></h1>
@@ -215,12 +215,12 @@ const ProductsFiltering = () => {
 
 
                             </div>
-                            <div className="sale-camera">
+                            <div className="col-12 col-md-6 col-xl-10 sale-camera">
                                 <div className="hover-main">
                                     <div className="hoverbox d-flex justify-content-center align-items-center">
                                         <a href={`/collection/camera`}><i class="fa-solid fa-arrow-right"></i></a>
                                     </div>
-                                    <img src={salecamera} alt="" />
+                                    <img  src={salecamera} alt="" />
                                 </div>
                             </div>
                         </div>
