@@ -18,19 +18,18 @@ const Login = () => {
         e.preventDefault()
         if (!userLogin || !userPassword ) {
             setIsEmpty(true)
-            
+            return
         }
 
-        if (userLogin.trim() !== loginData.user && userPassword.trim() !==loginData.password  ) {
-            setIsValid(false)
-            
-        }
+        
 
         if (userLogin.trim() === loginData.user && userPassword.trim() === loginData.password ) {
             localStorage.setItem('userName',userLogin)
             setUserLogin(localStorage.getItem('userName'))
              navigate('/')
              loginHandler()
+        }else{
+            setIsValid(false)
         }
 
     }

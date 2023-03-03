@@ -1,33 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { MainContext } from '../context'
 import iconData from '../data/Socialmedialinks'
 import { useContext } from 'react'
-import { useEffect } from 'react'
+
 
 const Footer = () => {
   const { t, i18n } = useTranslation()
   const { mode } = useContext(MainContext)
-  const [display, setDisplay] = useState(true)
-  const location = useLocation()
-
-
-  useEffect(() => {
-    if (location.pathname === '/admin') {
-      setDisplay(false)
-    } else if (location.pathname === '/dashboard') {
-      setDisplay(false)
-    } else {
-      setDisplay(true)
-    }
 
 
 
-  }, [display])
   return (
     <>
-      {display && <footer className={`footer ${mode === 'dark' ? 'bg-secondary' : ""}  `}>
+      <footer className={`footer ${mode === 'dark' ? 'bg-secondary' : ""}  `}>
         <div className="container-fluid">
           <div className="row gap-2">
             <div className=" col-10 col-md-7 col-lg-7 col-xl-7 col-xxl-3  part-adress">
@@ -96,31 +83,31 @@ const Footer = () => {
                   })
                 }
                 <div className="dropdown">
-                    <button className={`btn ${mode === 'dark' ? "text-white" : "text-dark"} dropdown-toggle`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-globe"></i>
-                    </button>
-                    <ul className={`dropdown-menu ${mode === 'dark' ? "bg-secondary" : ""} `}>
-                      <li>
-                        <button onClick={()=>{
-                          i18n.changeLanguage('az')
-                        }} className={`dropdown-item ${mode === 'dark' ? "text-white" : ""} `}>AZ</button>
-                      </li>
-                      <li>
-                        <button onClick={()=>{
-                          i18n.changeLanguage('en')
-                        }} className={`dropdown-item ${mode === 'dark' ? 'text-white' : ""} `}>EN</button>
-                      </li>
-                    </ul>
+                  <button className={`btn ${mode === 'dark' ? "text-white" : "text-dark"} dropdown-toggle`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-globe"></i>
+                  </button>
+                  <ul className={`dropdown-menu ${mode === 'dark' ? "bg-secondary" : ""} `}>
+                    <li>
+                      <button onClick={() => {
+                        i18n.changeLanguage('az')
+                      }} className={`dropdown-item ${mode === 'dark' ? "text-white" : ""} `}>AZ</button>
+                    </li>
+                    <li>
+                      <button onClick={() => {
+                        i18n.changeLanguage('en')
+                      }} className={`dropdown-item ${mode === 'dark' ? 'text-white' : ""} `}>EN</button>
+                    </li>
+                  </ul>
 
-                  </div>
+                </div>
 
               </ul>
-              
+
             </div>
           </div>
         </div>
-      </footer>}
-      {display && <div className={`footer-2 ${mode === 'dark' ? "bg-secondary" : ""} `}>
+      </footer>
+      <div className={`footer-2 ${mode === 'dark' ? "bg-secondary" : ""} `}>
         <div className="container-fluid">
           <div className="row">
             {
@@ -132,10 +119,10 @@ const Footer = () => {
               })
             }
           </div>
-                 
+
         </div>
-      </div>}
-      {display && <div className={`footer3 ${mode === 'dark' ? "bg-secondary" : ""} `}>
+      </div>
+      <div className={`footer3 ${mode === 'dark' ? "bg-secondary" : ""} `}>
         <div className="container-fluid">
           <div className="row ">
             <div className="links col-12 col-md-6 d-flex gap-2  col-lg-6 col-xl-8 col-xxl-8 ">
@@ -152,7 +139,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>}
+      </div>
 
     </>
   )

@@ -13,13 +13,7 @@ const Nav = () => {
   const location = useLocation()
   const [display, setDisplay] = useState(true)
   useEffect(() => {
-    if (location.pathname === '/admin') {
-      setDisplay(false)
-    } else if (location.pathname === '/dashboard') {
-      setDisplay(false)
-    } else {
-      setDisplay(true)
-    }
+
     setIcon(
       localStorage.getItem('mode-icon')
     )
@@ -54,7 +48,7 @@ const Nav = () => {
   const handleClick = (lang) => {
     i18n.changeLanguage(lang)
   }
-  const { cartItems, login,setLogin, userLogin,logoutHandler } = useContext(MainContext)
+  const { cartItems, login, setLogin, userLogin, logoutHandler, loggoutHandler } = useContext(MainContext)
   const { totalItems } = useCart()
   const blogs = useSelector((state) => state.blog)
   const [icon, setIcon] = useState('fa-solid fa-moon')
@@ -77,10 +71,12 @@ const Nav = () => {
     <>
 
 
-      {display && <header className='header-lg'>
+      <header className='header-lg'>
         <nav className={`navbar navbar-expand-xl ${mode === 'dark' ? "bg-secondary navbar-dark" : "bg-white"}`}>
           <div className="container-fluid">
-            <NavLink to={'/'}>
+            <NavLink onClick={() => {
+              loggoutHandler()
+            }} to={'/'}>
               <img width={150} className={`${mode === 'dark' ? "bg-secondary" : ""}`} src={logo} alt="" />
             </NavLink>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,7 +85,9 @@ const Nav = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink to='/' className='nav-link'>{t('navbar.home')}</NavLink>
+                  <NavLink onClick={() => {
+                    loggoutHandler()
+                  }} to='/' className='nav-link'>{t('navbar.home')}</NavLink>
                 </li>
                 <li className="shop nav-item">
                   <NavLink className='nav-link'>{t('navbar.shop')} <i class="bi bi-chevron-down"></i> </NavLink>
@@ -298,13 +296,13 @@ const Nav = () => {
 
               <div className="nav-btns d-flex align-items-center ">
                 {
-                  login === 'false' ? <Link to={'/login'} className={`btn mx-2 logout-btn ${mode === 'dark'?'btn-outline-light':'btn-outline-dark' }  `}>{t('loginData.login')}</Link> : <div className="dropdown logout-btn">
-                    <button className={`dropdown-toggle ${mode === 'dark'? 'btn btn-outline-light':'btn btn-outline-dark'} `} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  login === 'false' ? <Link to={'/login'} className={`btn mx-2 logout-btn ${mode === 'dark' ? 'btn-outline-light' : 'btn-outline-dark'}  `}>{t('loginData.login')}</Link> : <div className="dropdown logout-btn">
+                    <button className={`dropdown-toggle ${mode === 'dark' ? 'btn btn-outline-light' : 'btn btn-outline-dark'} `} type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i className='fa-solid fa-user'></i> {userLogin}
                     </button>
                     <ul className="dropdown-menu">
-                      <li><button onClick={()=>{
-                         logoutHandler()
+                      <li><button onClick={() => {
+                        logoutHandler()
                       }} className="dropdown-item">{t('loginData.logout')} <i className="bi bi-box-arrow-right"></i> </button></li>
                     </ul>
                   </div>
@@ -396,7 +394,7 @@ const Nav = () => {
           </div>
         </nav>
 
-      </header>}
+      </header>
 
 
       <header className={`header-sm`}>

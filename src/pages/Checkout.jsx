@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, redirect, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { MainContext } from '../context'
 const Checkout = () => {
     const { cartItems,login } = useContext(MainContext)

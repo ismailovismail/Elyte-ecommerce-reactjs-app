@@ -29,12 +29,15 @@ import NotFoundPage from '../pages/NotFoundPage'
 import Login from '../pages/Login'
 const AppRouter = () => {
  
- const [loggedIn,setLoggedIn]=useState(false)
+ const [loggedIn,setLoggedIn]=useState("false")
  const [login,setLogin]=useState("false")
  const [userLogin,setUserLogin]=useState(localStorage.getItem('userName'))
   useEffect(()=>{
       setLogin(
         localStorage.getItem('userLogin')
+      )
+      setLoggedIn(
+        localStorage.getItem('adminAuth')
       )
     setCartItems(
       localStorage.getItem('mycart') ? JSON.parse(localStorage.getItem('mycart')) : []
@@ -90,6 +93,16 @@ const logoutHandler=()=>{
     
    
 }
+const loggedHandler=()=>{
+  localStorage.setItem('adminAuth',"true")
+  setLoggedIn(localStorage.getItem('adminAuth'))
+}
+
+const loggoutHandler=()=>{
+  localStorage.setItem('adminAuth',"false")
+  setLoggedIn(localStorage.getItem('adminAuth'))
+}
+
 const data={
   cartItems,
  addProduct,
@@ -104,7 +117,9 @@ const data={
  userLogin,
  setUserLogin,
  loginHandler,
- logoutHandler
+ logoutHandler,
+ loggedHandler,
+ loggoutHandler
 }
   return (
     <>
@@ -115,8 +130,8 @@ const data={
           <Routes>
              <Route path='/' element={<Home/>}></Route>
              
-              { loggedIn && <Route path='/dashboard' element={<Dashboard/>}></Route>}
-              { !loggedIn && <Route path='/admin' element={<Authentication/>}/>}
+              { loggedIn === 'true' && <Route path='/dashboard' element={<Dashboard/>}></Route>}
+               { loggedIn ==='false' && <Route path='/admin' element={<Authentication/>}/>}
               
            
              <Route path='/addblog' element={<AddBlog/>} ></Route>
