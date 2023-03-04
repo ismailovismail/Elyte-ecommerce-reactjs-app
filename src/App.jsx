@@ -5,9 +5,9 @@ import AppRouter from './routers/AppRouter'
 const App = () => {
   return (
     <>
-    <ToastContainer position='bottom-right' />
-     <AppRouter/>
-     
+      <ToastContainer position='bottom-right' />
+      <AppRouter />
+
     </>
   )
 }

@@ -41,7 +41,7 @@ const Authentication = () => {
             <section className='auth-sec' >
                 <div style={{ width: "95%", height: "100%" }} className="container-fluid">
                     <div style={{ height: "100%" }} className="row d-flex justify-content-center align-items-center ">
-                        <div className="login-pw bg-white p-3 col-xl-4 rounded"  >
+                        <div className="login-pw bg-white p-3 col-sm-9 col-md-7 col-lg-6 col-xl-3 rounded"  >
                             <form onSubmit={handleSubmit} className='d-flex flex-column justify-content-center gap-3' >
                                 <h1 className='text-center fs-3' > <i className='fa-solid fa-user text-primary' ></i> Admin</h1>
                                 <input ref={login} type="text" placeholder='Login' className='p-1 rounded ' />

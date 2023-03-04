@@ -7,27 +7,27 @@ import brand6 from '../assets/img/brand-logo6.svg'
 import brand7 from '../assets/img/brand-logo7.svg'
 
 
-const brands=[
+const brands = [
     {
-        img:brand1
+        img: brand1
     },
     {
-        img:brand2
+        img: brand2
     },
     {
-        img:brand3
+        img: brand3
     },
     {
-        img:brand4
+        img: brand4
     },
     {
-        img:brand5
+        img: brand5
     },
     {
-        img:brand6
+        img: brand6
     },
     {
-        img:brand7
+        img: brand7
     }
 ]
 export default brands

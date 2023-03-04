@@ -10,8 +10,7 @@ import { useSelector } from 'react-redux'
 import logo from '../assets/img/logo.svg'
 
 const Nav = () => {
-  const location = useLocation()
-  const [display, setDisplay] = useState(true)
+
   useEffect(() => {
 
     setIcon(
@@ -35,7 +34,7 @@ const Nav = () => {
 
     }
     window.onscroll = myFunction
-  }, [display])
+  }, [])
   const [searchTerm, setSearchTerm] = useState('')
   const [data, setData] = useState(products)
 
@@ -96,19 +95,19 @@ const Nav = () => {
                       <div className="links col-lg-3 ">
                         <ul>
                           {
-                            collectionLinks.map((fd, i) => {
-                              return <li key={i} ><a className={`${mode === 'dark' ? 'text-white' : ''}`} href={`/collection/${fd.type}`}>{fd.label}</a></li>
+                            collectionLinks.map((item, i) => {
+                              return <li key={i} ><a className={`${mode === 'dark' ? 'text-white' : ''}`} href={`/collection/${item.type}`}>{item.label}</a></li>
                             })
                           }
                         </ul>
                       </div>
                       <div className="images col-lg-6 ">
                         {
-                          collectionImagelinks.map((fd, i) => {
+                          collectionImagelinks.map((item, i) => {
 
                             return <div key={i} className="image">
-                              <Link to={`/collection/${fd.type}`}><div className="hoverbox"></div></Link>
-                              <img src={fd.image} alt="" />
+                              <Link to={`/collection/${item.type}`}><div className="hoverbox"></div></Link>
+                              <img src={item.image} alt="" />
                             </div>
                           })
                         }
@@ -201,11 +200,11 @@ const Nav = () => {
                   <div className={`collection-items ${mode === 'dark' ? "bg-secondary" : ""} `}>
                     <div className="row">
                       {
-                        collectionData.map((fd, i) => {
+                        collectionData.map((item, i) => {
                           return <div key={i} className="image col-lg-3 ">
-                            <a href={`/collection/${fd.type}`} ><div className="hoverbox"></div></a>
-                            <img src={fd.image} alt="" />
-                            <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >{fd.label}</h1>
+                            <a href={`/collection/${item.type}`} ><div className="hoverbox"></div></a>
+                            <img src={item.image} alt="" />
+                            <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >{item.label}</h1>
                           </div>
 
 
@@ -323,25 +322,25 @@ const Nav = () => {
                           } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                             return val
                           }
-                        }).splice(0, 4).map((fd, i) => {
+                        }).splice(0, 4).map((item, i) => {
 
                           return <Link key={i} onClick={() => {
                             setSearchTerm('')
-                          }} to={`products/${fd.type}/${fd.name}`}> <div className={`dropdown-item card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 540 }}>
+                          }} to={`products/${item.type}/${item.name}`}> <div className={`dropdown-item card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 540 }}>
                               <div className="row g-0">
                                 <div className="col-md-2 d-flex align-items-center ">
-                                  <img src={fd.image1} className="img-fluid rounded-start" alt="..." />
+                                  <img src={item.image1} className="img-fluid rounded-start" alt="..." />
                                 </div>
                                 <div className="col-md-6">
                                   <div className="card-body d-flex flex-column gap-2">
-                                    <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{fd.name}</h5>
+                                    <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{item.name}</h5>
                                     <div className="price d-flex gap-3">
-                                      <h1 className={`${mode === 'dark' ? "text-white" : ""}`}>$ {fd.price}</h1>
-                                      {fd.delprice && <h1><del className={`${mode === 'dark' ? 'text-white' : ""}`}>$ {fd.delprice}</del></h1>}
+                                      <h1 className={`${mode === 'dark' ? "text-white" : ""}`}>$ {item.price}</h1>
+                                      {item.delprice && <h1><del className={`${mode === 'dark' ? 'text-white' : ""}`}>$ {item.delprice}</del></h1>}
                                     </div>
                                     <div className="review">
                                       {
-                                        fd.review.map((a) => {
+                                        item.review.map((a) => {
                                           return a
                                         })
                                       }
@@ -420,24 +419,24 @@ const Nav = () => {
                         } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                           return val
                         }
-                      }).slice(0, 5).map((fd) => {
+                      }).slice(0, 5).map((item) => {
                         return <Link onClick={() => {
                           setSearchTerm('')
-                        }} to={`products/${fd.type}/${fd.name}`}> <div className=" dropdown-item card mb-3" style={{ maxWidth: 540 }}>
+                        }} to={`products/${item.type}/${item.name}`}> <div className=" dropdown-item card mb-3" style={{ maxWidth: 540 }}>
                             <div className="row d-flex  g-0">
                               <div className="col-2 d-flex align-items-center ">
-                                <img width={70} src={fd.image1} className="img-fluid rounded-start" alt="..." />
+                                <img width={70} src={item.image1} className="img-fluid rounded-start" alt="..." />
                               </div>
                               <div className='col-6'>
                                 <div className="card-body d-flex flex-column gap-2">
-                                  <h5 className="card-title">{fd.name.substring(0, 30)}</h5>
+                                  <h5 className="card-title">{item.name.substring(0, 30)}</h5>
                                   <div className="price d-flex gap-3">
-                                    <h1>$ {fd.price}</h1>
-                                    {fd.delprice && <h1><del>$ {fd.delprice}</del></h1>}
+                                    <h1>$ {item.price}</h1>
+                                    {item.delprice && <h1><del>$ {item.delprice}</del></h1>}
                                   </div>
                                   <div className="review">
                                     {
-                                      fd.review.map((a) => {
+                                      item.review.map((a) => {
                                         return a
                                       })
                                     }
@@ -465,10 +464,11 @@ const Nav = () => {
               </div>
               <div className="offcanvas-body scroll ">
                 <div className="accordion accordion-flush" id="accordionFlushExample">
-                  <div className="accordion-item">
+                  <div className="accordion-item d-flex justify-content-between ">
                     <h2 className="accordion-header p-4 " id="flush-headingOne">
                       <Link to='/' >{t('navbar.home')}</Link>
                     </h2>
+
                   </div>
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="flush-headingTwo">
@@ -480,15 +480,15 @@ const Nav = () => {
                       <div className="accordion-body d-flex flex-column gap-2 ">
                         <ul className='sm-navlinks'>
                           {
-                            collectionLinks.map((fd, i) => {
-                              return <li key={i} ><Link to={`collection/${fd.type}`} >{fd.label}</Link></li>
+                            collectionLinks.map((item, i) => {
+                              return <li key={i} ><Link to={`collection/${item.type}`} >{item.label}</Link></li>
                             })
                           }
                         </ul>
                         <div className="sm-navimages">
                           {
-                            collectionImagelinks.map((fd, i) => {
-                              return <Link key={i} to={`collection/${fd.type}`}><img src={fd.image} alt="" /></Link>
+                            collectionImagelinks.map((item, i) => {
+                              return <Link key={i} to={`collection/${item.type}`}><img src={item.image} alt="" /></Link>
                             })
                           }
                         </div>
@@ -590,14 +590,14 @@ const Nav = () => {
                       <div className=" collection accordion-body">
                         <div className="row gap-2 ">
                           {
-                            collectionData.map((fd, i) => {
+                            collectionData.map((item, i) => {
                               return <div key={i} className="images col-5 ">
 
-                                <Link to={`collection/${fd.type}`}>
+                                <Link to={`collection/${item.type}`}>
                                   <div className="hoverbox"></div>
                                 </Link>
-                                <img width={120} height={120} src={fd.image} alt="" />
-                                <h1 className='text-center' >{fd.label}</h1>
+                                <img width={120} height={120} src={item.image} alt="" />
+                                <h1 className='text-center' >{item.label}</h1>
 
                               </div>
                             })
@@ -660,6 +660,18 @@ const Nav = () => {
                       </div>
                     </div>
                   </div>
+
+                  {login === 'false' ? <Link to='/login' className='btn  my-2  btn-outline-dark'>{t('loginData.login')}</Link> :
+                    <div className="user-sec d-flex justify-content-between ">
+                      <button className='btn btn-outline-dark'><i className='fa-solid fa-user'></i> {userLogin}</button>
+                      <button onClick={() => {
+                        if (window.confirm('Are you sure?') === true) {
+                          logoutHandler()
+                        }
+                      }} className='btn btn-outline-danger'>{t('loginData.logout')} <i className="bi bi-box-arrow-right"></i></button>
+                    </div>
+
+                  }
 
 
 

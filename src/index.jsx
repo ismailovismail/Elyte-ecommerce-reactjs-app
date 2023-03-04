@@ -13,18 +13,18 @@ import './firebase/firebaseConfig'
 
 
 
-const store=configureStore()
+const store = configureStore()
 
-  const app=(
-    
-    <Provider store={store} >
+const app = (
+
+  <Provider store={store} >
     <App />
-      </Provider>
-  )
-  
-  ReactDOM.createRoot(document.getElementById('root'));
-  store.dispatch(getBlogsFromDatabase()).then(() => {
-    ReactDOM.render(app, document.getElementById('root'));
-  })
+  </Provider>
+)
+
+ReactDOM.createRoot(document.getElementById('root'));
+store.dispatch(getBlogsFromDatabase()).then(() => {
+  ReactDOM.render(app, document.getElementById('root'));
+})
 
 

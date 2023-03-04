@@ -1,5 +1,5 @@
-const loginData={
-    user:"ismailovismail",
-    password:"isko123"
+const loginData = {
+    user: "ismailovismail",
+    password: "isko123"
 }
 export default loginData

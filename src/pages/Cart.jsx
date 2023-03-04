@@ -6,36 +6,36 @@ import { useTranslation } from 'react-i18next'
 const Cart = () => {
     const { cartItems, addProduct, removeProduct, remove } = useContext(MainContext)
     const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-    const {mode}=useContext(MainContext)
-   const {t}=useTranslation()
-   useEffect(()=>{
-    document.title='Cart | Elyte Ecommerce'
-   },[])
+    const { mode } = useContext(MainContext)
+    const { t } = useTranslation()
+    useEffect(() => {
+        document.title = 'Cart | Elyte Ecommerce'
+    }, [])
     return (
         <>
-            <div className={`switch-home py-2 ${mode === 'dark' ? "bg-secondary" : "" } `}>
-                {mode === 'dark' ? "" : <hr /> }
-                <div style={{width:"90%"}} className={`container-fluid ${mode === 'dark' ? "text-white" : "" } `}>
-                <Link className={`${mode === 'dark' ? "text-white" : "" }`} to={'/'} >{t('navbar.home')}</Link> / {t('shoppingCart')}
+            <div className={`switch-home py-2 ${mode === 'dark' ? "bg-secondary" : ""} `}>
+                {mode === 'dark' ? "" : <hr />}
+                <div style={{ width: "90%" }} className={`container-fluid ${mode === 'dark' ? "text-white" : ""} `}>
+                    <Link className={`${mode === 'dark' ? "text-white" : ""}`} to={'/'} >{t('navbar.home')}</Link> / {t('shoppingCart')}
                 </div>
-                {mode === 'dark' ? "" : <hr /> }
+                {mode === 'dark' ? "" : <hr />}
             </div>
-            {cartItems.length === 0 && <div style={{ height: "80vh"}} className={`empty-cart  d-flex flex-column gap-3 justify-content-center align-items-center ${mode === 'dark' ? "bg-secondary" : "" } `}>
-                <h1 className={`${mode === 'dark' ? "text-white" : "" }`}  >{t('emptyCart.empty')}</h1>
-                <p className={`text-center ${mode === 'dark' ? "text-white" : "" } `} >{t('emptyCart.empty2')}</p>
+            {cartItems.length === 0 && <div style={{ height: "80vh" }} className={`empty-cart  d-flex flex-column gap-3 justify-content-center align-items-center ${mode === 'dark' ? "bg-secondary" : ""} `}>
+                <h1 className={`${mode === 'dark' ? "text-white" : ""}`}  >{t('emptyCart.empty')}</h1>
+                <p className={`text-center ${mode === 'dark' ? "text-white" : ""} `} >{t('emptyCart.empty2')}</p>
 
             </div>}
             {
-                cartItems.length > 0 && <div  className={`cart py-5 ${mode === 'dark' ? "bg-secondary" : "" } `}>
+                cartItems.length > 0 && <div className={`cart py-5 ${mode === 'dark' ? "bg-secondary" : ""} `}>
                     <div className="container-fluid ">
                         <div style={{ width: "100%" }} className="row d-flex justify-content-center gap-5">
                             <div className="cart col-xl-8">
                                 <div className="title mb-3">
-                                    <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >{t('myCart')}</h1>
+                                    <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >{t('myCart')}</h1>
                                 </div>
                                 <div className="products">
                                     {
-                                        cartItems.map((fd,i) => {
+                                        cartItems.map((fd, i) => {
                                             return <div key={i} className={`card p-0 mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: "900px" }} >
                                                 <div className="row gap-3 d-flex align-items-center g-0">
                                                     <div className="col-md-4">
@@ -43,16 +43,16 @@ const Cart = () => {
                                                     </div>
                                                     <div className="col-md-6">
                                                         <div className="card-body">
-                                                            <Link to={`/products/${fd.type}/${fd.name}`} ><h5 className={`card-title ${mode === 'dark' ? "text-white" : "" } `}>{fd.name}</h5></Link>
-                                                            <h5 className={`card-title ${mode === 'dark' ? "text-white" : "" } `}>Color: {fd.color}</h5>
-                                                            <h5 className={`card-title ${mode === 'dark' ? "text-white" : "" }`}>$ {(fd.price * fd.qty)} </h5>
+                                                            <Link to={`/products/${fd.type}/${fd.name}`} ><h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{fd.name}</h5></Link>
+                                                            <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>Color: {fd.color}</h5>
+                                                            <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""}`}>$ {(fd.price * fd.qty)} </h5>
                                                             <div className="qty-buttons">
-                                                                <button disabled={fd.qty === fd.stockCount } className={`btn btn-outline-dark ${mode === 'dark' ? "bg-white" : ""  } `} onClick={() => addProduct(fd)} >+</button>
-                                                                <span className={`mx-2 ${mode === 'dark' ? "text-white" : "" } `} >{fd.qty}</span>
-                                                                <button className={`btn btn-outline-dark ${mode === 'dark' ? "bg-white" : "" } `} onClick={() => removeProduct(fd)}>-</button>
+                                                                <button disabled={fd.qty === fd.stockCount} className={`btn btn-outline-dark ${mode === 'dark' ? "bg-white" : ""} `} onClick={() => addProduct(fd)} >+</button>
+                                                                <span className={`mx-2 ${mode === 'dark' ? "text-white" : ""} `} >{fd.qty}</span>
+                                                                <button className={`btn btn-outline-dark ${mode === 'dark' ? "bg-white" : ""} `} onClick={() => removeProduct(fd)}>-</button>
                                                             </div>
                                                             <div className="remove-button">
-                                                                <button onClick={() => remove(fd)} className={`btn btn-outline-danger ${mode === 'dark' ? "bg-danger text-white" :" " } `}>{t('remove')}</button>
+                                                                <button onClick={() => remove(fd)} className={`btn btn-outline-danger ${mode === 'dark' ? "bg-danger text-white" : " "} `}>{t('remove')}</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -68,8 +68,8 @@ const Cart = () => {
                                     cartItems.length !== 0 && (
                                         <div className="check d-flex flex-column p-2">
                                             <div className=" price d-flex justify-content-between">
-                                                <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >{t('total')}</h1>
-                                                <span className={`${mode === 'dark' ? "text-white" : "" }`} >${itemsPrice}</span>
+                                                <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >{t('total')}</h1>
+                                                <span className={`${mode === 'dark' ? "text-white" : ""}`} >${itemsPrice}</span>
                                             </div>
                                             <div className="  d-flex justify-content-center  gap-1 credit-cards mt-3 mb-3 ">
                                                 <Link to={'/'}>
@@ -93,7 +93,7 @@ const Cart = () => {
                                             </div>
                                             <div className=" mt-3 mb-3 check-btn d-flex justify-content-center align-items-center">
 
-                                               <Link to={'/checkout'} style={{width:"100%"}} className={`btn btn-outline-dark ${mode === 'dark' ? "text-white" : "" } `}>{t('checkout')}</Link>
+                                                <Link to={'/checkout'} style={{ width: "100%" }} className={`btn btn-outline-dark ${mode === 'dark' ? "text-white" : ""} `}>{t('checkout')}</Link>
 
                                             </div>
                                         </div>

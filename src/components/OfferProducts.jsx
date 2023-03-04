@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useCart } from 'react-use-cart'
 const OfferProducts = () => {
-    const {mode}=useContext(MainContext)
+    const { mode } = useContext(MainContext)
     const settings = {
         dots: false,
         infinite: true,
@@ -18,7 +18,7 @@ const OfferProducts = () => {
         initialSlide: 0,
         autoplay: true,
         autoplaySpeed: 4000,
-        arrows:true,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 1200,
@@ -58,40 +58,40 @@ const OfferProducts = () => {
 
 
     }, [])
-    const {addItem,items}=useCart()
-    const {addProduct}=useContext(MainContext)
+    const { addItem, items } = useCart()
+    const { addProduct } = useContext(MainContext)
     const notify = () => toast.success("Success");
-    const {t}=useTranslation()
+    const { t } = useTranslation()
     const [data, setData] = useState(products.filter((fd) => fd.status2 === "offer-products"))
     const [timer, setTimer] = useState([])
-    const navigate=useNavigate()
-    
+    const navigate = useNavigate()
+
     return (
 
         <>
             <div className="head mt-3 mb-5">
                 <div className="title">
-                    <h1 className={`${mode === 'dark' ? "text-white" : ""  } text-center`} >{t("offerproducts")}</h1>
-                    
+                    <h1 className={`${mode === 'dark' ? "text-white" : ""} text-center`} >{t("offerproducts")}</h1>
+
                 </div>
-            </div>  
+            </div>
             <Slider className='mt-2' {...settings} >
-                
+
                 {
                     data.map((fd) => {
-                        return <div key={fd.id} data-aos='fade-up' data-aos-duration='3000'  className={`card mb-3 col-xl-6 ${mode ==='dark'? "bg-secondary" : ""  } `} style={{ maxWidth: 540 }}>
+                        return <div key={fd.id} data-aos='fade-up' data-aos-duration='3000' className={`card mb-3 col-xl-6 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 540 }}>
                             <div className="row d-flex align-items-center g-0">
-                                
-                                 <img src={fd.image1} className="img-fluid rounded-start col-md-3  col-xl-4"  alt="" />
-                        
+
+                                <img src={fd.image1} className="img-fluid rounded-start col-md-3  col-xl-4" alt="" />
+
                                 <div className="col-md-9  col-xl-8">
-                                    <div className="card-body d-flex flex-column justify-content-center gap-2 " style={{height:"220px"}} >
+                                    <div className="card-body d-flex flex-column justify-content-center gap-2 " style={{ height: "220px" }} >
                                         <h5 className="card-title">
-                                            <Link to={`products/${fd.type}/${fd.name}`} ><h1 className={`${mode === 'dark' ? "text-white" : ""  }`} >{fd.name}</h1></Link>
-                                            </h5>
+                                            <Link to={`products/${fd.type}/${fd.name}`} ><h1 className={`${mode === 'dark' ? "text-white" : ""}`} >{fd.name}</h1></Link>
+                                        </h5>
                                         <div className="price d-flex gap-2 ">
-                                            {fd.price && <h1 className={`${mode === 'dark' ? "text-white" : ""  }`} >${fd.price}</h1>}
-                                            {fd.delprice && <del className={`${mode === 'dark' ? "text-white" : "" }`}>${fd.delprice}</del>}
+                                            {fd.price && <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >${fd.price}</h1>}
+                                            {fd.delprice && <del className={`${mode === 'dark' ? "text-white" : ""}`}>${fd.delprice}</del>}
                                         </div>
                                         <div className="review">
                                             {
@@ -100,36 +100,36 @@ const OfferProducts = () => {
                                                 })
                                             }
                                         </div>
-                                    
-                                            {
-                                                timer.map((fd)=>{
-                                                    return <div className="counter">
-                                                        <h1 className={`${mode === 'dark' ? "text-white fs-6" : "fs-6"  }`} >{fd.days} {t('day')}</h1> :
-                                                        {fd.hours < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6" }`} >0{fd.hours} {t('hrs')}</h1>  : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6" }`}>{fd.hours} {t('hrs')}</h1>} : 
-                                                        {fd.minutes < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6" : "fs-6" }`} >0{fd.minutes} {t('minute')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"  }`} >{fd.minutes} {t('minute')}</h1>} :
-                                                        {fd.seconds < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"  }`} >0{fd.seconds} {t('second')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6" }`} >{fd.seconds} {t('second')}</h1> }
-                                                    </div>
-                                                })
-                                            }
 
-                                            <div className="buttons">
-                                                <button onClick={()=>notify(addProduct(fd))} className={`btn ${mode === 'dark' ? "text-white" : ""  } `}><i class="bi bi-handbag"></i></button>
-                                                {items.find((a)=>a.id === fd.id) ? <button className={`btn ${mode === 'dark' ? "text-white" : "" } `} disabled><i className='bi bi-check'></i> </button> : <button onClick={()=>{notify(addItem(fd))}} className={`btn ${mode === 'dark' ? "text-white" : "" }`}><i class="bi bi-heart"></i></button> }
-                                                <button onClick={()=>{
-                                                     navigate(`/products/${fd.type}/${fd.name}`)
-                                                }}  className={`btn ${mode === 'dark' ? "text-white" : "" } `}><i class="bi bi-eye"></i></button>
-                                            </div>
-                                        
+                                        {
+                                            timer.map((fd) => {
+                                                return <div className="counter">
+                                                    <h1 className={`${mode === 'dark' ? "text-white fs-6" : "fs-6"}`} >{fd.days} {t('day')}</h1> :
+                                                    {fd.hours < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"}`} >0{fd.hours} {t('hrs')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"}`}>{fd.hours} {t('hrs')}</h1>} :
+                                                    {fd.minutes < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6" : "fs-6"}`} >0{fd.minutes} {t('minute')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"}`} >{fd.minutes} {t('minute')}</h1>} :
+                                                    {fd.seconds < 10 ? <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"}`} >0{fd.seconds} {t('second')}</h1> : <h1 className={`${mode === 'dark' ? "text-white fs-6 " : "fs-6"}`} >{fd.seconds} {t('second')}</h1>}
+                                                </div>
+                                            })
+                                        }
+
+                                        <div className="buttons">
+                                            <button onClick={() => notify(addProduct(fd))} className={`btn ${mode === 'dark' ? "text-white" : ""} `}><i class="bi bi-handbag"></i></button>
+                                            {items.find((a) => a.id === fd.id) ? <button className={`btn ${mode === 'dark' ? "text-white" : ""} `} disabled><i className='bi bi-check'></i> </button> : <button onClick={() => { notify(addItem(fd)) }} className={`btn ${mode === 'dark' ? "text-white" : ""}`}><i class="bi bi-heart"></i></button>}
+                                            <button onClick={() => {
+                                                navigate(`/products/${fd.type}/${fd.name}`)
+                                            }} className={`btn ${mode === 'dark' ? "text-white" : ""} `}><i class="bi bi-eye"></i></button>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
 
 
                     })
                 }
-            
+
             </Slider>
         </>
     )

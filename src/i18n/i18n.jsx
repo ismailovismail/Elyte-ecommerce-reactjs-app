@@ -8,7 +8,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // for passing in lng and translations on init
 
 
-const language = ['az','en'];
+const language = ['az', 'en'];
 
 
 
@@ -27,7 +27,7 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: true,
-    whitelist:language,
+    whitelist: language,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     }

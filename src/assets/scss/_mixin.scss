@@ -1,12 +1,15 @@
-@mixin  color {
+@mixin color {
     color: #ffd90c;
 }
-@mixin shadow{
-    box-shadow: -4px 4px 22px 0px rgba(219,206,206,0.75);
+
+@mixin shadow {
+    box-shadow: -4px 4px 22px 0px rgba(219, 206, 206, 0.75);
 }
-@mixin  slatecolor {
+
+@mixin slatecolor {
     color: slategray;
 }
-@mixin  backcolor {
+
+@mixin backcolor {
     background-color: #ffd90c;
 }

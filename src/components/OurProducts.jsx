@@ -8,12 +8,12 @@ import { MainContext } from '../context'
 const OurProducts = () => {
     const [data, setData] = useState(products.filter((fd) => fd.status === "New"))
     const [active, setActive] = useState("1")
-    const {mode}=useContext(MainContext)
+    const { mode } = useContext(MainContext)
     const settings = {
         className: "center",
         centerMode: true,
         infinite: true,
-        centerPadding:"10px",
+        centerPadding: "10px",
         slidesToShow: 3,
         speed: 500,
         autoplay: true,
@@ -53,25 +53,25 @@ const OurProducts = () => {
             <div className="container-fluid">
                 <div className="head d-flex flex-column gap-2">
                     <div className="title mt-3 ">
-                        <h1 className={`text-center ${mode === 'dark' ? "text-white" : " "  } `}>{t("ourproducts")}</h1>
+                        <h1 className={`text-center ${mode === 'dark' ? "text-white" : " "} `}>{t("ourproducts")}</h1>
                     </div>
                     <div className="buttons d-flex mb-2 gap-3 justify-content-center">
                         <div className={active === "1" ? " filter activebtn" : undefined}>
-                            <button id='1' className={`btn ${mode === 'dark' ? "text-white" : "" } `} onClick={(e) => {
+                            <button id='1' className={`btn ${mode === 'dark' ? "text-white" : ""} `} onClick={(e) => {
                                 setActive(e.target.id)
                                 filteringProducts("New")
                             }} >{t("newproductbtn")}</button>
                             <div className="line"></div>
                         </div>
                         <div className={active === "2" ? "filter activebtn" : undefined}>
-                            <button id='2' className={`btn ${mode === 'dark' ? "text-white" : "" } `} onClick={(e) => {
+                            <button id='2' className={`btn ${mode === 'dark' ? "text-white" : ""} `} onClick={(e) => {
                                 setActive(e.target.id)
                                 filteringProducts("Feature")
                             }} >{t("featureproductbtn")}</button>
                             <div className="line"></div>
                         </div>
                         <div className={active === "3" ? "filter activebtn" : undefined}>
-                            <button id='3' className={`btn ${mode === 'dark' ? "text-white" : "" } `} onClick={(e) => {
+                            <button id='3' className={`btn ${mode === 'dark' ? "text-white" : ""} `} onClick={(e) => {
                                 setActive(e.target.id)
                                 filteringProducts("Best")
                             }} >{t("bestproductbtn")}</button>
@@ -83,10 +83,10 @@ const OurProducts = () => {
                 <hr />
                 <div className="products-slider">
                     <Slider {...settings} >
-                
+
                         {
                             data.map((fd) => {
-                                return <div key={fd.id} data-aos='fade-up' data-aos-duration='3000' className={`card mx-2 d-flex justify-content-center p-2  ${mode === 'dark' ? "bg-secondary" : ""  } `}>
+                                return <div key={fd.id} data-aos='fade-up' data-aos-duration='3000' className={`card mx-2 d-flex justify-content-center p-2  ${mode === 'dark' ? "bg-secondary" : ""} `}>
                                     <div className="row d-flex align-items-center">
                                         <div className="image col-6">
                                             <div className="image1">
@@ -99,11 +99,11 @@ const OurProducts = () => {
                                         </div>
                                         <div className="card-body d-flex  flex-column gap-2 col-6">
                                             <div className="title">
-                                                <Link to={`products/${fd.type}/${fd.name}`} ><h1 className={` ${mode === 'dark' ? "text-white" : "" } `}>{fd.name}</h1></Link>
+                                                <Link to={`products/${fd.type}/${fd.name}`} ><h1 className={` ${mode === 'dark' ? "text-white" : ""} `}>{fd.name}</h1></Link>
                                             </div>
                                             <div className="price d-flex gap-3">
-                                                <h1  className={`${mode === 'dark' ? "text-white" : "" }`} >${fd.price}</h1>
-                                                <del className={`${mode === 'dark' ? "text-white" : "" }`}  >${fd.delprice}</del>
+                                                <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >${fd.price}</h1>
+                                                <del className={`${mode === 'dark' ? "text-white" : ""}`}  >${fd.delprice}</del>
                                             </div>
                                             <div className="review">
                                                 {
@@ -118,7 +118,7 @@ const OurProducts = () => {
 
                             })
                         }
-                    
+
                     </Slider>
                 </div>
             </div>

@@ -25,12 +25,12 @@ const ProductsFiltering = () => {
     const [brand, setBrand] = useState(brands.filter((item) => item.type === type))
     const [availability, setAvailability] = useState(availabilities.filter((item) => item.type === type))
     const [color, setColor] = useState(colors.filter((item) => item.type === type))
-    const [selectedPrice, setSelectedPrice] = useState([minPrice,maxPrice])
+    const [selectedPrice, setSelectedPrice] = useState([minPrice, maxPrice])
     const [sortValue, setSortValue] = useState('Alphabetically,A-Z')
-    const [minPrices,setMinPrices]=useState()
-    const [maxPrices,setMaxPrices]=useState()
+    const [minPrices, setMinPrices] = useState()
+    const [maxPrices, setMaxPrices] = useState()
     const notify = () => toast.success("Success");
-    const { addProduct,mode } = useContext(MainContext)
+    const { addProduct, mode } = useContext(MainContext)
     const { addItem, items } = useCart()
     const { t } = useTranslation()
     const handleCheckChange = (id) => {
@@ -89,56 +89,56 @@ const ProductsFiltering = () => {
 
         }
         applyFilter()
-        if ( selectedPrice[0] === 389 && selectedPrice[1] === 2800 ) {
+        if (selectedPrice[0] === 389 && selectedPrice[1] === 2800) {
             setMinPrices(389)
             setMaxPrices(2800)
-        }else if (selectedPrice[0] === 700 && selectedPrice[1] === 5500  ) {
-             setMinPrices(700)
-             setMaxPrices(5500)
-        }else if ( selectedPrice[0] === 1099 && selectedPrice[1] === 4000 ) {
+        } else if (selectedPrice[0] === 700 && selectedPrice[1] === 5500) {
+            setMinPrices(700)
+            setMaxPrices(5500)
+        } else if (selectedPrice[0] === 1099 && selectedPrice[1] === 4000) {
             setMinPrices(1099)
             setMaxPrices(4000)
-        }else if (selectedPrice[0] === 1234 && selectedPrice[1] === 9880 ) {
-             setMinPrices(1234)
-             setMaxPrices(9880)
-        }else if ( selectedPrice[0] === 25 && selectedPrice[1] === 270 ) {
+        } else if (selectedPrice[0] === 1234 && selectedPrice[1] === 9880) {
+            setMinPrices(1234)
+            setMaxPrices(9880)
+        } else if (selectedPrice[0] === 25 && selectedPrice[1] === 270) {
             setMinPrices(25)
             setMaxPrices(270)
-        }else if ( selectedPrice[0] === 30 && selectedPrice[1] === 350 ) {
+        } else if (selectedPrice[0] === 30 && selectedPrice[1] === 350) {
             setMinPrices(30)
             setMaxPrices(350)
-        }else if ( selectedPrice[0] === 28 && selectedPrice[1] === 80 ) {
+        } else if (selectedPrice[0] === 28 && selectedPrice[1] === 80) {
             setMinPrices(28)
             setMaxPrices(80)
-        }else if ( selectedPrice[0] === 120 && selectedPrice[1] === 350 ) {
+        } else if (selectedPrice[0] === 120 && selectedPrice[1] === 350) {
             setMinPrices(120)
             setMaxPrices(350)
-        }else if ( selectedPrice[0] === 150 && selectedPrice[1] === 2500 ) {
+        } else if (selectedPrice[0] === 150 && selectedPrice[1] === 2500) {
             setMinPrices(150)
             setMaxPrices(2500)
 
-        }else if ( selectedPrice[0] === 220 && selectedPrice[1] === 1900  ) {
-             setMinPrices(220)
-             setMaxPrices(1900)
-        }else if  (  selectedPrice[0] === 12 && selectedPrice[1] === 1550 )  {
-             setMinPrices(12)
-             setMaxPrices(1550)
-        }else if (selectedPrice[0] === 190 && selectedPrice[1] === 7570 ) {
+        } else if (selectedPrice[0] === 220 && selectedPrice[1] === 1900) {
+            setMinPrices(220)
+            setMaxPrices(1900)
+        } else if (selectedPrice[0] === 12 && selectedPrice[1] === 1550) {
+            setMinPrices(12)
+            setMaxPrices(1550)
+        } else if (selectedPrice[0] === 190 && selectedPrice[1] === 7570) {
             setMinPrices(190)
             setMaxPrices(7570)
         }
-        document.title=`Filter (${type.toUpperCase()}) | Elyte Ecommerce`
+        document.title = `Filter (${type.toUpperCase()}) | Elyte Ecommerce`
 
     }, [brand, availability, color, selectedPrice, sortValue])
     return (
-        <section className={`filter-products ${mode === 'dark' ? "bg-secondary" : "" }`}>
-            <div className={`switch-home ${mode === 'dark ' ? "bg-secondary" :"" }`}>
-                { mode === 'dark' ? " " : <hr /> }
-                <div className={`container-fluid ${mode === 'dark' ? "text-white py-3 " : "" } `}>
+        <section className={`filter-products ${mode === 'dark' ? "bg-secondary" : ""}`}>
+            <div className={`switch-home ${mode === 'dark ' ? "bg-secondary" : ""}`}>
+                {mode === 'dark' ? " " : <hr />}
+                <div className={`container-fluid ${mode === 'dark' ? "text-white py-3 " : ""} `}>
                     <Link className={`${mode === 'dark' ? "text-white" : "text-secondary"}`} to='/'>{t('navbar.home')}</Link> / Filter
                 </div>
-                {mode === 'dark' ? "" : <hr /> }
-                
+                {mode === 'dark' ? "" : <hr />}
+
             </div>
             <div className="container-fluid">
                 <div className="row ">
@@ -149,7 +149,7 @@ const ProductsFiltering = () => {
                                     <div className="filter-count"></div>
                                     <h1 className={`fw-bold`}>Filter</h1>
                                 </div>
-                                <h1 className={`${mode === 'dark' ? "text-white" : "" }`}>{productList.length} {t('filteringProducts.products')}</h1>
+                                <h1 className={`${mode === 'dark' ? "text-white" : ""}`}>{productList.length} {t('filteringProducts.products')}</h1>
                             </div>
                             <div className=" col-12 col-md-6 col-xl-12 availability-products d-flex flex-column gap-2">
                                 <div className="title d-flex gap-2 align-items-center ">
@@ -161,7 +161,7 @@ const ProductsFiltering = () => {
                                         return <div className="check-filter">
                                             <input disabled={
                                                 fd.label === 'Stock out' && productList.filter((item) => item.availability === 'Stock out').length === 0} onChange={() => { handleAvailabilityChange(fd.id) }} type="checkbox" name="" checked={fd.checked} id="" />
-                                            {fd.label === 'In stock' ? <label htmlFor="" className={`${mode === 'dark' ? "text-white" : "" }`} >{t('stockcount')} <span>({productList.filter((item) => item.availability === 'In stock').length})</span> </label> : <label className={`${mode === 'dark' ? "text-white" : "" }`} htmlFor="">{t('stocknot')} <span>({productList.filter((item) => item.availability === 'Stock out').length})</span> </label>}
+                                            {fd.label === 'In stock' ? <label htmlFor="" className={`${mode === 'dark' ? "text-white" : ""}`} >{t('stockcount')} <span>({productList.filter((item) => item.availability === 'In stock').length})</span> </label> : <label className={`${mode === 'dark' ? "text-white" : ""}`} htmlFor="">{t('stocknot')} <span>({productList.filter((item) => item.availability === 'Stock out').length})</span> </label>}
                                         </div>
                                     })
                                 }
@@ -175,7 +175,7 @@ const ProductsFiltering = () => {
                                     brand.map((fd) => {
                                         return <div className="check-filter">
                                             <input onChange={() => handleCheckChange(fd.id)} type="checkbox" name="" checked={fd.checked} id={fd.id} />
-                                            <label className={`${mode === 'dark' ? "text-white" : "" }`} htmlFor="">{fd.label}</label>
+                                            <label className={`${mode === 'dark' ? "text-white" : ""}`} htmlFor="">{fd.label}</label>
                                         </div>
                                     })
                                 }
@@ -189,7 +189,7 @@ const ProductsFiltering = () => {
                                     color.map((fd) => {
                                         return <div className="check-filter">
                                             <input onChange={() => { handleColorChange(fd.id) }} type="checkbox" name="" checked={fd.checked} id="" />
-                                            <label  className={`d-flex align-items-center gap-2 ${mode === 'dark' ? "text-white" : "" } `} htmlFor="">{fd.label} <div className={fd.color} ></div></label>
+                                            <label className={`d-flex align-items-center gap-2 ${mode === 'dark' ? "text-white" : ""} `} htmlFor="">{fd.label} <div className={fd.color} ></div></label>
                                         </div>
                                     })
                                 }
@@ -203,8 +203,8 @@ const ProductsFiltering = () => {
 
 
 
-                                <div style={{width:"auto"}}  className="slider-price d-flex flex-column">
-                                     <Slider value={selectedPrice} min={minPrices}  max={maxPrices}  aria-labelledby='range-slider' onChange={handleChangePrice}  />
+                                <div style={{ width: "auto" }} className="slider-price d-flex flex-column">
+                                    <Slider value={selectedPrice} min={minPrices} max={maxPrices} aria-labelledby='range-slider' onChange={handleChangePrice} />
                                     <div className="price d-flex justify-content-between ">
                                         <h1 className='fw-bold'>Min: <span>${selectedPrice[0]}</span></h1>
                                         <h1 className='fw-bold' >Max: <span>${selectedPrice[1]}</span></h1>
@@ -220,7 +220,7 @@ const ProductsFiltering = () => {
                                     <div className="hoverbox d-flex justify-content-center align-items-center">
                                         <a href={`/collection/camera`}><i class="fa-solid fa-arrow-right"></i></a>
                                     </div>
-                                    <img  src={salecamera} alt="" />
+                                    <img src={salecamera} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@ const ProductsFiltering = () => {
                             </div>
                             <div className="sorting-products d-flex align-items-center gap-2 mb-2">
                                 <h1 className='fw-bold'>{t('filteringProducts.sort')}:</h1>
-                                <select className={`p-1 rounded ${mode === 'dark' ? "bg-secondary text-white" : "" }`} onChange={(e) => setSortValue(e.target.value)} name="" id="">
+                                <select className={`p-1 rounded ${mode === 'dark' ? "bg-secondary text-white" : ""}`} onChange={(e) => setSortValue(e.target.value)} name="" id="">
                                     <option value="Alphabetically,A-Z">{t('filteringProducts.alpha-az')}</option>
                                     <option value="Alphabetically,Z-A">{t('filteringProducts.alpha-za')}</option>
                                     <option value="Price,low to high">{t('filteringProducts.price-lowhigh')}</option>
@@ -245,7 +245,7 @@ const ProductsFiltering = () => {
                         <div className="row d-flex justify-content-center gap-4 mb-2 ">
                             {
                                 productList.map((fd) => {
-                                    return <div className={`card col-xl-4 ${mode === 'dark' ? "bg-secondary" : "" } `} style={{ width: "16rem" }}>
+                                    return <div className={`card col-xl-4 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ width: "16rem" }}>
                                         <div style={{ height: "100%" }} className="image">
                                             <div className="wishlist-btn">
                                                 {items.find((item) => item.id === fd.id) ? <button className='btn btn-light mt-2 mx-2'><i className='bi bi-check'></i></button> : <button onClick={() => { notify(addItem(fd)) }} className='btn btn-light mt-2 mx-2'><i className='bi bi-heart'></i></button>}
@@ -254,14 +254,14 @@ const ProductsFiltering = () => {
                                                 <button disabled={fd.stockCount === 0} onClick={() => { notify(addProduct(fd)) }} className='col-6 text-center'>{t('addtocart')}</button>
                                                 <Link className='text-center col-6' to={`/products/${fd.type}/${fd.name}`} >{t('quickview')}</Link>
                                             </div>
-                                            <img  style={{ height: "100%" }} src={fd.image1} className="card-img-top img-fluid" alt="..." />
+                                            <img style={{ height: "100%" }} src={fd.image1} className="card-img-top img-fluid" alt="..." />
                                         </div>
                                         <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                                            <Link to={`/products/${fd.type}/${fd.name}`}><h5 className={`card-title ${mode === 'dark' ? "text-white" : " " } `}>{fd.name.slice(0, 20)}...</h5></Link>
+                                            <Link to={`/products/${fd.type}/${fd.name}`}><h5 className={`card-title ${mode === 'dark' ? "text-white" : " "} `}>{fd.name.slice(0, 20)}...</h5></Link>
                                             <div className="price d-flex gap-2 ">
-                                                <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >$ {fd.price}</h1>
-                                                {fd.delprice && <h1><del className={`${mode === 'dark' ? "text-white" :""}`}>$ {fd.delprice}</del></h1>}
-                                                {fd.stockCount === 0 && <h1 className='text-danger'>{t('stocknot')}</h1> }
+                                                <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >$ {fd.price}</h1>
+                                                {fd.delprice && <h1><del className={`${mode === 'dark' ? "text-white" : ""}`}>$ {fd.delprice}</del></h1>}
+                                                {fd.stockCount === 0 && <h1 className='text-danger'>{t('stocknot')}</h1>}
                                             </div>
                                             <div className="rating">
                                                 {

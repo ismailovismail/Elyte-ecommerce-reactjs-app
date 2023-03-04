@@ -4,21 +4,21 @@ import { MainContext } from '../context'
 
 const Contact = () => {
     const { t } = useTranslation()
-    const {mode}=useContext(MainContext)
-    useEffect(()=>{
-        document.title='Contact Us | Elyte Ecommerce'
-    },[])
+    const { mode } = useContext(MainContext)
+    useEffect(() => {
+        document.title = 'Contact Us | Elyte Ecommerce'
+    }, [])
     return (
-        <section className={`contact-page ${mode === 'dark' ? "bg-secondary" : "" } `}>
+        <section className={`contact-page ${mode === 'dark' ? "bg-secondary" : ""} `}>
             <div style={{ width: "90%" }} className="container-fluid">
                 <div className="title py-5">
-                    <h1 className={`text-center fs-2 ${mode === 'dark' ? "text-white" : '' } `}>
+                    <h1 className={`text-center fs-2 ${mode === 'dark' ? "text-white" : ''} `}>
                         {
                             t("contact.get")
                         }
                     </h1>
                     <div className="row d-flex justify-content-center">
-                        <p className={`text-center text-secondary col-xl-4 mt-2 lh-base ${mode === 'dark' ? "text-white" : "" } `}>
+                        <p className={`text-center text-secondary col-xl-4 mt-2 lh-base ${mode === 'dark' ? "text-white" : ""} `}>
                             {
                                 t('contact.get2')
                             }
@@ -53,39 +53,39 @@ const Contact = () => {
                 <hr />
                 <div className="drop-form py-5">
                     <div className="title row d-flex justify-content-center mb-3">
-                        <h1 className={`text-center fs-2 ${mode === 'dark' ? "text-white" : "" } `}>{t('contact.dropMessage')}</h1>
-                        <p className={`text-center col-xl-4 mt-2 lh-base text-secondary ${mode === 'dark' ? "text-white" : "" } `}>
-                         {
-                            t('contact.get2')
-                         }
+                        <h1 className={`text-center fs-2 ${mode === 'dark' ? "text-white" : ""} `}>{t('contact.dropMessage')}</h1>
+                        <p className={`text-center col-xl-4 mt-2 lh-base text-secondary ${mode === 'dark' ? "text-white" : ""} `}>
+                            {
+                                t('contact.get2')
+                            }
                         </p>
                     </div>
                     <form className='d-flex justify-content-center flex-column align-items-center'>
-                       <div className="row d-flex gap-2 ">
-                        <div className="name-email row">
-                            <div className="name d-flex flex-column col-xl-6 gap-2 ">
-                            <label htmlFor="" className={`${mode === 'dark' ? "text-white" : "" }`} >{t('contact.name')}</label>
-                            <input required type="text" placeholder={t('contact.name')} className='px-2 py-2 rounded' />
-                         </div> 
-                         <div className="email col-xl-6 d-flex flex-column gap-2">
-                            <label htmlFor="" className={`${mode === 'dark' ? "text-white" : "" }`} >{t('contact.email')}</label>
-                            <input required type="text" placeholder={t('contact.email')} className='px-2 py-2 rounded ' />
-                         </div>
+                        <div className="row d-flex gap-2 ">
+                            <div className="name-email row">
+                                <div className="name d-flex flex-column col-xl-6 gap-2 ">
+                                    <label htmlFor="" className={`${mode === 'dark' ? "text-white" : ""}`} >{t('contact.name')}</label>
+                                    <input required type="text" placeholder={t('contact.name')} className='px-2 py-2 rounded' />
+                                </div>
+                                <div className="email col-xl-6 d-flex flex-column gap-2">
+                                    <label htmlFor="" className={`${mode === 'dark' ? "text-white" : ""}`} >{t('contact.email')}</label>
+                                    <input required type="text" placeholder={t('contact.email')} className='px-2 py-2 rounded ' />
+                                </div>
                             </div>
-                         <div className="phone-number d-flex flex-column gap-2">
-                            <label htmlFor="" className={`${mode === 'dark' ? "text-white" : "" }`}>{t('contact.phonenum')}</label>
-                            <input required type="text" placeholder={t('contact.phonenum')} className='rounded px-2 py-2 ' />
-                         </div>
-                         <div className="message d-flex flex-column gap-2 ">
-                            <label htmlFor="" className={`${mode === 'dark' ? "text-white" : "" }`} >{t('contact.message')}</label>
-                             <textarea required name=""  placeholder={t('contact.message')} className='rounded px-2 py-2'  id="" cols="30" rows="10"></textarea>
-                         </div>
-                         <div className="send-btn">
-                            <button className='btn btn-dark' >{t('contact.send')}</button>
-                         </div>
-                        </div> 
-                        
-                       
+                            <div className="phone-number d-flex flex-column gap-2">
+                                <label htmlFor="" className={`${mode === 'dark' ? "text-white" : ""}`}>{t('contact.phonenum')}</label>
+                                <input required type="text" placeholder={t('contact.phonenum')} className='rounded px-2 py-2 ' />
+                            </div>
+                            <div className="message d-flex flex-column gap-2 ">
+                                <label htmlFor="" className={`${mode === 'dark' ? "text-white" : ""}`} >{t('contact.message')}</label>
+                                <textarea required name="" placeholder={t('contact.message')} className='rounded px-2 py-2' id="" cols="30" rows="10"></textarea>
+                            </div>
+                            <div className="send-btn">
+                                <button className='btn btn-dark' >{t('contact.send')}</button>
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
 

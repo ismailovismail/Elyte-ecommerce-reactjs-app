@@ -16,10 +16,10 @@ const ProductDetails = () => {
    console.log(detailData);
    const relatedProducts = products.filter((fd) => fd.type === type)
    const { t } = useTranslation()
-   const {addProduct,mode}=useContext(MainContext)
-   const {addItem,items}=useCart()
+   const { addProduct, mode } = useContext(MainContext)
+   const { addItem, items } = useCart()
    const notify = () => toast.success("Success");
-   const navigate=useNavigate()
+   const navigate = useNavigate()
    const settings = {
       dots: true,
       infinite: true,
@@ -34,65 +34,65 @@ const ProductDetails = () => {
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
-      autoplay:true,
-      autoplaySpeed:2000,
-      responsive:[
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [
          {
             breakpoint: 768,
             settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: false,
-                infinite: true
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               dots: false,
+               infinite: true
             }
 
-        },
-        {
-         breakpoint: 1200,
+         },
+         {
+            breakpoint: 1200,
             settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                dots: false,
-                infinite: true
+               slidesToShow: 2,
+               slidesToScroll: 1,
+               dots: false,
+               infinite: true
             }
-        },
-       
-        {
-         breakpoint: 1480,
-         settings: {
-             slidesToShow: 3,
-             slidesToScroll: 1,
-             dots: false,
-             infinite: true
+         },
+
+         {
+            breakpoint: 1480,
+            settings: {
+               slidesToShow: 3,
+               slidesToScroll: 1,
+               dots: false,
+               infinite: true
+            }
+
          }
-     
-        }
       ]
    };
-   useEffect(()=>{
-      document.title=`${name} | Elyte Ecommerce `
-   },[name])
+   useEffect(() => {
+      document.title = `${name} | Elyte Ecommerce `
+   }, [name])
    const [active, setActive] = useState("1")
    const handleClick = (e) => {
       setActive(e.target.id)
    }
    return (
       <>
-         <section className={`detail-sec ${mode === 'dark' ? "bg-secondary" : "" } `}>
+         <section className={`detail-sec ${mode === 'dark' ? "bg-secondary" : ""} `}>
             <div className="container-fluid">
                <div className="details py-3 mb-4">
                   <div style={{ width: "100%" }} className="row d-flex gap-3 justify-content-center">
                      <div className="slider   col-12 col-sm-12 col-md-8  col-lg-5 col-xl-4 mb-2">
                         <Slider {...settings} >
                            <div className="d-flex justify-content-center align-items-center">
-                           <img style={{width:"100%"}} className='img-fluid' src={detailData.image1} alt="" />
+                              <img style={{ width: "100%" }} className='img-fluid' src={detailData.image1} alt="" />
                            </div>
                            <div className="d-flex justify-content-center align-items-center ">
-                           <img style={{width:"100%"}} className='img-fluid' src={detailData.image2} alt="" />
+                              <img style={{ width: "100%" }} className='img-fluid' src={detailData.image2} alt="" />
                            </div>
-                           {detailData.image3 && <div className="d-flex justify-content-center align-items-center "><img style={{width:"100%"}} className='img-fluid' src={detailData.image3} alt="" /></div> }
-                           {detailData.image4 && <div className="d-flex justify-content-center align-items-center"><img style={{width:"100%"}} className='img-fluid' src={detailData.image4} alt="" /></div> }
-                           {detailData.image5 && <div className="d-flex justify-content-center align-items-center"> <img style={{width:"100%"}} className='img-fluid' src={detailData.image5} alt="" /></div>}
+                           {detailData.image3 && <div className="d-flex justify-content-center align-items-center "><img style={{ width: "100%" }} className='img-fluid' src={detailData.image3} alt="" /></div>}
+                           {detailData.image4 && <div className="d-flex justify-content-center align-items-center"><img style={{ width: "100%" }} className='img-fluid' src={detailData.image4} alt="" /></div>}
+                           {detailData.image5 && <div className="d-flex justify-content-center align-items-center"> <img style={{ width: "100%" }} className='img-fluid' src={detailData.image5} alt="" /></div>}
                         </Slider>
                      </div>
                      <div className="inform d-flex justify-content-center   flex-column gap-3 col-12 col-sm-12 col-md-10 col-lg-6 col-xl-7 ">
@@ -104,28 +104,28 @@ const ProductDetails = () => {
                            }
                         </div>
                         <div className="name">
-                           <h1 className={`fw-bold fs-30 ${mode === 'dark' ? "text-white" : "" } `}>{detailData.name}</h1>
+                           <h1 className={`fw-bold fs-30 ${mode === 'dark' ? "text-white" : ""} `}>{detailData.name}</h1>
 
                         </div>
                         <div className="price d-flex align-items-center gap-2">
-                           <h1 className={`fw-bold ${mode === 'dark' ? "text-white" :"" } `} >$ {detailData.price}.00</h1>
-                           {detailData.delprice && <h1 className='fw-bold' ><del className={`${mode === 'dark' ? "text-white" : "" }`} > $ {detailData.delprice}.00</del></h1>}
+                           <h1 className={`fw-bold ${mode === 'dark' ? "text-white" : ""} `} >$ {detailData.price}.00</h1>
+                           {detailData.delprice && <h1 className='fw-bold' ><del className={`${mode === 'dark' ? "text-white" : ""}`} > $ {detailData.delprice}.00</del></h1>}
                            <div className=" p-2 text-white sale">
-                              {detailData.sale && <h1 className={`fw-bold bg-dark p-2 ${mode === 'dark' ? "text-white" : "" } `} >{detailData.sale}</h1>}
+                              {detailData.sale && <h1 className={`fw-bold bg-dark p-2 ${mode === 'dark' ? "text-white" : ""} `} >{detailData.sale}</h1>}
                            </div>
                         </div>
                         <div className="stock-count">
-                           <p className={`${mode === 'dark' ? "text-white" : "" } `} >{t('hurry')} <number className=" px-2 text-white fw-bold bg-success" >{detailData.stockCount}</number> {t('products')} </p>
+                           <p className={`${mode === 'dark' ? "text-white" : ""} `} >{t('hurry')} <number className=" px-2 text-white fw-bold bg-success" >{detailData.stockCount}</number> {t('products')} </p>
                         </div>
                         <div className="availability d-flex align-items-center gap-1 ">
-                           <h1>{t('availability')}:</h1> {detailData.stockCount === 0 && <p className={`${mode === "dark" ? "text-white" : "text-danger" } `} > {t("stocknot")}</p>} {detailData.stockCount > 0 && <p className={`${mode === 'dark' ? "text-white" : "text-success" }`} > {t('stockcount')} <i class="bi bi-check-lg"></i></p>}
+                           <h1>{t('availability')}:</h1> {detailData.stockCount === 0 && <p className={`${mode === "dark" ? "text-white" : "text-danger"} `} > {t("stocknot")}</p>} {detailData.stockCount > 0 && <p className={`${mode === 'dark' ? "text-white" : "text-success"}`} > {t('stockcount')} <i class="bi bi-check-lg"></i></p>}
                         </div>
                         <div className="color">
-                           <h1>{t('color')}: <span className={`${mode === 'dark' ? "text-white" : "text-secondary" }`}>{detailData.color}</span>  </h1>
+                           <h1>{t('color')}: <span className={`${mode === 'dark' ? "text-white" : "text-secondary"}`}>{detailData.color}</span>  </h1>
                         </div>
                         <div className=" shop buttons d-flex gap-4 ">
-                           <button disabled={detailData.stockCount === 0 } onClick={()=>notify(addProduct(detailData))} className={`px-4 py-2 btn btn-white btn-outline-dark ${mode === 'dark' ? "text-white" : "" } `}>{t('addtocart')}</button>
-                           <button disabled={detailData.stockCount === 0} onClick={()=>{
+                           <button disabled={detailData.stockCount === 0} onClick={() => notify(addProduct(detailData))} className={`px-4 py-2 btn btn-white btn-outline-dark ${mode === 'dark' ? "text-white" : ""} `}>{t('addtocart')}</button>
+                           <button disabled={detailData.stockCount === 0} onClick={() => {
                               addProduct(detailData)
                               navigate('/checkout')
                            }} className=" px-4 py-2 btn btn-dark" >
@@ -134,10 +134,10 @@ const ProductDetails = () => {
 
                         </div>
                         <div className="wishlist-button">
-                           <button onClick={()=>notify(addItem(detailData))} className={`p-0 btn ${mode === 'dark' ? "text-white" :""  } `}><i class="bi bi-suit-heart"></i> {t('wishlist')} </button>
+                           <button onClick={() => notify(addItem(detailData))} className={`p-0 btn ${mode === 'dark' ? "text-white" : ""} `}><i class="bi bi-suit-heart"></i> {t('wishlist')} </button>
                         </div>
                         <div className="sku">
-                           <h1>SKU: <span className={`${mode === 'dark' ? "text-white" : "" }`}>{detailData.sku}</span> </h1>
+                           <h1>SKU: <span className={`${mode === 'dark' ? "text-white" : ""}`}>{detailData.sku}</span> </h1>
                         </div>
                         <div className="share d-flex gap-2 ">
                            <h1>{t('share')}:</h1>
@@ -161,11 +161,11 @@ const ProductDetails = () => {
                <div className=" mt-2 mb-2 specifaction-buttons container-fluid">
                   <div className=" d-flex gap-2 ">
                      <div className={active === "1" ? "active  specifaction-button" : "specifaction-button"}>
-                        <button id='1' onClick={handleClick} className={`btn p-0 ${mode === 'dark' ? 'text-white' : ""  }`}>{t('specifactions')}</button>
+                        <button id='1' onClick={handleClick} className={`btn p-0 ${mode === 'dark' ? 'text-white' : ""}`}>{t('specifactions')}</button>
                         <div className="line"></div>
                      </div>
                      <div className={active === "2" ? "active comment-button" : "comment-button"}>
-                        <button id='2' onClick={handleClick} className={`btn p-0 ${mode === 'dark' ? "text-white" : ""  } `}>{t('review')}</button>
+                        <button id='2' onClick={handleClick} className={`btn p-0 ${mode === 'dark' ? "text-white" : ""} `}>{t('review')}</button>
                         <div className="line"></div>
                      </div>
                   </div>
@@ -178,7 +178,7 @@ const ProductDetails = () => {
                               <ul className='d-flex flex-column gap-2 mb-3 '>
                                  {
                                     detailData.specifactions.map((fd) => {
-                                       return <li className={`lh-base ${mode === 'dark' ? "text-white" : ""  } `}>{fd}</li>
+                                       return <li className={`lh-base ${mode === 'dark' ? "text-white" : ""} `}>{fd}</li>
                                     })
                                  }
                               </ul>
@@ -192,24 +192,24 @@ const ProductDetails = () => {
                      <div className="comment-form">
                         <div className="container-fluid">
                            <div className="title">
-                              <h1 className={`fw-bold mb-2 ${mode === 'dark' ? "text-white" : "" } `} >{t('writereview')}</h1>
+                              <h1 className={`fw-bold mb-2 ${mode === 'dark' ? "text-white" : ""} `} >{t('writereview')}</h1>
                            </div>
                            <form className=' mb-2 d-flex gap-3 flex-column' >
-                              <label className={`${mode === 'dark' ? "text-white" : ""  }`} htmlFor='name'>{t('name')}</label>
+                              <label className={`${mode === 'dark' ? "text-white" : ""}`} htmlFor='name'>{t('name')}</label>
                               <input required type="text" placeholder={t('entername')} />
-                              <label className={`${mode === 'dark' ? "text-white" : "" }`} htmlFor='Email'>{t('email')}</label>
+                              <label className={`${mode === 'dark' ? "text-white" : ""}`} htmlFor='Email'>{t('email')}</label>
                               <input required type="email" placeholder={t('enteremail')} />
-                              <label className={`${mode === 'dark' ? 'text-white' : '' }`} htmlFor="rating">{t('rating')}</label>
+                              <label className={`${mode === 'dark' ? 'text-white' : ''}`} htmlFor="rating">{t('rating')}</label>
                               <div className="stars">
                                  {
-                                    stars.map((fd,i) => {
+                                    stars.map((fd, i) => {
                                        return <i key={i} className={fd.class} ></i>
                                     })
                                  }
                               </div>
-                              <label className={`${mode === 'dark' ? 'text-white' : "" }`} htmlFor="title">{t('title')}</label>
+                              <label className={`${mode === 'dark' ? 'text-white' : ""}`} htmlFor="title">{t('title')}</label>
                               <input required type="text" placeholder={t('entertitle')} />
-                              <label className={`${mode === 'dark' ? "text-white" :"" }`} htmlFor="body">{t('bodyreview')}</label>
+                              <label className={`${mode === 'dark' ? "text-white" : ""}`} htmlFor="body">{t('bodyreview')}</label>
                               <textarea required className='p-2' name="" placeholder={t('entercomment')} id="" cols="30" rows="10"></textarea>
                               <button className='btn btn-dark text-white'>{t('submit')}</button>
                            </form>
@@ -226,42 +226,42 @@ const ProductDetails = () => {
                      <div className="container-fluid">
                         <Slider {...settings2} >
                            {
-                              relatedProducts.map((fd,i) => {
-                                 return  <div key={i} className="main-card d-flex justify-content-center ">
-                                 <div className={`card ${mode === 'dark' ? "bg-secondary" : ""  } `} style={{width:"15rem"}}>
-                                   <div className="image">
-                                   <div className="image1">
-                                    <h1 className='status mx-2 mt-2'>{fd.status}</h1>
-                                    <img src={fd.image1} className="card-img-top" alt="..." />
-                                    </div>
-                                    <div className="image2">
-                                       <div className="wishlist">
-                                          {items.find((a)=>a.id === fd.id) ? <button className='btn mx-2 mt-2' disabled> <i className='bi bi-check' ></i> </button> : <button onClick={()=>addItem(fd)} className='btn mx-2 mt-2'><i className='bi bi-heart' ></i></button> }
+                              relatedProducts.map((fd, i) => {
+                                 return <div key={i} className="main-card d-flex justify-content-center ">
+                                    <div className={`card ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ width: "15rem" }}>
+                                       <div className="image">
+                                          <div className="image1">
+                                             <h1 className='status mx-2 mt-2'>{fd.status}</h1>
+                                             <img src={fd.image1} className="card-img-top" alt="..." />
+                                          </div>
+                                          <div className="image2">
+                                             <div className="wishlist">
+                                                {items.find((a) => a.id === fd.id) ? <button className='btn mx-2 mt-2' disabled> <i className='bi bi-check' ></i> </button> : <button onClick={() => addItem(fd)} className='btn mx-2 mt-2'><i className='bi bi-heart' ></i></button>}
+                                             </div>
+                                             <div style={{ width: "100%", height: "100%" }} className="buttons d-flex justify-content-center align-items-end ">
+
+                                                <button onClick={() => notify(addProduct(fd))} >{t('addtocart')}</button>
+                                                <Link to={`/products/${fd.type}/${fd.name}`}><button>{t('quickview')}</button></Link>
+
+                                             </div>
+                                             <img src={fd.image2} className='card-img-top' alt="" />
+                                          </div>
                                        </div>
-                                       <div style={{width:"100%" , height:"100%" }} className="buttons d-flex justify-content-center align-items-end ">
-                                          
-                                             <button onClick={()=>notify(addProduct(fd))} >{t('addtocart')}</button>
-                                             <Link to={`/products/${fd.type}/${fd.name}`}><button>{t('quickview')}</button></Link>
-                                        
-                                       </div>
-                                       <img src={fd.image2} className='card-img-top' alt="" />
-                                    </div>
-                                   </div>
-                                    <div className="card-body">
-                                       <Link to={`/products/${fd.type}/${fd.name}`} ><h5 className={`card-title ${mode === 'dark' ? "text-white" : "" } `}>{fd.name.substring(0,25)}...</h5></Link>
-                                       <div className="price">
-                                          <h1 className={`${mode === 'dark' ? "text-white" : "" }`}>${fd.price}</h1>
-                                          <h1><del className={`${mode === 'dark' ? "text-white" : "" }`} >${fd.delprice}</del> </h1>
-                                       </div> 
-                                       <div className="review">
-                                          {
-                                             fd.review.map((fd,i)=>{
-                                                return fd
-                                             })
-                                          }
+                                       <div className="card-body">
+                                          <Link to={`/products/${fd.type}/${fd.name}`} ><h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{fd.name.substring(0, 25)}...</h5></Link>
+                                          <div className="price">
+                                             <h1 className={`${mode === 'dark' ? "text-white" : ""}`}>${fd.price}</h1>
+                                             <h1><del className={`${mode === 'dark' ? "text-white" : ""}`} >${fd.delprice}</del> </h1>
+                                          </div>
+                                          <div className="review">
+                                             {
+                                                fd.review.map((fd, i) => {
+                                                   return fd
+                                                })
+                                             }
+                                          </div>
                                        </div>
                                     </div>
-                                 </div>
                                  </div>
                               })
                            }

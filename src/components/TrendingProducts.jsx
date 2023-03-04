@@ -1,4 +1,4 @@
-import  React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import products from '../data/ProductsData'
 import Slider from 'react-slick'
@@ -26,10 +26,10 @@ const TrendingProducts = () => {
 
     }, [])
 
-    const {addItem,items}=useCart()
+    const { addItem, items } = useCart()
     const notify = () => toast.success("Success");
     const [data, setData] = useState(products.filter((fd) => fd.status === "New"))
-    const {addProduct,mode}=useContext(MainContext)
+    const { addProduct, mode } = useContext(MainContext)
     const settings = {
         dots: false,
         infinite: true,
@@ -76,27 +76,27 @@ const TrendingProducts = () => {
         const result = products.filter((fd) => fd.status === selectedStatus)
         setData(result)
     }
-   
 
-    
+
+
     return (
         <>
             <div className="head">
                 <div className="title">
-                    <h1 className={`text-center ${mode === 'dark' ? "text-white" : "text-secondary"  } `}>{t("trendingproduct")}</h1>
+                    <h1 className={`text-center ${mode === 'dark' ? "text-white" : "text-secondary"} `}>{t("trendingproduct")}</h1>
                 </div>
                 <div className="filter d-flex justify-content-center ">
                     <div className="buttons d-flex gap-2 ">
                         <div className="newpr-btn filtering active ">
-                            <button className={`filter-btn ${mode === 'dark' ? "text-white" :""  } `} onClick={() => { filteringProducts("New") }} >{t("newproductbtn")}</button>
+                            <button className={`filter-btn ${mode === 'dark' ? "text-white" : ""} `} onClick={() => { filteringProducts("New") }} >{t("newproductbtn")}</button>
                             <div className="line "></div>
                         </div>
                         <div className="featurepr-btn filtering ">
-                            <button className={`filter-btn ${mode === 'dark' ? "text-white" : "" } `} onClick={() => { filteringProducts("Feature") }} >{t("featureproductbtn")}</button>
+                            <button className={`filter-btn ${mode === 'dark' ? "text-white" : ""} `} onClick={() => { filteringProducts("Feature") }} >{t("featureproductbtn")}</button>
                             <div className="line"></div>
                         </div>
                         <div className="bestpr-btn filtering">
-                            <button className={`filter-btn ${mode === 'dark' ? "text-white" : "" } `} onClick={() => { filteringProducts("Best") }}>{t("bestproductbtn")}</button>
+                            <button className={`filter-btn ${mode === 'dark' ? "text-white" : ""} `} onClick={() => { filteringProducts("Best") }}>{t("bestproductbtn")}</button>
                             <div className="line"></div>
                         </div>
                     </div>
@@ -107,13 +107,13 @@ const TrendingProducts = () => {
                         {
                             data.map((fd) => {
                                 return <div key={fd.id} className="main-card d-flex justify-content-center">
-                                    <div data-aos='fade-up' data-aos-duration='2000' className={`card ${mode === 'dark' ? "bg-secondary" : " "  } `}>
+                                    <div data-aos='fade-up' data-aos-duration='2000' className={`card ${mode === 'dark' ? "bg-secondary" : " "} `}>
                                         <div className="image">
 
 
                                             <div className=" image1 ">
                                                 <div className="status mx-2">
-                                                <h1 className='mt-1' >{fd.status}</h1>
+                                                    <h1 className='mt-1' >{fd.status}</h1>
                                                 </div>
 
                                                 <img height={300} src={fd.image2} className='card-img-top' alt="" />
@@ -121,14 +121,14 @@ const TrendingProducts = () => {
                                             </div>
 
                                             <div className="  image2">
-                                                <div className="wishlist p-2"> 
-                                                    {items.find((a)=>a.id === fd.id) ? <button className='wish' disabled> <i class="bi bi-check"></i> </button> : <button className='wish' onClick={()=>addItem(fd)}> <i className='bi bi-heart' ></i> </button>  }
+                                                <div className="wishlist p-2">
+                                                    {items.find((a) => a.id === fd.id) ? <button className='wish' disabled> <i class="bi bi-check"></i> </button> : <button className='wish' onClick={() => addItem(fd)}> <i className='bi bi-heart' ></i> </button>}
                                                 </div>
                                                 <div className="buttons d-flex justify-content-center ">
-                                                    
-                                                    <button onClick={()=>notify(addProduct(fd))} className='btn btn-warning'>{t('addtocart')}</button>
-                                                    
-                                                    <button className='btn btn-warning'><Link to={`/products/${fd.type}/${fd.name}`} style={{color:"slategray"}} >{t('quickview')}</Link></button>
+
+                                                    <button onClick={() => notify(addProduct(fd))} className='btn btn-warning'>{t('addtocart')}</button>
+
+                                                    <button className='btn btn-warning'><Link to={`/products/${fd.type}/${fd.name}`} style={{ color: "slategray" }} >{t('quickview')}</Link></button>
                                                 </div>
 
 
@@ -141,10 +141,10 @@ const TrendingProducts = () => {
                                         </div>
                                         <div className="card-body">
                                             <Link to={`products/${fd.type}/${fd.name}`} >
-                                                <h1 className={`card-title text-center ${mode === 'dark' ? "text-white" : "text-dark"  }`} >{fd.name}</h1>
+                                                <h1 className={`card-title text-center ${mode === 'dark' ? "text-white" : "text-dark"}`} >{fd.name}</h1>
                                                 <div className="price d-flex justify-content-center">
-                                                    <h1 className={`${mode === 'dark' ? "text-white" : "" }`} >$ {fd.price}</h1>
-                                                    <del className={`${mode === 'dark' ? "text-white" : "" }`}>$ {fd.delprice}</del>
+                                                    <h1 className={`${mode === 'dark' ? "text-white" : ""}`} >$ {fd.price}</h1>
+                                                    <del className={`${mode === 'dark' ? "text-white" : ""}`}>$ {fd.delprice}</del>
                                                 </div>
                                             </Link>
                                             <div className="review d-flex justify-content-center">

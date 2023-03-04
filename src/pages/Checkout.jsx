@@ -3,28 +3,28 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { MainContext } from '../context'
 const Checkout = () => {
-    const { cartItems,login } = useContext(MainContext)
+    const { cartItems, login } = useContext(MainContext)
     const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-    const {t}=useTranslation()
-    const navigate=useNavigate()
-    useEffect(()=>{
-        document.title='Checkout | Elyte Ecommerce'
-    },[])
-    const submitHandler=(e)=>{
+    const { t } = useTranslation()
+    const navigate = useNavigate()
+    useEffect(() => {
+        document.title = 'Checkout | Elyte Ecommerce'
+    }, [])
+    const submitHandler = (e) => {
         e.preventDefault()
-        
-        if (login === "true" && window.confirm('Are you sure?')===true) {
-        if (cartItems.length>0) {
-            alert('Successfully')
-            localStorage.removeItem('mycart')
-             window.location.reload(true)
-        }else{
-            alert('Basket is empty')
-        }
-         }else{
+
+        if (login === "true" && window.confirm('Are you sure?') === true) {
+            if (cartItems.length > 0) {
+                alert('Successfully')
+                localStorage.removeItem('mycart')
+                window.location.reload(true)
+            } else {
+                alert('Basket is empty')
+            }
+        } else {
             navigate('/login')
-         }
-        
+        }
+
     }
     return (
         <>
@@ -54,7 +54,7 @@ const Checkout = () => {
                             <form onSubmit={submitHandler}>
                                 <div className="contact d-flex gap-2 flex-column ">
                                     <label className='mt-2' htmlFor="">{t('checkoutPage.contactinfo')}</label>
-                                    <input required  className='p-2 rounded' type="text" placeholder={t('checkoutPage.emailornum')} />
+                                    <input required className='p-2 rounded' type="text" placeholder={t('checkoutPage.emailornum')} />
                                     <div className="check-email d-flex gap-1">
                                         <input required type="checkbox" name="" id="" />
                                         <label htmlFor="">{t('checkoutPage.emailme')}</label>
@@ -74,12 +74,12 @@ const Checkout = () => {
 
                                     </div>
                                     <div className="name-input d-flex gap-1 mt-2">
-                                        <input required  className='p-2 rounded col-6' type="text" placeholder={t('checkoutPage.firstname')} />
-                                        <input required  className='p-2 rounded col-6 ' type="text" placeholder={t('checkoutPage.lastname')} />
+                                        <input required className='p-2 rounded col-6' type="text" placeholder={t('checkoutPage.firstname')} />
+                                        <input required className='p-2 rounded col-6 ' type="text" placeholder={t('checkoutPage.lastname')} />
                                     </div>
                                     <div className="address d-flex flex-column gap-2 mt-2">
                                         <input required className='col-12 p-2 rounded' type="text" placeholder={t('checkoutPage.address')} />
-                                        <input required  className='col-12 p-2 rounded' placeholder={t('checkoutPage.apartment')} type="text" name="" id="" />
+                                        <input required className='col-12 p-2 rounded' placeholder={t('checkoutPage.apartment')} type="text" name="" id="" />
                                     </div>
                                     <div className="city-input d-flex gap-2 mt-2">
                                         <input required type="text" className='p-2 rounded col-6' placeholder={t('checkoutPage.city')} />
@@ -96,7 +96,7 @@ const Checkout = () => {
                                     <Link className='text-success' to={'/mycart'} >
                                         <i class="bi bi-chevron-left"></i> {t('checkoutPage.returncart')}
                                     </Link>
-                                    <button onClick={()=>{
+                                    <button onClick={() => {
                                         if (login === "false") {
                                             navigate('/login')
                                         }
@@ -105,8 +105,8 @@ const Checkout = () => {
                             </form>
                         </div>
                         <div className=" bg-light p-4 d-flex flex-column gap-2 cart-items col-xl-6">
-                            
-                        {
+
+                            {
                                 cartItems.map((fd) => {
                                     return <div className="card d-flex flex-row justify-content-between">
                                         <div className="image-name d-flex gap-2">
@@ -114,13 +114,13 @@ const Checkout = () => {
                                             <div className="name-color d-flex flex-column gap-2">
                                                 <h5>{fd.name}</h5>
                                                 <h5>{fd.color}</h5>
-                                                
+
                                             </div>
                                         </div>
                                         <div className="price">
                                             <h5>$ {(fd.price * fd.qty)}</h5>
                                         </div>
-                                       
+
                                     </div>
 
                                 })
@@ -139,11 +139,11 @@ const Checkout = () => {
                                 <h1 className='fw-bold'>{t('total')}</h1>
                                 <h5>usd <span className='fw-bold' >$ {itemsPrice}</span></h5>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
             </section>
         </>
