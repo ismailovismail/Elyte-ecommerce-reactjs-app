@@ -23,7 +23,7 @@ const Nav = () => {
       if (document.documentElement.scrollTop > 20) {
         document.querySelector('.header-lg ').style.position = 'fixed'
         document.querySelector('.header-lg ').style.top = '0'
-        document.querySelector('.header-lg').style.zIndex = '999999999999'
+        document.querySelector('.header-lg').style.zIndex = '99999999999999999999999999999'
 
 
 

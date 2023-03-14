@@ -2,16 +2,15 @@ import firebase from 'firebase/app';
 import 'firebase/database'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDKHVxOf01bbBHNCSQvYP8DD9Xu9QZ_b0Q",
-  authDomain: "blog-apps-79d02.firebaseapp.com",
-  databaseURL: "https://blog-apps-79d02-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "blog-apps-79d02",
-  storageBucket: "blog-apps-79d02.appspot.com",
-  messagingSenderId: "790796699902",
-  appId: "1:790796699902:web:1738a4411d27d72f01fdaf",
-  measurementId: "G-DS2GH8VQ1W"
+  apiKey: "AIzaSyAt20ewwnh0cygs2FiWEte41hHkme5ChBA",
+  authDomain: "elyte-blogs.firebaseapp.com",
+  databaseURL:"https://elyte-blogs-default-rtdb.europe-west1.firebasedatabase.app/",
+  projectId: "elyte-blogs",
+  storageBucket: "elyte-blogs.appspot.com",
+  messagingSenderId: "1029699139864",
+  appId: "1:1029699139864:web:0f2b2aa1b1381a5d3f466d",
+  measurementId: "G-VY6RTXGNNT"
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 const database = firebase.database()
