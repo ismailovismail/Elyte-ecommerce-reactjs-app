@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { MainContext } from '../context'
 import { useContext } from 'react'
 const News = () => {
-  const blogs = useSelector((state) => state.blog)
-  const { t } = useTranslation()
   const { mode } = useContext(MainContext)
+  const { t } = useTranslation()
+  const [data,setData]=useState([])
   useEffect(() => {
     document.title = 'News | Elyte Ecommerce'
+    const getBlogList=async()=>{
+       const response = await fetch('http://localhost:5000/api/get')
+       setData( await response.json() )
+    }
+    getBlogList()
   }, [])
   return (
     <>
 
       {
-        blogs.map((item) => {
+        data.map((item) => {
           return <div className="main-card mt-5 d-flex justify-content-center">
             <div className={`card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 750 }}>
               <div className="row g-0">
@@ -23,7 +27,7 @@ const News = () => {
                   <div className="card-body">
                     <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{item.brand}</h5>
                     <h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{item.title}</h1>
-                    <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.text.slice(0, 300)}</p>
+                    <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.description.slice(0, 300)}</p>
                     <Link to={`/blog/${item.id}`} className='btn btn-dark mt-4 px-4'>{t('readmore')}</Link>
                   </div>
                 </div>

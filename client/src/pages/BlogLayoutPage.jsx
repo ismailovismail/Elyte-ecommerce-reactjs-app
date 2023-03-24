@@ -1,21 +1,22 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext,  useEffect,  useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { Link, Outlet } from 'react-router-dom'
 import { MainContext } from '../context'
 
 
 const BlogLayoutPage = () => {
-  const blogs = useSelector((state) => state.blog)
-  const samsung = blogs.find((item) => item.brand === 'Samsung')
-  const iphone14 = blogs.find((item) => item.brand === "Apple")
-  const canon = blogs.find((item) => item.brand === 'Canon')
-  const acer = blogs.find((item) => item.brand === 'Acer')
-  const xiaomi = blogs.find((item) => item.brand === 'Xiaomi')
+  const { mode,blogs } = useContext(MainContext)
   const [searchTerm, setSearchTerm] = useState('')
   const borderClass = useRef()
   const { t } = useTranslation()
-  const { mode } = useContext(MainContext)
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    const getData = async () => {
+      const response = await fetch('http://localhost:5000/api/get')
+       setData( await response.json() )
+    }
+    getData()
+  },[])
   return (
     <section className={`blog ${mode === 'dark' ? 'bg-secondary' : ""} `}>
       <div className="switch-home">
@@ -47,7 +48,7 @@ const BlogLayoutPage = () => {
                   <button style={{ width: "20%" }} className='btn py-2 px-3'><i className='fa-solid fa-search'></i> </button>
                   <ul ref={borderClass} style={{ width: "100%" }} className='p-1'>
                     {
-                      blogs.filter((item) => {
+                      blogs && blogs.filter((item) => {
                         if (searchTerm === '') {
                           return ''
                         } else if (item.brand.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -61,7 +62,7 @@ const BlogLayoutPage = () => {
                             </div>
                             <div className="col-9">
                               <div className="card-body">
-                                <Link to={`/blog/${item.id}`} className={"text-dark"} style={{ textDecoration: "none" }}  ><h1 className='card-title'>{item.brand}</h1></Link>
+                                <Link to={`/blog/${item?.id}`} className={"text-dark"} style={{ textDecoration: "none" }}  ><h1 className='card-title'>{item.brand}</h1></Link>
                                 <h5 className='card-title'>{item.title}</h5>
                               </div>
                             </div>
@@ -82,13 +83,13 @@ const BlogLayoutPage = () => {
                   <div className="main-card mb-2 ">
                     <div className={`card ${mode === 'dark' ? "bg-secondary" : ""} `}>
                       <div className="image">
-                        <Link to={`/blog/${iphone14.id}`}><div className="hoverbox"></div></Link>
-                        <img src={iphone14.img} className='card-img-top img-fluid' alt="" />
+                        <Link to={`/blog/${data[0]?.id}`}><div className="hoverbox"></div></Link>
+                        <img src={data[0]?.img} className='card-img-top img-fluid' alt="" />
                       </div>
                       <div className="card-body">
-                        <Link to={`/blog/${iphone14.id}`} ><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{iphone14.brand}</h1></Link>
-                        <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{iphone14.title}</h5>
-                        <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{iphone14.text.slice(0, 45)}...</p>
+                        <Link to={`/blog/${data[0]?.id}`} ><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}></h1></Link>
+                        <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{data[0]?.brand}</h5>
+                        <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{data[0]?.description.substr(0,200)}...</p>
                       </div>
                     </div>
                   </div>
@@ -99,16 +100,16 @@ const BlogLayoutPage = () => {
                           <div className=" col-4 col-md-4">
 
                             <div className="image ">
-                              <Link to={`/blog/${samsung.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={samsung.img} className="img-fluid rounded-start" alt="..." />
+                              <Link to={`/blog/${data[1]?.id}`} ><div className="hoverbox"></div></Link>
+                              <img width={150} src={data[1]?.img} className="img-fluid rounded-start" alt="..." />
                             </div>
 
                           </div>
                           <div className="col-8 col-md-8">
                             <div className="card-body">
-                              <Link to={`/blog/${samsung.id}`} ><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{samsung.brand}</h1></Link>
-                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{samsung.title}</h5>
-                              <p className={`card-text  ${mode === 'dark' ? "text-white" : ""} `}>{samsung.text.slice(0, 17)}...</p>
+                              <Link to={`/blog/${data[1]?.id}`} ><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}></h1></Link>
+                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{data[1]?.brand}</h5>
+                              <p className={`card-text  ${mode === 'dark' ? "text-white" : ""} `}>{data[1]?.description.substr(0,150)}...</p>
                             </div>
                           </div>
                         </div>
@@ -118,15 +119,15 @@ const BlogLayoutPage = () => {
                         <div className="row d-flex align-items-center g-0">
                           <div className=" col-4 col-md-4">
                             <div className="image">
-                              <Link to={`/blog/${canon.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={canon.img} className="img-fluid rounded-start" alt="..." />
+                              <Link to={`/blog/${data[2]?.id}`} ><div className="hoverbox"></div></Link>
+                              <img width={150} src={data[2]?.img} className="img-fluid rounded-start" alt="..." />
                             </div>
                           </div>
                           <div className=" col-8 col-md-8">
                             <div className="card-body">
-                              <Link to={`/blog/${canon.id}`}><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{canon.brand}</h1></Link>
-                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{canon.title}</h5>
-                              <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{canon.text.slice(0, 17)}...</p>
+                              <Link to={`/blog/${data[2]?.id}`}><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}></h1></Link>
+                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{data[2]?.brand}</h5>
+                              <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{data[2]?.description.substr(0,150)}...</p>
                             </div>
                           </div>
                         </div>
@@ -136,15 +137,15 @@ const BlogLayoutPage = () => {
                         <div className="row d-flex align-items-center g-0">
                           <div className=" col-4 col-md-4">
                             <div className="image">
-                              <Link to={`/blog/${acer.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={acer.img} className="img-fluid rounded-start" alt="..." />
+                              <Link to={`/blog/${data[3]?.id}`} ><div className="hoverbox"></div></Link>
+                              <img width={150} src={data[3]?.img} className="img-fluid rounded-start" alt="..." />
                             </div>
                           </div>
                           <div className=" col-8 col-md-8">
                             <div className="card-body">
-                              <Link to={`/blog/${acer.id}`}><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{acer.brand}</h1></Link>
-                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""}  `}  >{acer.title}</h5>
-                              <p className={`card-text  ${mode === 'dark' ? "text-white" : ""} `}  >{acer.text.slice(0, 17)}...</p>
+                              <Link to={`/blog/${data[3]?.id}`}><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}></h1></Link>
+                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""}  `}>{data[3]?.brand}</h5>
+                              <p className={`card-text  ${mode === 'dark' ? "text-white" : ""} `}>{data[3]?.description.substr(0,150)}...</p>
                             </div>
                           </div>
                         </div>
@@ -154,15 +155,15 @@ const BlogLayoutPage = () => {
                         <div className="row d-flex align-items-center g-0">
                           <div className=" col-4 col-md-4">
                             <div className="image">
-                              <Link to={`/blog/${xiaomi.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={xiaomi.img} className="img-fluid rounded-start" alt="..." />
+                              <Link to={`/blog/${data[4]?.id}`} ><div className="hoverbox"></div></Link>
+                              <img width={150} src={data[4]?.img} className="img-fluid rounded-start" alt="..." />
                             </div>
                           </div>
                           <div className=" col-8 col-md-8">
                             <div className="card-body">
-                              <Link to={`/blog/${xiaomi.id}`}><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{xiaomi.brand}</h1></Link>
-                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{xiaomi.title}</h5>
-                              <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{xiaomi.text.slice(0, 17)}...</p>
+                              <Link to={`/blog/${data[4]?.id}`}><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}></h1></Link>
+                              <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{data[4]?.brand}</h5>
+                              <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{data[4]?.description.substr(0,150)}...</p>
                             </div>
                           </div>
                         </div>

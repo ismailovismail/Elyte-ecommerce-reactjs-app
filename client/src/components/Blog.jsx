@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
 import { MainContext } from '../context'
 import { useContext } from 'react'
 const Blog = () => {
     const { t } = useTranslation()
-    const blogData = useSelector(state => state.blog)
     const { mode } = useContext(MainContext)
+    const [blogs,setBlogs]=useState([])
     const settings = {
         infinite: true,
         speed: 500,
@@ -16,6 +15,15 @@ const Blog = () => {
         slidesToScroll: 1,
         nextArrow: false
     };
+
+    useEffect(()=>{
+        const getData = async ()=>{
+          const response = await fetch('http://localhost:5000/api/get')
+          setBlogs( await response.json() )
+        } 
+        getData()
+    },[])
+
 
     return (
         <>
@@ -26,7 +34,7 @@ const Blog = () => {
                 <div className="slider">
                     <Slider {...settings} >
                         {
-                            blogData.map((fd) => {
+                            blogs.map((fd) => {
                                 return <div className={`main-card  d-flex justify-content-center`}>
                                     <div className={`card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 750 }}>
                                         <div className="row g-0">
@@ -34,7 +42,7 @@ const Blog = () => {
                                                 <div className="card-body">
                                                     <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{fd.brand}</h5>
                                                     <h1 className={`card-title ${mode === 'dark' ? "text-white" : ""}`}>{fd.title}</h1>
-                                                    <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{fd.text.slice(0, 300)}</p>
+                                                    <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{fd.description.slice(0, 300)}</p>
                                                     <Link to={`/blog/${fd.id}`} className='btn btn-dark mt-4 px-4'>{t('readmore')}</Link>
                                                 </div>
                                             </div>

@@ -1,13 +1,19 @@
-import React, { useContext, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { MainContext } from '../../context'
 const Dashboard = () => {
-    const data = useSelector(state => state.blog)
+
     const { loggoutHandler } = useContext(MainContext)
     const navigate = useNavigate()
+    const [blogs,setBlogs]=useState([])
     useEffect(() => {
         document.title = 'Dashboard'
+        const getData = async ()=>{
+            const response = await fetch('http://localhost:5000/api/get')
+            setBlogs( await response.json() )
+
+        }
+        getData()
     }, [])
 
 
@@ -35,26 +41,25 @@ const Dashboard = () => {
                     <tbody>
 
                         {
-                            data && (data.map((fd, i) => {
-                                if (typeof fd === "undefined") {
-                                    return <h1>Loading...</h1>
-                                } else {
-                                    return <tr>
-                                        <th scope="row">{i + 1}</th>
-                                        <td>{fd.id}</td>
-                                        <td><img width={50} height={50} src={fd.img} alt={fd.title} /></td>
-                                        <td>{fd.brand}</td>
-                                        <td>{fd.title}</td>
-                                        <td style={{ width: "50%" }} >{fd.text.slice(0, 200)}...</td>
-                                        <td><Link className='btn btn-primary' to={`/edit/${fd.id}`} >Edit</Link></td>
-                                    </tr>
+                            blogs ? (blogs?.map((item, i) => {
+                                return <tr>
+                                    <th scope="row">{i + 1}</th>
+                                    <td>{item?.id}</td>
+                                    <td><img width={50} height={50} src={item?.img} alt={item?.title} /></td>
+                                    <td>{item?.brand}</td>
+                                    <td>{item?.title}</td>
+                                    <td style={{ width: "50%" }} >{item?.description.slice(0, 200)}...</td>
+                                    <td><Link className='btn btn-primary' to={`/edit/${item?.id}`} >Edit</Link></td>
+                                </tr>
 
-                                }
+
                             })
-                            )
+                            ): <h1>Loading...</h1>
+                    
 
 
                         }
+                       
 
                     </tbody>
                 </table>

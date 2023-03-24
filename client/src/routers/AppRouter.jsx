@@ -32,7 +32,14 @@ const AppRouter = () => {
   const [loggedIn, setLoggedIn] = useState("false")
   const [login, setLogin] = useState("false")
   const [userLogin, setUserLogin] = useState(localStorage.getItem('userName'))
+  const [blogs,setBlogs]=useState([])
+
   useEffect(() => {
+     const getData = async ()=>{
+      const response = await fetch('http://localhost:5000/api/get')
+      setBlogs(await response.json())
+     }
+     getData()
     setLogin(
       localStorage.getItem('userLogin')
     )
@@ -45,7 +52,7 @@ const AppRouter = () => {
   }, [])
   const [cartItems, setCartItems] = useState([])
   const [mode, setMode] = useState("light")
-
+  
   const addProduct = (product) => {
     const exist = cartItems.find((a) => a.id === product.id)
     if (exist) {
@@ -119,7 +126,9 @@ const AppRouter = () => {
     loginHandler,
     logoutHandler,
     loggedHandler,
-    loggoutHandler
+    loggoutHandler,
+    blogs
+    
   }
   return (
     <>

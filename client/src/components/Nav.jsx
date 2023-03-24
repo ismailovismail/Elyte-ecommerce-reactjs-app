@@ -1,18 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import '../i18n/i18n'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { collectionData, collectionImagelinks, collectionLinks } from '../data/CollectionLinks'
 import products from '../data/ProductsData'
 import { MainContext } from '../context'
 import { useCart } from 'react-use-cart'
-import { useSelector } from 'react-redux'
 import logo from '../assets/img/logo.svg'
 
 const Nav = () => {
-
+   const [blogs,setBlogs]=useState([])
   useEffect(() => {
-
+   
     setIcon(
       localStorage.getItem('mode-icon')
     )
@@ -34,6 +33,11 @@ const Nav = () => {
 
     }
     window.onscroll = myFunction
+    const getData = async () =>{
+       const response = await fetch('http://localhost:5000/api/get')
+       setBlogs( await response.json() )
+    }
+    getData()
   }, [])
   const [searchTerm, setSearchTerm] = useState('')
   const [data, setData] = useState(products)
@@ -49,7 +53,6 @@ const Nav = () => {
   }
   const { cartItems, login, setLogin, userLogin, logoutHandler, loggoutHandler } = useContext(MainContext)
   const { totalItems } = useCart()
-  const blogs = useSelector((state) => state.blog)
   const [icon, setIcon] = useState('fa-solid fa-moon')
   const [error, setError] = useState(null)
   const { mode, setMode } = useContext(MainContext)
@@ -223,8 +226,8 @@ const Nav = () => {
                       </h1>
                     </div>
                     <ul className='blog-crd mx-2 p-2 '>
-                      {
-                        blogs.map((item) => {
+                     { 
+                        blogs.map((item)=>{
                           return <div className={`card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 540 }}>
                             <div className="row g-0 d-flex align-items-center ">
                               <div className="col-md-2">
@@ -234,14 +237,15 @@ const Nav = () => {
                                 <div className="card-body">
                                   <Link className={`text-decoration-none text-dark fw-bold ${mode === 'dark' ? "text-white" : ""} `} to={`/blog/${item.id}`}><h1 className="card-title">{item.brand}</h1></Link>
                                   <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{item.title}</h5>
-                                  <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.text.slice(0, 40)}...</p>
+                                  <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.description.slice(0, 40)}...</p>
                                 </div>
                               </div>
                             </div>
                           </div>
 
-                        })
-                      }
+                     })
+                    }
+                      
                     </ul>
                     <div className="news-switch d-flex justify-content-center mb-1  ">
                       <Link className={`${mode === 'dark' ? "text-white" : "text-dark"}`} to={'/blog/news'} >{t('blog.newswitch')}</Link>
@@ -624,7 +628,7 @@ const Nav = () => {
                                 <div className="card-body">
                                   <Link className='text-decoration-none text-dark' to={`/blog/${item.id}`} ><h1 className="card-title fw-bold">{item.brand}</h1></Link>
                                   <h5>{item.title}</h5>
-                                  <p>{item.text.slice(0, 35)}...</p>
+                                  <p>{item.description.slice(0, 35)}...</p>
                                 </div>
                               </div>
 

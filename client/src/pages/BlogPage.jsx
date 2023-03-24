@@ -1,34 +1,47 @@
 import React, { useContext, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { MainContext } from '../context'
 
 const BlogPage = () => {
   const { id } = useParams()
-  const blogs = useSelector((state) => state.blog)
-  const blogData = blogs.find((item) => item.id === id)
   const { t } = useTranslation()
-  const { mode } = useContext(MainContext)
+  const {mode}=useContext(MainContext)
+  const [data,setData]=useState([])
   useEffect(() => {
-    document.title = `${blogData.title} | Elyte Ecommerce `
-  }, [blogData.title])
+     const getData = async()=>{
+       const response = await fetch(`http://localhost:5000/api/get/${id}`)
+       setData( await response.json() )
+     }
+     getData()
+    document.title = `${data[0]?.brand} | Elyte Ecommerce `
+    
+  },[data[0]?.brand,id])
+  const blogData=data[0]
   return (
     <>
-
+         
+    {
+      blogData &&
+      <div>
       <div className="image blog-page-img d-flex justify-content-center">
-        <img className='img-fluid' src={blogData.img} alt="" />
-      </div>
-      <div className="title d-flex flex-column gap-2 mt-2">
-        <h1 className={`fw-bold text-secondary text-center ${mode === 'dark' ? "text-white" : ""} `} >{blogData.brand}</h1>
-        <h5 className={`text-center ${mode === 'dark' ? "text-white" : ""} `}>{blogData.title}</h5>
-      </div>
-      <div className="blog-desc">
-        <p className={`${mode === 'dark' ? "text-white" : ""}`}>
-          {blogData.text}
-        </p>
-      </div>
+  <img className='img-fluid' src={blogData?.img} alt="" />
+</div>
+<div className="title d-flex flex-column gap-2 mt-2">
+  <h1 className={`fw-bold text-secondary text-center ${mode === 'dark' ? "text-white" : ""} `} >{blogData?.brand}</h1>
+  <h5 className={`text-center ${mode === 'dark' ? "text-white" : ""} `}>{blogData?.title}</h5>
+</div>
+<div className="blog-desc">
+  <p className={`${mode === 'dark' ? "text-white" : ""}`}>
+    {blogData?.description}
+  </p>
+</div>
+      </div> 
+    }
+     
+     
       <div className="tags-blog mt-3 mb-3">
 
         <ul className='d-flex gap-2 '>

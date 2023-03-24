@@ -5,7 +5,7 @@ const BlogForm = (props) => {
    const navigate = useNavigate()
    const [brand, setBrand] = useState(props.editblog ? props.editblog.brand : '')
    const [title, setTitle] = useState(props.editblog ? props.editblog.title : '')
-   const [description, setDescription] = useState(props.editblog ? props.editblog.text : '')
+   const [description, setDescription] = useState(props.editblog ? props.editblog.description : '')
    const [image, setImage] = useState(props.editblog ? props.editblog.img : '')
    const handleSubmit = (e) => {
       e.preventDefault()
@@ -13,14 +13,13 @@ const BlogForm = (props) => {
          alert('Wrong')
       } else {
          navigate('/dashboard')
-         window.location.reload(true)
          props.onBlogSubmit({
             brand: brand,
             title: title,
-            text: description,
+            description: description,
             img: image
          })
-
+         window.location.reload(true)
       }
    }
    return (
