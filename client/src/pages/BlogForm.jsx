@@ -2,32 +2,36 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const BlogForm = (props) => {
-   const navigate = useNavigate()
-   const [brand, setBrand] = useState(props.editblog ? props.editblog.brand : '')
-   const [title, setTitle] = useState(props.editblog ? props.editblog.title : '')
-   const [description, setDescription] = useState(props.editblog ? props.editblog.description : '')
-   const [image, setImage] = useState(props.editblog ? props.editblog.img : '')
+   const [brand, setBrand] = useState('')
+   const [title, setTitle] = useState('')
+   const [description, setDescription] = useState('')
+   const [image, setImage] = useState('')
+   const navigate=useNavigate()
    const handleSubmit = (e) => {
       e.preventDefault()
       if (!brand || !title || !description) {
          alert('Wrong')
       } else {
-         navigate('/dashboard')
-         props.onBlogSubmit({
-            brand: brand,
-            title: title,
-            description: description,
-            img: image
-         })
-         window.location.reload(true)
+         props.onBlogSubmit(
+          {
+            title:title,
+            brand:brand,
+            description:description,
+            img:image
+          }
+         )
+        navigate('/dashboard')
+        
+        
       }
    }
+   
    return (
       <>
          <form onSubmit={handleSubmit} className='mt-3 mb-3'>
             <div className="row gap-2 d-flex flex-column align-items-center justify-content-center ">
                <label htmlFor="img" className='text-center'>Image</label>
-               <input value={image} id='img' type="text" className=' col-xl-3 rounded' onChange={(e) => setImage(e.target.value)} placeholder='Add image' />
+               <input required value={image} onChange={(e) => setImage(e.target.value)} type="text" id='img' placeholder='Add image' className=' col-xl-3 rounded' />
                <label className='text-center' htmlFor="brand">Brand</label>
                <input required value={brand} onChange={(e) => setBrand(e.target.value)} type="text" id='brand' placeholder='Add brand' className=' col-xl-3 rounded' />
                <label htmlFor="title" className='text-center'>Title</label>

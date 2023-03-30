@@ -1,14 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import BlogForm from '../BlogForm'
 
 const AddBlog = () => {
+  const navigate=useNavigate()
   const addBlog = async (data) => {
-    const response = await fetch('http://localhost:5000/api/post', {
+    await fetch('http://localhost:5000/api/post', {
       method: 'POST',
       headers:{"Content-type":"application/json"},
-      body: JSON.stringify(data)
+      body:JSON.stringify(data)
     })
-    console.log(await response.json());
+    
   }
 
 

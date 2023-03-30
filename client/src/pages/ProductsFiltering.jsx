@@ -14,7 +14,7 @@ import salecamera from '../assets/img/side-image.webp'
 
 const ProductsFiltering = () => {
     const { type } = useParams()
-    const filteringProducts = products.filter((a) => a.type === type)
+    let filteringProducts = products.filter((a) => a.type === type)
     const priceProducts = prices.filter((item) => item.type === type)
     let minPrice;
     let maxPrice;
@@ -129,7 +129,7 @@ const ProductsFiltering = () => {
         }
         document.title = `Filter (${type.toUpperCase()}) | Elyte Ecommerce`
 
-    }, [brand, availability, color, selectedPrice, sortValue])
+    }, [brand, availability, color, selectedPrice, sortValue, type, filteringProducts])
     return (
         <section className={`filter-products ${mode === 'dark' ? "bg-secondary" : ""}`}>
             <div className={`switch-home ${mode === 'dark ' ? "bg-secondary" : ""}`}>

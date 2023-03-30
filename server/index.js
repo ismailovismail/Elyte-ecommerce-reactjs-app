@@ -37,6 +37,8 @@ app.post('/api/post',(req,res)=>{
     })
 })
 
+
+
 app.put('/api/update/:id',(req,res)=>{
     const {id}=req.params;
     const {title,brand,description,img}=req.body;

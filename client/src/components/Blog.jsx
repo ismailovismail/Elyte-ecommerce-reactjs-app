@@ -7,7 +7,9 @@ import { useContext } from 'react'
 const Blog = () => {
     const { t } = useTranslation()
     const { mode } = useContext(MainContext)
-    const [blogs,setBlogs]=useState([])
+    const [blogs, setBlogs] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
     const settings = {
         infinite: true,
         speed: 500,
@@ -16,13 +18,31 @@ const Blog = () => {
         nextArrow: false
     };
 
-    useEffect(()=>{
-        const getData = async ()=>{
-          const response = await fetch('http://localhost:5000/api/get')
-          setBlogs( await response.json() )
-        } 
+    useEffect(() => {
+        const getData = async () => {
+            setIsLoading(true)
+            try {
+                const response = await fetch('http://localhost:5000/api/get')
+                if (!response.ok) {
+                    throw new Error('Failed')
+                }
+                setBlogs(await response.json())
+
+            } catch (error) {
+                setError(error.message)
+
+            }
+            setIsLoading(false)
+        }
         getData()
-    },[])
+    }, [])
+
+    if (isLoading) {
+        return <h1 className='text-center' >Loading...</h1>
+    }
+    if (error) {
+        return <h1 className='text-center' >{error}</h1>
+    }
 
 
     return (
@@ -34,7 +54,7 @@ const Blog = () => {
                 <div className="slider">
                     <Slider {...settings} >
                         {
-                            blogs.map((fd) => {
+                            blogs?.map((fd) => {
                                 return <div className={`main-card  d-flex justify-content-center`}>
                                     <div className={`card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 750 }}>
                                         <div className="row g-0">
@@ -42,7 +62,7 @@ const Blog = () => {
                                                 <div className="card-body">
                                                     <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{fd.brand}</h5>
                                                     <h1 className={`card-title ${mode === 'dark' ? "text-white" : ""}`}>{fd.title}</h1>
-                                                    <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{fd.description.slice(0, 300)}</p>
+                                                    <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{fd.description.substr(0,300)}...</p>
                                                     <Link to={`/blog/${fd.id}`} className='btn btn-dark mt-4 px-4'>{t('readmore')}</Link>
                                                 </div>
                                             </div>

@@ -6,17 +6,32 @@ const Dashboard = () => {
     const { loggoutHandler } = useContext(MainContext)
     const navigate = useNavigate()
     const [blogs,setBlogs]=useState([])
+    const [isLoading,setIsLoading]=useState(false)
+    const [error,setError]=useState(null)
     useEffect(() => {
         document.title = 'Dashboard'
         const getData = async ()=>{
-            const response = await fetch('http://localhost:5000/api/get')
-            setBlogs( await response.json() )
-
-        }
+            setIsLoading(true)
+            try {
+                const response = await fetch('http://localhost:5000/api/get')
+                if (!response.ok) {
+                    throw new Error('Failed')
+                }
+                setBlogs( await response.json() )
+            } catch (error) {
+                setError(error.message)
+            }
+            setIsLoading(false)
+        } 
         getData()
     }, [])
-
-
+    if (isLoading) {
+        return <h1 className='text-center' >Loading...</h1>
+    }
+    if (error) {
+        return <h1>{error}</h1>
+    }
+  
     return (
         <>
             <div className="container-fluid">
@@ -48,7 +63,7 @@ const Dashboard = () => {
                                     <td><img width={50} height={50} src={item?.img} alt={item?.title} /></td>
                                     <td>{item?.brand}</td>
                                     <td>{item?.title}</td>
-                                    <td style={{ width: "50%" }} >{item?.description.slice(0, 200)}...</td>
+                                    <td style={{ width: "50%" }} >{item?.description.substr(0,250)}...</td>
                                     <td><Link className='btn btn-primary' to={`/edit/${item?.id}`} >Edit</Link></td>
                                 </tr>
 

@@ -10,16 +10,33 @@ const BlogPage = () => {
   const { t } = useTranslation()
   const {mode}=useContext(MainContext)
   const [data,setData]=useState([])
+  const [isLoading,setIsLoading]=useState(false)
+  const [error,setError]=useState(null)
   useEffect(() => {
      const getData = async()=>{
-       const response = await fetch(`http://localhost:5000/api/get/${id}`)
+      setIsLoading(true)
+       try {
+        const response = await fetch(`http://localhost:5000/api/get/${id}`)
+        if (!response.ok) {
+          throw new Error('Failed')
+        }
        setData( await response.json() )
+       } catch (error) {
+         setError(error.message)
+       }
+       setIsLoading(false)
      }
      getData()
     document.title = `${data[0]?.brand} | Elyte Ecommerce `
     
   },[data[0]?.brand,id])
   const blogData=data[0]
+  if (isLoading) {
+    return <h1 className='text-center' >Loading...</h1>
+  }
+  if (error) {
+    return <h1 className='text-center' >{error}</h1>
+  }
   return (
     <>
          

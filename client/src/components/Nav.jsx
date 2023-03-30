@@ -76,9 +76,7 @@ const Nav = () => {
       <header className='header-lg'>
         <nav className={`navbar navbar-expand-xl ${mode === 'dark' ? "bg-secondary navbar-dark" : "bg-white"}`}>
           <div className="container-fluid">
-            <NavLink onClick={() => {
-              loggoutHandler()
-            }} to={'/'}>
+            <NavLink to={'/'}>
               <img width={150} className={`${mode === 'dark' ? "bg-secondary" : ""}`} src={logo} alt="" />
             </NavLink>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,9 +85,7 @@ const Nav = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink onClick={() => {
-                    loggoutHandler()
-                  }} to='/' className='nav-link'>{t('navbar.home')}</NavLink>
+                  <NavLink  to='/' className='nav-link'>{t('navbar.home')}</NavLink>
                 </li>
                 <li className="shop nav-item">
                   <NavLink className='nav-link'>{t('navbar.shop')} <i class="bi bi-chevron-down"></i> </NavLink>
@@ -237,7 +233,7 @@ const Nav = () => {
                                 <div className="card-body">
                                   <Link className={`text-decoration-none text-dark fw-bold ${mode === 'dark' ? "text-white" : ""} `} to={`/blog/${item.id}`}><h1 className="card-title">{item.brand}</h1></Link>
                                   <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{item.title}</h5>
-                                  <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.description.slice(0, 40)}...</p>
+                                  <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.description.substr(0,100)}...</p>
                                 </div>
                               </div>
                             </div>
@@ -622,13 +618,13 @@ const Nav = () => {
                         <div className="row d-flex flex-column gap-3 ">
                           <h1 className='text-center fw-bold'> {t('blog.blog')} / {t('blog.newswitch')}</h1>
                           {
-                            blogs.map((item) => {
+                            blogs?.map((item) => {
                               return <div className="card p-0 border-0" style={{ width: '18rem' }}>
                                 <img src={item.img} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                   <Link className='text-decoration-none text-dark' to={`/blog/${item.id}`} ><h1 className="card-title fw-bold">{item.brand}</h1></Link>
                                   <h5>{item.title}</h5>
-                                  <p>{item.description.slice(0, 35)}...</p>
+                                  <p>{item.description.substr(0,100)}...</p>
                                 </div>
                               </div>
 
