@@ -44,7 +44,7 @@ const BlogPage = () => {
       blogData &&
       <div>
       <div className="image blog-page-img d-flex justify-content-center">
-  <img className='img-fluid' src={blogData?.img} alt="" />
+  <img className='img-fluid' src={`http://localhost:5000/images/${blogData?.img}`} alt="" />
 </div>
 <div className="title d-flex flex-column gap-2 mt-2">
   <h1 className={`fw-bold text-secondary text-center ${mode === 'dark' ? "text-white" : ""} `} >{blogData?.brand}</h1>

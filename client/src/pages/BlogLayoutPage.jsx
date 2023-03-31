@@ -58,7 +58,7 @@ const BlogLayoutPage = () => {
                         return <div className="card  mt-1 mb-3" style={{ maxWidth: 540 }}>
                           <div className="row g-0 d-flex align-items-center ">
                             <div className="col-2">
-                              <img style={{ border: "none" }} width={70} src={item.img} className="img-fluid rounded-start" alt="..." />
+                              <img style={{ border: "none" }} width={70} src={`http://localhost:5000/images/${item?.img}`} className="img-fluid rounded-start" alt="..." />
                             </div>
                             <div className="col-9">
                               <div className="card-body">
@@ -84,7 +84,7 @@ const BlogLayoutPage = () => {
                     <div className={`card ${mode === 'dark' ? "bg-secondary" : ""} `}>
                       <div className="image">
                         <Link to={`/blog/${data[0]?.id}`}><div className="hoverbox"></div></Link>
-                        <img src={data[0]?.img} className='card-img-top img-fluid' alt="" />
+                        <img src={`http://localhost:5000/images/${data[0]?.img}`} className='card-img-top img-fluid' alt="" />
                       </div>
                       <div className="card-body">
                         <Link to={`/blog/${data[0]?.id}`} ><h1 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}></h1></Link>
@@ -101,7 +101,7 @@ const BlogLayoutPage = () => {
 
                             <div className="image ">
                               <Link to={`/blog/${data[1]?.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={data[1]?.img} className="img-fluid rounded-start" alt="..." />
+                              <img width={150} src={`http://localhost:5000/images/${data[1]?.img}`} className="img-fluid rounded-start" alt="..." />
                             </div>
 
                           </div>
@@ -120,7 +120,7 @@ const BlogLayoutPage = () => {
                           <div className=" col-4 col-md-4">
                             <div className="image">
                               <Link to={`/blog/${data[2]?.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={data[2]?.img} className="img-fluid rounded-start" alt="..." />
+                              <img width={150} src={`http://localhost:5000/images/${data[2]?.img}`} className="img-fluid rounded-start" alt="..." />
                             </div>
                           </div>
                           <div className=" col-8 col-md-8">
@@ -138,7 +138,7 @@ const BlogLayoutPage = () => {
                           <div className=" col-4 col-md-4">
                             <div className="image">
                               <Link to={`/blog/${data[3]?.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={data[3]?.img} className="img-fluid rounded-start" alt="..." />
+                              <img width={150} src={`http://localhost:5000/images/${data[3]?.img}`} className="img-fluid rounded-start" alt="..." />
                             </div>
                           </div>
                           <div className=" col-8 col-md-8">
@@ -156,7 +156,7 @@ const BlogLayoutPage = () => {
                           <div className=" col-4 col-md-4">
                             <div className="image">
                               <Link to={`/blog/${data[4]?.id}`} ><div className="hoverbox"></div></Link>
-                              <img width={150} src={data[4]?.img} className="img-fluid rounded-start" alt="..." />
+                              <img width={150} src={`http://localhost:5000/images/${data[4]?.img}`} className="img-fluid rounded-start" alt="..." />
                             </div>
                           </div>
                           <div className=" col-8 col-md-8">

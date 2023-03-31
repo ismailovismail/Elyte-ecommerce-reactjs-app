@@ -60,7 +60,7 @@ const Dashboard = () => {
                                 return <tr>
                                     <th scope="row">{i + 1}</th>
                                     <td>{item?.id}</td>
-                                    <td><img width={50} height={50} src={item?.img} alt={item?.title} /></td>
+                                    <td><img width={50} height={50} src={`http://localhost:5000/images/${item?.img}`} alt={item?.title} /></td>
                                     <td>{item?.brand}</td>
                                     <td>{item?.title}</td>
                                     <td style={{ width: "50%" }} >{item?.description.substr(0,250)}...</td>

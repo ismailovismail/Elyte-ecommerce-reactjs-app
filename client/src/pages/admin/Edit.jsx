@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { MainContext } from '../../context'
@@ -10,6 +11,7 @@ const Edit = () => {
   const [brand, setBrand] = useState(blogData?.brand || 'Loading...')
   const [title, setTitle] = useState(blogData?.title || 'Loading...')
   const [description, setDescription] = useState(blogData?.description || 'Loading...')
+  const [blogId,setBlogId]=useState(null)
   useEffect(() => {
     const getBlog = async () => {
       const response = await fetch(`http://localhost:5000/api/get/${id}`)
@@ -23,19 +25,17 @@ const Edit = () => {
   }, [id])
   const updateBlogList = async (e) => {
     e.preventDefault()
-    await fetch(`http://localhost:5000/api/update/${id}`, {
-      method: 'PUT',
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title,
-        brand: brand,
-        img: image,
-        description: description
-
-      })
-    })
+    const formdata = new FormData()
+    formdata.append('title',title)
+    formdata.append('brand',brand)
+    formdata.append('description',description)
+    formdata.append('img',image)
+    const config={
+      headers:{
+        "Content-type":"multipart/form-data"
+      }
+    }
+    await axios.put(`http://localhost:5000/api/update/${id}`,formdata,config)
     navigate('/dashboard')
 
   }
@@ -55,7 +55,10 @@ const Edit = () => {
       <form onSubmit={updateBlogList} className='mt-3 mb-3'>
         <div className="row gap-2 d-flex flex-column align-items-center justify-content-center ">
           <label htmlFor="img" className='text-center'>Image</label>
-          <input value={image} onChange={(e) => { setImage(e.target.value) }} id='img' type="text" className=' col-xl-3 rounded' placeholder='Add image' />
+          <input type="hidden" name="id" value={blogId} onChange={(e)=>setBlogId(e.target.id)} />
+          <input type="hidden" name='img' value={image} onChange={(e)=>setImage(e.target.value)}   />
+          <img style={{width:'200px',height:"200px"}} src={`http://localhost:5000/images/${image}`} alt="Loading..." />
+          <input className='border border-dark rounded p-2 col-xl-3' onChange={(e)=>setImage(e.target.files[0])} type="file" name="img" id="" />
           <label className='text-center' htmlFor="brand">Brand</label>
           <input required value={brand} onChange={(e) => setBrand(e.target.value)} type="text" id='brand' placeholder='Add brand' className=' col-xl-3 rounded' />
           <label htmlFor="title" className='text-center'>Title</label>

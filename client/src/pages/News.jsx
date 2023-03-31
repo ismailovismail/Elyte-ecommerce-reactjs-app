@@ -37,7 +37,7 @@ const News = () => {
                       <Link to={`/blog/${item.id}`} ><i className=" px-3 py-2 text-dark bi bi-link-45deg"></i></Link>
                     </div>
                   </div>
-                  <img src={item.img} className="recent-blog-img img-fluid rounded-start" alt="..." />
+                  <img src={`http://localhost:5000/images/${item?.img}`} className="recent-blog-img img-fluid rounded-start" alt="..." />
                 </div>
               </div>
             </div>

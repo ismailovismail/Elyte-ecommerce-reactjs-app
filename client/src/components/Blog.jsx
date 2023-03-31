@@ -72,7 +72,7 @@ const Blog = () => {
                                                         <Link to={`/blog/${fd.id}`} ><i className=" px-3 py-2 text-dark bi bi-link-45deg"></i></Link>
                                                     </div>
                                                 </div>
-                                                <img src={fd.img} className="recent-blog-img img-fluid rounded-start" alt="..." />
+                                                <img src={`http://localhost:5000/images/${fd?.img}`} className="recent-blog-img img-fluid rounded-start" alt="..." />
                                             </div>
                                         </div>
                                     </div>

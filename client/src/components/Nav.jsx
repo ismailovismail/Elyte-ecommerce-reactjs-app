@@ -215,7 +215,7 @@ const Nav = () => {
                 </li>
                 <li className='nav-item blog-nav' >
                   <NavLink className='nav-link'>{t('navbar.blog')} <i class="bi bi-chevron-down"></i> </NavLink>
-                  <div className={`blog-items ${mode === 'dark' ? "bg-secondary" : ""} `}>
+                  <div  className={`blog-items ${mode === 'dark' ? "bg-secondary" : ""} `}>
                     <div className="title mt-2 ">
                       <h1 className={`text-center fw-bold ${mode === 'dark' ? "text-white" : ""} `}>
                         {t('blog.blog')} / {t('blog.newswitch')}
@@ -227,13 +227,13 @@ const Nav = () => {
                           return <div className={`card mb-3 ${mode === 'dark' ? "bg-secondary" : ""} `} style={{ maxWidth: 540 }}>
                             <div className="row g-0 d-flex align-items-center ">
                               <div className="col-md-2">
-                                <img width={70} src={item.img} className="img-fluid rounded-start" alt="..." />
+                                <img width={70} src={`http://localhost:5000/images/${item?.img}`} className="img-fluid rounded-start" alt="..." />
                               </div>
                               <div className="col-md-10">
                                 <div className="card-body">
                                   <Link className={`text-decoration-none text-dark fw-bold ${mode === 'dark' ? "text-white" : ""} `} to={`/blog/${item.id}`}><h1 className="card-title">{item.brand}</h1></Link>
                                   <h5 className={`card-title ${mode === 'dark' ? "text-white" : ""} `}>{item.title}</h5>
-                                  <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.description.substr(0,100)}...</p>
+                                  <p className={`card-text ${mode === 'dark' ? "text-white" : ""} `}>{item.description.substr(0,40)}...</p>
                                 </div>
                               </div>
                             </div>
@@ -620,7 +620,7 @@ const Nav = () => {
                           {
                             blogs?.map((item) => {
                               return <div className="card p-0 border-0" style={{ width: '18rem' }}>
-                                <img src={item.img} className="card-img-top" alt="..." />
+                                <img src={`http://localhost:5000/images/${item?.img}`} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                   <Link className='text-decoration-none text-dark' to={`/blog/${item.id}`} ><h1 className="card-title fw-bold">{item.brand}</h1></Link>
                                   <h5>{item.title}</h5>
