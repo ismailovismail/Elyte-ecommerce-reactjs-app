@@ -1,28 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authData from '../data/authData'
 import { MainContext } from '../context'
 const Authentication = () => {
-    const login = useRef()
-    const password = useRef()
-    const [emptyValue, setEmptyValue] = useState(false)
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
     const [isValid, setIsValid] = useState(true)
     const navigate = useNavigate()
     const { loggedHandler } = useContext(MainContext)
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (login.current.value.trim() === '') {
-            setEmptyValue(true)
-            return
 
-        }
-        if (password.current.value.trim() === '') {
-            setEmptyValue(true)
-            return
-        }
-        if (login.current.value.toLowerCase().trim() === authData.login && password.current.value.toLowerCase().trim() === authData.password) {
+        if (login.toLowerCase().trim() === authData.login && password.toLowerCase().trim() === authData.password) {
             navigate('/dashboard')
             loggedHandler()
 
@@ -44,11 +35,10 @@ const Authentication = () => {
                         <div className="login-pw bg-white p-3 col-sm-9 col-md-7 col-lg-6 col-xl-3 rounded"  >
                             <form onSubmit={handleSubmit} className='d-flex flex-column justify-content-center gap-3' >
                                 <h1 className='text-center fs-3' > <i className='fa-solid fa-user text-primary' ></i> Admin</h1>
-                                <input ref={login} type="text" placeholder='Login' className='p-1 rounded ' />
-                                <input ref={password} type="password" name="" placeholder='Password' className='p-1 rounded' id="" />
-                                <button className='btn btn-primary' >Submit</button>
-                                {emptyValue && <h1 className='text-danger' >Empty blanks</h1>}
-                                {!emptyValue && !isValid && <h1 className='text-danger'>Form is not valid</h1>}
+                                <input type="text" onChange={(e) => { setLogin(e.target.value) }} placeholder='Login' className={`p-1 rounded form-control ${!isValid && 'is-invalid'} `} />
+                                <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder='Password' className={`p-1 rounded form-control ${!isValid && 'is-invalid' } `} id="" />
+                                <button disabled={!login || !password} className='submit btn btn-primary' >Login</button>
+                                {!isValid && <h1 className='text-danger'>Username or password is in-valid</h1>}
                             </form>
                         </div>
                     </div>

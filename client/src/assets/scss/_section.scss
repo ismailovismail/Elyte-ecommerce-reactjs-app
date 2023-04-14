@@ -284,7 +284,7 @@
 }
 
 .trending-products {
-    width: 100%;+
+    width: 100%;
 
     .container-fluid {
         width: 90%;
@@ -610,8 +610,11 @@
                 }
 
                 .btn {
+                    transition: .5s;
+                
                     width: 200px;
                     @include backcolor
+                    
                 }
             }
         }

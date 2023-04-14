@@ -27,19 +27,24 @@ import Terms from '../pages/Terms'
 import Authentication from '../pages/Authentication'
 import NotFoundPage from '../pages/NotFoundPage'
 import Login from '../pages/Login'
+import RequireAuth from '../pages/RequireAuth'
 const AppRouter = () => {
 
   const [loggedIn, setLoggedIn] = useState("false")
   const [login, setLogin] = useState("false")
   const [userLogin, setUserLogin] = useState(localStorage.getItem('userName'))
-  const [blogs,setBlogs]=useState([])
-
+  const [blogs, setBlogs] = useState([])
+  const [id,setId]=useState(null)
+  const [edit,setEdit]=useState(false)
+  const [deleted,setDeleted]=useState(false)
+  const [message,setMessage]=useState(null)
   useEffect(() => {
-     const getData = async ()=>{
+
+    const getData = async () => {
       const response = await fetch('http://localhost:5000/api/get')
       setBlogs(await response.json())
-     }
-     getData()
+    }
+    getData()
     setLogin(
       localStorage.getItem('userLogin')
     )
@@ -52,7 +57,7 @@ const AppRouter = () => {
   }, [])
   const [cartItems, setCartItems] = useState([])
   const [mode, setMode] = useState("light")
-  
+
   const addProduct = (product) => {
     const exist = cartItems.find((a) => a.id === product.id)
     if (exist) {
@@ -127,8 +132,16 @@ const AppRouter = () => {
     logoutHandler,
     loggedHandler,
     loggoutHandler,
-    blogs
-    
+    blogs,
+    id,
+    setId,
+    edit,
+    setEdit,
+    deleted,
+    setDeleted,
+    message,
+    setMessage
+
   }
   return (
     <>
@@ -138,10 +151,10 @@ const AppRouter = () => {
             <Nav />
             <Routes>
               <Route path='/' element={<Home />}></Route>
-
-              {loggedIn === 'true' && <Route path='/dashboard' element={<Dashboard />}></Route>}
-              {loggedIn === 'false' && <Route path='/admin' element={<Authentication />} />}
-
+               <Route element={<RequireAuth/>} >
+                <Route path='/dashboard' element={<Dashboard />} />
+               </Route>
+               <Route path='/admin' element={<Authentication />} />
 
               <Route path='/addblog' element={<AddBlog />} ></Route>
               <Route path='edit/:id' element={<Edit />} ></Route>

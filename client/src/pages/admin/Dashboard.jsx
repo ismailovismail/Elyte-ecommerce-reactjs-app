@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { MainContext } from '../../context'
 const Dashboard = () => {
 
-    const { loggoutHandler } = useContext(MainContext)
+    const { loggoutHandler,message } = useContext(MainContext)
     const navigate = useNavigate()
     const [blogs,setBlogs]=useState([])
     const [isLoading,setIsLoading]=useState(false)
     const [error,setError]=useState(null)
+    
     useEffect(() => {
+        
         document.title = 'Dashboard'
         const getData = async ()=>{
             setIsLoading(true)
@@ -24,7 +26,13 @@ const Dashboard = () => {
             setIsLoading(false)
         } 
         getData()
+
+        setTimeout(() => {
+            document.querySelector('.alert').style.display='none'
+        }, 5000);
     }, [])
+
+    
     if (isLoading) {
         return <h1 className='text-center' >Loading...</h1>
     }
@@ -41,6 +49,7 @@ const Dashboard = () => {
                     loggoutHandler()
                     navigate('/')
                 }} >Logout</button>
+                {message && message}
                 <table class="table">
                     <thead>
                         <tr>
